@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react"
+import HomeNavbar from "./Navbar"
 
 export default function UserHomepage() {
   return (
-    <div>UserHomepage</div>
+    <div>
+      <HomeNavbar/>
+      <main>
+        
+      </main>
+    </div>
   )
 }

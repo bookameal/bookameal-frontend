@@ -1,12 +1,15 @@
-// import logo from './logo.svg';
-// import './App.css';
+import React from 'react'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import UserHomepage from "../homeuser/UserHomepage";
 
 function App() {
   return (
-    <div className="App">
-     <UserHomepage />
-    </div>
+    // <div className="App">
+    <Router>
+      <Routes>
+        <Route path="/" element={<UserHomepage />} />
+      </Routes>
+    </Router>
   );
 }
 

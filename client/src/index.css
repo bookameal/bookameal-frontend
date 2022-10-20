@@ -1,13 +1,107 @@
 body {
-  margin: 0;
+  /* margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
+  background-color: white;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.brand {
+  position: absolute;
+  width: 172px;
+  height: 65px;
+  /* left: 186px; */
+  top: 6px;
+
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 20px;
+
+  /* or 83% */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+
+  color: #6677f7;
+}
+.nav {
+  /* position: absolute; */
+  top: 8px;
+}
+
+.d-flex {
+  position: absolute;
+  /* width: 362px; */
+  top: 11px;
+  left: 420px;
+}
+.search {
+  left: 300;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 20px;
+  top: 20px;
+  position: absolute;
+  width: 57px;
+  height: 32px;
+  right: 468px;
+}
+.orders {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 20px;
+  top: 20px;
+  position: absolute;
+  /* width: 86px; */
+  /* height: 32px; */
+  right: 380px;
+}
+.notification {
+  position: absolute;
+  width: 48px;
+  top: 10px;
+  height: 48px;
+  right: 337px;
+}
+.avatar{
+  position: absolute;
+width: 48px;
+height: 48px;
+right: 273px;
+}
+.logout{
+
+box-sizing: border-box;
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 12px 16px;
+gap: 8px;
+
+position: absolute;
+width: 84px;
+height: 44px;
+left: 1191px;
+/* bottom: 789px; */
+
+border: 1px solid #361381;
+border-radius: 8px;
 }
