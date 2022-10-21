@@ -26,11 +26,12 @@ body {
 
 .d-flex {
   position: absolute;
-  top: 11px;
-  left: 420px;
+  top: 360px;
+  left: 500px;
 }
 .search {
   left: 300;
+  
 }
 
 .menu {
@@ -39,11 +40,11 @@ body {
   align-items: flex-start;
   padding: 0px;
   gap: 20px;
-  top: 20px;
+  top: 25px;
   position: absolute;
   width: 57px;
   height: 32px;
-  right: 468px;
+  left: 500px;
 }
 .orders {
   display: flex;
@@ -51,33 +52,38 @@ body {
   align-items: flex-start;
   padding: 0px;
   gap: 20px;
-  top: 20px;
+  top: 25px;
   position: absolute;
-  right: 380px;
+  right: 600px;
 }
 .notification {
   position: absolute;
   width: 48px;
-  top: 10px;
+  top: 15px;
   height: 48px;
-  right: 337px;
+  right: 520px;
+  color: black;
 }
 .avatar {
   position: absolute;
+  top: 12px;
   width: 48px;
   height: 48px;
-  right: 273px;
+  right: 440px;
+  color: black;
 }
 .logout {
   box-sizing: border-box;
+  top: 18px;
+  color: black;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 12px 16px;
+  padding: 12px 12px;
   gap: 8px;
   position: absolute;
-  width: 84px;
-  height: 44px;
+  width: 74px;
+  height: 34px;
   right:137px;
   border: 1px solid #361381;
   border-radius: 8px;
@@ -100,14 +106,14 @@ body {
 .cardbody {
   position: absolute;
   height: 199px;
-  left: 165px;
+  left: 137px;
   right: 137px;
-  width: 600px;
+  width: 1000px;
 }
 .special {
   position: absolute;
   height: 28px;
-  left: 306px;
+  left: 606px;
   right: 24px;
   top: 24px;
   font-family: "Nunito";
@@ -121,7 +127,7 @@ body {
 .roast {
   position: absolute;
   height: 56px;
-  left: 306px;
+  left: 606px;
   right: 24px;
   top: 60px;
 
@@ -136,9 +142,9 @@ body {
 .main-dish {
   position: absolute;
   height: 20px;
-  left: 306px;
+  left: 656px;
   right: 24px;
-  top: 152px;
+  top: 140px;
   font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
@@ -150,15 +156,16 @@ body {
 .cart {
   position: absolute;
   /* width: 333px; */
-  height: 761px;
-  left: 868px;
-  top: 153px;
-  color: #6677f7;
+  /* height: 30px; */
+  left: 365px;
+  top: 25px;
+  text-decoration: none;
+  color: black;
 }
 .card-food {
   position: absolute;
   height: 276px;
-  left: 165px;
+  left: 137px;
   right: 137px;
   top: 450px;
   position: absolute;
@@ -182,10 +189,55 @@ body {
 .caro {
   position: absolute;
   height: 200px;
-  left: 265px;
-  right: 265px;
-  top: 324px;
+  left: 30px;
+  right: 765px;
+  width: 450px;
+  /* top: 324px; */
 }
 .d-block {
-  height: 120px;
+  /* height: 120px; */
+  /* position: absolute; */
+  width: 450px;
+  height: 168px;
+  /* left: 22px;
+  top: 20px; */
+
+}
+
+.carticon{
+  height: 25px;
+  width: 35px;
+}
+.bag-quantity{
+  position: absolute;
+  /* width: 333px; */
+  /* height: 761px; */
+  left: 430px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background: yellow;
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+  margin-left: 5px;
+}
+/* Not Found */
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(68, 68, 68);
+  min-height: 80vh;
+}
+.not-found h2 {
+  font-size: 55px;
+}
+.not-found p {
+  font-size: 20px;
 }
