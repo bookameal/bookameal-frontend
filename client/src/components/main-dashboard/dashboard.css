@@ -12,9 +12,11 @@
 .right-side{
     width: 50%;
     float: right;
+    padding: 1em;
 }
 
 .left-side{
     width: 50%;
     float: left;
+    padding: 1em;
 }
