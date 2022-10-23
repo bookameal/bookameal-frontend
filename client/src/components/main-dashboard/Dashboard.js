@@ -26,10 +26,10 @@ function Dashboard() {
           name: details.name,
           email: details.email
         })
-  } else {
-        console.log("Details do not match!")
+    } else {
+          setError("Details do not match!");
+    }
   }
-}
 
   const logout = () => {
       setUser({name: "", email: ""});
