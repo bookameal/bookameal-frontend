@@ -5,8 +5,23 @@ import Card from "react-bootstrap/Card";
 
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { addToCart } from "./CartSlice";
+import { useGetAllProductsQuery } from "./ProductsApi";
 
 export default function UserHomepage() {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    navigate('/cart')
+  };
+
+  const { data, error, isLoading } = useGetAllProductsQuery();
+  console.log("Api", isLoading);
   return (
     <div>
       <HomeNavbar />
@@ -84,7 +99,7 @@ export default function UserHomepage() {
             <Card.Body>
               <Card.Title> Sushi </Card.Title>
               <Card.Text>$32 min sum</Card.Text>
-              <Button variant="primary">Order</Button>
+              <Button variant="primary" onClick={() => handleAddToCart()}>Order</Button>
             </Card.Body>
           </Card>
           <Card style={{ width: "18rem" }} className="cards">
@@ -95,7 +110,7 @@ export default function UserHomepage() {
             <Card.Body>
               <Card.Title> Sushi </Card.Title>
               <Card.Text>$32 min sum</Card.Text>
-              <Button variant="primary">Order</Button>
+              <Button variant="primary" onClick={() => handleAddToCart()}>Order</Button>
             </Card.Body>
           </Card>
           <Card style={{ width: "18rem" }} className="cards">
@@ -106,9 +121,34 @@ export default function UserHomepage() {
             <Card.Body>
               <Card.Title> Sushi </Card.Title>
               <Card.Text>$32 min sum</Card.Text>
-              <Button variant="primary">Order</Button>
+              <Button variant="primary"  onClick={() => handleAddToCart()}>Order</Button>
             </Card.Body>
           </Card>
+
+
+
+          <div className="home-container">
+          {/* {status === "success" ? ( */}
+        <>
+          <h2>New Arrivals</h2>
+          <div className="products">
+            {data &&
+              data?.map((product) => (
+                <div key={product.id} className="product">
+                  <h3>{product.name}</h3>
+                  <img src={product.image} alt={product.name} />
+                  <div className="details">
+                    <span>{product.desc}</span>
+                    <span className="price">${product.price}</span>
+                  </div>
+                  <button onClick={() => handleAddToCart(product)}>
+                    Add To Cart
+                  </button>
+                </div>
+              ))}
+          </div>
+        </>
+        </div>
         </div>
       </main>
     </div>

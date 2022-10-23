@@ -10,8 +10,10 @@ import { MdOutlineNotificationAdd } from "react-icons/md";
 import { BsPerson } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
 function HomeNavbar() {
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
   return (
     <Navbar bg="light" expand="lg" className="nav">
       <Container fluid>
@@ -47,8 +49,8 @@ function HomeNavbar() {
               Meals<AiOutlineShoppingCart className="carticon" />
             </Link>
             <span className="bag-quantity">
-              {/* <span>{cartTotalQuantity}</span> */}
-              <span>3</span>
+              <span>{cartTotalQuantity}</span>
+              {/* <span>3</span> */}
             </span>
           </div>
           <Form className="d-flex">
