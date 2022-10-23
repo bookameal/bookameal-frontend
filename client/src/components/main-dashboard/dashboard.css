@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero-section{
+    display: flex !important;
+    width: 100%;
+}
+
+.right-side{
+    width: 50%;
+    float: right;
+}
+
+.left-side{
+    width: 50%;
+    float: left;
+}
