@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import Navigation from './Navigation'
 import LoginForm from './LoginForm';
 import Register from './Register';
 import './dashboard.css'; 
-import ramen from '../../assets/ramen.jpg'
+import ramen from '../../assets/niggets.jpg'
 
 
 import Tab from 'react-bootstrap/Tab';
@@ -37,8 +38,10 @@ function Dashboard() {
   // }
 
   return (
+    <>
+      <Navigation />
       <div className="hero-section">
-        <div className = "left-side" >
+        <div className = "left-side">
           <img src={ramen} alt="ramen" className="hero"/>
         </div>
         <div className = "right-side">
@@ -46,7 +49,7 @@ function Dashboard() {
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
             className="mb-3 toggle">
-            <Tab eventKey="login" title="Login">
+            <Tab eventKey="login" title="Login" id="login">
               <div>
                 {(user.email !== "") ? (
                   <div className="welcome">
@@ -55,7 +58,7 @@ function Dashboard() {
                   </div>
                 ): (
                   <LoginForm login={login} error={error}/>
-                )}
+                  )}
               </div>
             </Tab>
             <Tab eventKey="register" title="Register">
@@ -64,7 +67,7 @@ function Dashboard() {
           </Tabs>
         </div>
       </div>
-
+</>
     
   );
 }
