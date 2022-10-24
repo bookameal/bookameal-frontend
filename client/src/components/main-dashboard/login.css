@@ -12,14 +12,6 @@ input, button {
     outline: none;
 }
 
-.App {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #53565A;
-}
-
 form {
     display: block;
     position: relative;
@@ -48,12 +40,11 @@ form .form-inner {
 }
 
 form .form-inner h2{
-    color: #333;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 30px;
-    margin-left: 30px;
-
+    color: #FFCE00;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 50px;
+    margin-left: 20px;
 }
 
 form .form-inner .form-group {
@@ -64,11 +55,11 @@ form .form-inner .form-group {
 
 form .form-inner .form-group label {
     display: block;
-    color: #666;
-    font-size: 12px;
+    color: rgb(249, 240, 240);
+    font-size: 18px;
     margin-bottom: 5px;
     transition: 0.4s;
-    margin-left: 30px;
+    margin-left: 20px;
 
 }
 
@@ -79,12 +70,12 @@ form .form-inner .form-group:focus-within label {
 
 form .form-inner .form-group input {
     display: block;
-    width: 85%;
+    width: 90%;
     padding: 10px 15px;
     border-radius: 8px;
     background-color: #f8f8f8;
     transition: 0.4s;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 form .form-inner .form-group .input-field {
@@ -103,10 +94,10 @@ form .form-inner input[type="submit"] {
     background-size: 200%;
     background-position: 0%;
     transition: 0.4s;
-    color: #666;
-    font-weight: 700;
+    color: #555;
+    font-weight: 900;
     cursor: pointer;
-    margin-left: 30px;
+    margin-left: 20px;
     margin-top: 15px;
 }
 
