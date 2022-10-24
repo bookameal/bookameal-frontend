@@ -2,21 +2,55 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-image: url(../../assets/Untitled\ design.png);
 }
 
 .hero-section{
     display: flex !important;
     width: 100%;
+    height: 100vh;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    top: 200px;
 }
 
 .right-side{
-    width: 50%;
+    width: 35%;
     float: right;
-    padding: 1em;
+    padding: 2em;
+    position: relative;
+    top: 600px;
+    display: block;
 }
 
 .left-side{
-    width: 50%;
-    float: left;
-    padding: 1em;
+    width: 60%;
+    float: left;    
+}
+
+.hero {
+    width: 100%;
+    height:100%;
+    position: relative;
+    top: 200px;
+    border-top-right-radius: 300px;
+    border-bottom-left-radius: 300px;
+}
+
+.toggle{
+    color:rgb(210, 54, 30) !important;
+    
+}
+
+.welcome h2 {
+    color: #888;
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.welcome h2 span {
+    color: #fe4880;
+    font-weight: 700;
 }
