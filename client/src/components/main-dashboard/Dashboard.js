@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import LoginForm from './LoginForm';
 import Register from './Register';
 import './dashboard.css'; 
+import ramen from '../../assets/ramen.jpg'
 
 
 import Tab from 'react-bootstrap/Tab';
@@ -31,24 +32,26 @@ function Dashboard() {
     }
   }
 
-  const logout = () => {
-      setUser({name: "", email: ""});
-  }
+  // const logout = () => {
+  //     setUser({name: "", email: ""});
+  // }
 
   return (
       <div className="hero-section">
-        <div className = "left-side" >Dashboard Carousel</div>
+        <div className = "left-side" >
+          <img src={ramen} alt="ramen" className="hero"/>
+        </div>
         <div className = "right-side">
           <Tabs
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
-            className="mb-3">
+            className="mb-3 toggle">
             <Tab eventKey="login" title="Login">
               <div>
                 {(user.email !== "") ? (
                   <div className="welcome">
                     <h2>Welcome, <span>{user.name}</span></h2>
-                    <button onClick={logout}>Logout</button>
+                    {/* <button onClick={logout}>Logout</button> */}
                   </div>
                 ): (
                   <LoginForm login={login} error={error}/>
