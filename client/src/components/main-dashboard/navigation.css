@@ -6,14 +6,14 @@
     position: absolute;
     top: 0;
     align-items: center;
-    font-family: 'IBM Plex Mono', monospace;
-    /* z-index: 0; */
+    font-family: 'Tangerine', serif;
+    text-shadow: 4px 4px 4px #aaa;
 }
 
 .logo {
     position: absolute;
-    top: -175px;
-    left: 50px; 
+    top: -350px;
+    left: -200px; 
     z-index: 1;
 }
 
@@ -24,7 +24,7 @@
     padding: 10px;
     margin-right: 200px;
     position: relative;
-    top: 75px;
+    top: 10px;
     z-index: 0;
 }
 
@@ -33,7 +33,7 @@
     margin: 0px;
     position: absolute;
     top: -50px;
-    left: -50px;
+    left: 25px;
 }
 
 
@@ -43,9 +43,10 @@
 
 .link {
     text-decoration: none;
-    color: #f9f9f6;
+    font-family: 'Tangerine', serif;
+    font-size: 50px;
+    color: #002524;
     /* color: rgb(59, 106, 59) !important; */
-    font-size: 30px;
     font-weight: bolder;
     -webkit-text-stroke-width: 0.2px;
     -webkit-text-stroke-color: rgb(44, 61, 134);
@@ -53,7 +54,7 @@
 
 .link:hover {
     transform: scale(0.9);
-    color: rgb(228, 231, 225);
+    color: #875d2c;
 }
 
 .nav-menu-item{
