@@ -4,8 +4,14 @@ import Cart from "../homeuser/Cart";
 import UserHomepage from "../homeuser/UserHomepage";
 import NotFound from "../NotFound";
 import { ToastContainer } from "react-toastify";
-import Filter from "../homeuser/Filter";
 import "react-toastify/dist/ReactToastify.css";
+import '../../App.css';
+import Dashboard from '../main-dashboard/Dashboard';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
 
 function App() {
   
@@ -16,8 +22,9 @@ function App() {
       <Route path='/cart' element={<Cart />} />
       <Route path="/not-found" element={<NotFound/>} />
       <Route path="/" element={<UserHomepage />} />
-       
-        {/* <Navigate to="/not-found" /> */}
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/UserHome" element={<UserHomepage />} />
+
       </Routes>
     </Router>
   );

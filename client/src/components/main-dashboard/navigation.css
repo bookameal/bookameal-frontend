@@ -1,0 +1,66 @@
+.navbar {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    background:transparent;
+    position: absolute;
+    top: 0;
+    align-items: center;
+    font-family: 'IBM Plex Mono', monospace;
+    /* z-index: 0; */
+}
+
+.logo {
+    position: absolute;
+    top: -175px;
+    left: 50px; 
+    z-index: 1;
+}
+
+.navbar-item-right{
+    flex: 3;
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px;
+    margin-right: 200px;
+    position: relative;
+    top: 75px;
+    z-index: 0;
+}
+
+.navbar-item-left {
+    display: flex;
+    margin: 0px;
+    position: absolute;
+    top: -50px;
+    left: -50px;
+}
+
+
+.nav-menu {
+    display: flex !important;
+}
+
+.link {
+    text-decoration: none;
+    color: #f9f9f6;
+    /* color: rgb(59, 106, 59) !important; */
+    font-size: 30px;
+    font-weight: bolder;
+    -webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: rgb(44, 61, 134);
+}
+
+.link:hover {
+    transform: scale(0.9);
+    color: rgb(228, 231, 225);
+}
+
+.nav-menu-item{
+    list-style: none;
+    padding: 10px;
+}
+
+.nav-menu-item::hover {
+    color: #FFCE00;
+}
