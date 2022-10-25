@@ -17,19 +17,19 @@ function LoginForm({ Login, error }){
      
             <form onSubmit={submitHandler}>
                 <div className="form-inner">
-                    <h2>Login to existing account</h2>
+                    <h2>Login to order</h2>
                     {(error !== "") ? (<div classname="error">{error}</div>) : ""}
                 <div className="form-group">
                     <label htmlFor="name">Username:</label>
-                    <input className="input-field" type="text" name="name" id="name" onChange={e => setDetails({ ...details, name: e.target.value})} value={details.name}/>
+                    <input className="input-field" type="text" name="name" id="name" placeholder="Enter Username" onChange={e => setDetails({ ...details, name: e.target.value})} value={details.name}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
-                    <input className="input-field" type="email" name="email" id="email" onChange={e => setDetails({ ...details, email: e.target.value})} value={details.email}/>
+                    <input className="input-field" type="email" name="email" id="email" placeholder="Enter Email" onChange={e => setDetails({ ...details, email: e.target.value})} value={details.email}/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>
-                    <input className="input-field" type="password" name="password" id="password" onChange={e => setDetails({ ...details, password: e.target.value})} value={details.password}/>
+                    <input className="input-field" type="password" name="password" id="password" placeholder="Enter Password" onChange={e => setDetails({ ...details, password: e.target.value})} value={details.password}/>
                 </div>
                 <input type="submit" value="Login"/>
                 </div> 
