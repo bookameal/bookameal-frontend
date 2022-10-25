@@ -1,7 +1,7 @@
 import React from 'react'
 import "./navigation.css"
 import { Link } from "react-router-dom";
-import tastytreats from '../../assets/tastytreats.gif'
+import tastytreats from '../../assets/new_logo.gif'
 
 function Navigation() {
   return (
@@ -9,7 +9,7 @@ function Navigation() {
         <div className = "navbar-item-left">
             <ul className="nav-menu">
                 <li className="nav-menu-item" >
-                <img src={tastytreats} alt="ramen" className="logo" />
+                <img src={tastytreats} alt="ramen" className="logo" width="500" height="600"/>
                 </li>
             </ul>
         </div>
@@ -22,7 +22,7 @@ function Navigation() {
                 <Link className="link"  to="/UserHome">Menu |</Link> 
             </li>
             <li className="nav-menu-item">
-                <Link className="link" to="#login">Login</Link>
+                <Link className="link" to="/login">Login</Link>
             </li>
             </ul>
         </div>
