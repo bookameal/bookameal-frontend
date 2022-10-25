@@ -13,7 +13,7 @@ function HomeNavbar() {
   return (
     <Navbar bg="light" expand="lg" className='nav'>
       <Container fluid>
-        <Navbar.Brand href="#" className='brand'>Book-a-meal</Navbar.Brand>
+        <Navbar.Brand href="" className='brand'>Book-a-meal</Navbar.Brand>
         <Navbar.Toggle aria-controls="nnavcontentavbarScroll" />
         <Navbar.Collapse id="navbarScroll">
             <div></div>
