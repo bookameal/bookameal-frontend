@@ -100,9 +100,9 @@ export default function UserHomepage() {
         </div>
         <div className="card-food">
           <div className="home-container">
-          <div>
+          {/* <div>
           <SearchBox/>
-        </div>
+        </div> */}
             {status === "success" ? (
               <>
                 <h2>Healthy Foods</h2>
