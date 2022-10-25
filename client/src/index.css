@@ -417,7 +417,7 @@ body {
 @media (max-width: 665px) {
   /* NavBar */
   .nav{
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
   .nav h2 {
     font-size: 30px;
@@ -425,6 +425,9 @@ body {
 
   /* Cart */
   .cart-container {
+    padding: 2rem;
+  }
+  .card-food{
     padding: 2rem;
   }
   .cart-container .titles {

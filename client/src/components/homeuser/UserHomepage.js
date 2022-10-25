@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import { addToCart } from "./CartSlice";
 import { useGetAllProductsQuery } from "./ProductsApi";
+import SearchBox from "./Search";
 
 export default function UserHomepage() {
 
@@ -125,11 +126,10 @@ export default function UserHomepage() {
             </Card.Body>
           </Card>
 
-
-
           <div className="home-container">
           {/* {status === "success" ? ( */}
         <>
+        <SearchBox/>
           <h2>New Arrivals</h2>
           <div className="products">
             {data &&
