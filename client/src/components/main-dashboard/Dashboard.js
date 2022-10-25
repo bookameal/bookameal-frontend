@@ -45,7 +45,8 @@ function Dashboard() {
           <img src={ramen} alt="ramen" className="hero"/>
         </div>
         <div className = "right-side">
-          <Tabs
+         <LoginForm login={login} error={error}/>
+          <Tabs 
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
             className="mb-3 toggle">
@@ -53,7 +54,7 @@ function Dashboard() {
               <div>
                 {(user.email !== "") ? (
                   <div className="welcome">
-                    <h2>Welcome, <span>{user.name}</span></h2>
+                    <h2>Welcome, <span>{user.name}</span></h2> */}
                     {/* <button onClick={logout}>Logout</button> */}
                   </div>
                 ): (
