@@ -99,7 +99,7 @@ export default function Cart() {
           <p>Taxes calculated at checkout</p>
           <button>Check out</button>
           <div className="continue-shopping">
-            <Link to="/">
+            <Link to="/UserHome">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
