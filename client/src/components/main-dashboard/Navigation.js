@@ -1,10 +1,6 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import "./navigation.css"
 import { Link } from "react-router-dom";
-import {BsPerson} from 'react-icons/bs';
 import tastytreats from '../../assets/tastytreats.gif'
 
 function Navigation() {
@@ -27,9 +23,6 @@ function Navigation() {
             </li>
             <li className="nav-menu-item">
                 <Link className="link" to="#login">Login</Link>
-            </li>
-            <li className="nav-menu-item">            
-                <Button variant="outline-succss" className='avatar'><BsPerson/></Button>
             </li>
             </ul>
         </div>
