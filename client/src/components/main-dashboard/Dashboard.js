@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import { Link,useNavigate } from 'react-router-dom'
 import Navigation from './Navigation'
 import LoginForm from './LoginForm';
 import Register from './Register';
@@ -12,63 +13,69 @@ import Tabs from 'react-bootstrap/Tabs';
 
 function Dashboard() {
 
-  const adminUser = {
-      username: 'admin',
-      email: "admin@admin.com",
-      password: "admin123"
-  }
+  // const adminUser = {
+  //     username: 'admin',
+  //     email: "admin@admin.com",
+  //     password: "admin123"
+  // }
 
-  const [user, setUser] = useState({name: "", email: ""});
-  const [error, setError] = useState("");
+  // const [user, setUser] = useState({name: "", email: ""});
+  // const [error, setError] = useState("");
 
-  const login = details => {
+  // const login = details => {
 
-      if (details.email === adminUser.email && details.password === adminUser.password) {
-        setUser({
-          name: details.name,
-          email: details.email
-        })
-    } else {
-          setError("Details do not match!");
-    }
-  }
+  //     if (details.email === adminUser.email && details.password === adminUser.password) {
+  //       setUser({
+  //         name: details.name,
+  //         email: details.email
+  //       })
+  //   } else {
+  //         setError("Details do not match!");
+  //   }
+  // }
 
   // const logout = () => {
   //     setUser({name: "", email: ""});
   // }
 
   return (
-    <>
+    <div className="dashboard">
       <Navigation />
       <div className="hero-section">
         <div className = "left-side">
           <img src={ramen} alt="ramen" className="hero"/>
         </div>
         <div className = "right-side">
-         <LoginForm login={login} error={error}/>
+          {/* <LoginForm />
+          <Register /> */}
           <Tabs 
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
             className="mb-3 toggle">
             <Tab eventKey="login" title="Login" id="login">
+
               <div>
-                {(user.email !== "") ? (
+              <LoginForm />
+
+                {/* </div>{(user.email !== "") ? (
                   <div className="welcome">
                     <h2>Welcome, <span>{user.name}</span></h2> */}
-                    {/* <button onClick={logout}>Logout</button> */}
-                  </div>
-                ): (
-                  <LoginForm login={login} error={error}/>
-                  )}
+                    {/* <button onClick={logout}>Logout</button>
+                   </div>
+                ): ( 
+                   <LoginForm />
+                   <LoginForm login={login} error={error}/>
+                   )} */}
               </div>
+              
             </Tab>
             <Tab eventKey="register" title="Register">
-              <Register />
+                      <Register />
             </Tab>
           </Tabs>
         </div>
       </div>
-</>
+</div>
     
   );
 }
