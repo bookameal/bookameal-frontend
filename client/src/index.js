@@ -4,24 +4,25 @@ import App from "./components/app/App";
 import "./index.css";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import productsReducer, {
-  productsFetch,
+import menu_itemsReducer, {
+  menu_itemsFetch,
 } from "./components/homeuser/ProductSlice";
-import { productsApi } from "./components/homeuser/ProductsApi";
+
+import { menu_itemsApi } from "./components/homeuser/ProductsApi";
 import cartReducer from "./components/homeuser/CartSlice";
 
 const store = configureStore({
   //check what we have in state
   reducer: {
-    products: productsReducer,
+    menu_items: menu_itemsReducer,
     cart: cartReducer,
-    [productsApi.reducerPath]: productsApi.reducer,
+    [menu_itemsApi.reducerPath]: menu_itemsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productsApi.middleware),
+    getDefaultMiddleware().concat(menu_itemsApi.middleware),
 });
 
-store.dispatch(productsFetch());
+store.dispatch(menu_itemsFetch());
 // store.dispatch(getTotals());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

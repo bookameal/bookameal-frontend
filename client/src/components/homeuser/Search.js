@@ -2,18 +2,21 @@
 import React, { useState } from "react";
 // import "./SearchBar.css";
 import { FiSearch } from "react-icons/fi";
-import { useGetAllProductsQuery } from "./ProductsApi";
+import { useGetAllMenu_itemsQuery } from "./ProductsApi";
 import { addToCart } from "./CartSlice";
 import { useDispatch} from "react-redux";
 import { useNavigate } from 'react-router-dom';
-;
+import { GrFormClose } from "react-icons/gr";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export default function SearchBox({ placeholder}) {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { data, error, isLoading } = useGetAllProductsQuery();
+  const { data, error, isLoading } = useGetAllMenu_itemsQuery();
 
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
@@ -43,24 +46,51 @@ export default function SearchBox({ placeholder}) {
     };
   
     return (
-      <div className="search">
+      <div className="searc">
         <div className="searchInputs">
-          <input
-            type="text"
-            placeholder={placeholder}
-            value={wordEntered}
-            onChange={handleFilter}
-          />
-          {/* <div className="searchIcon">
-            {filteredData.length === 0 ? (
-             <FiSearch onClick={clearInput} />
-            ) : (
-              <FiSearch onClick={clearInput} />
-            )}
-          </div> */}
+        <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search for food"
+              className="me-2"
+              aria-label="Search"
+              value={wordEntered}
+              onChange={handleFilter}
+            />
+            <div className="searchIcon">
+              {filteredData.length === 0 ? (
+                <Button variant="outline-succss" className="search">
+                  <FiSearch />
+                </Button>
+              ) : (
+                <GrFormClose id="clearBtn" onClick={clearInput} />
+              )}
+            </div>
+          </Form>
+          <div className="dataResult">
+          {filteredData.length !== 0 && (
+            <div className="dataResult">
+              {filteredData.slice(0, 15).map((product, key) => {
+                return (
+                  <div key={product.id} className="product">
+                    <h3>{product.name}</h3>
+                    <img src={product.image_url} alt={product.name} />
+                    <div className="details">
+                      <span>{product.description}</span>
+                      <span className="price">${product.price}</span>
+                    </div>
+                    <button onClick={() => handleAddToCart(product)}>
+                      Add To Cart
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          </div>
           
         </div>
-        {filteredData.length !== 0 && (
+        {/* {filteredData.length !== 0 && (
           <div className="dataResult">
             {filteredData.slice(0, 15).map((product, key) => {
               return (
@@ -78,7 +108,7 @@ export default function SearchBox({ placeholder}) {
               );
             })}
           </div>
-        )}
+        )} */}
       </div>
     );
   }

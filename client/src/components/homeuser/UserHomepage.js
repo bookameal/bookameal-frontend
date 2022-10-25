@@ -6,23 +6,27 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { addToCart } from "./CartSlice";
-import { useGetAllProductsQuery } from "./ProductsApi";
+import { useGetAllMenu_itemsQuery } from "./ProductsApi";
 import SearchBox from "./Search";
 
 export default function UserHomepage() {
+  const { items: menu_items, status } = useSelector(
+    (state) => state.menu_items
+  );
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
-    navigate('/cart')
+  const { data, error, isLoading } = useGetAllMenu_itemsQuery();
+  console.log("Api", isLoading);
+
+  const handleAddToCart = (menu_item) => {
+    dispatch(addToCart(menu_item));
+    navigate("/cart");
   };
 
-  const { data, error, isLoading } = useGetAllProductsQuery();
-  console.log("Api", isLoading);
   return (
     <div>
       <HomeNavbar />
@@ -91,64 +95,40 @@ export default function UserHomepage() {
           </div>
         </div>
 
-        <div className="card-food">
-          <Card style={{ width: "18rem" }} className="cards">
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGx1bmNofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-            />
-            <Card.Body>
-              <Card.Title> Sushi </Card.Title>
-              <Card.Text>$32 min sum</Card.Text>
-              <Button variant="primary" onClick={() => handleAddToCart()}>Order</Button>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "18rem" }} className="cards">
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-            />
-            <Card.Body>
-              <Card.Title> Sushi </Card.Title>
-              <Card.Text>$32 min sum</Card.Text>
-              <Button variant="primary" onClick={() => handleAddToCart()}>Order</Button>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "18rem" }} className="cards">
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1657299170950-87e5b0eaf77c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8bHVuY2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            />
-            <Card.Body>
-              <Card.Title> Sushi </Card.Title>
-              <Card.Text>$32 min sum</Card.Text>
-              <Button variant="primary"  onClick={() => handleAddToCart()}>Order</Button>
-            </Card.Body>
-          </Card>
-
-          <div className="home-container">
-          {/* {status === "success" ? ( */}
-        <>
-        <SearchBox/>
-          <h2>New Arrivals</h2>
-          <div className="products">
-            {data &&
-              data?.map((product) => (
-                <div key={product.id} className="product">
-                  <h3>{product.name}</h3>
-                  <img src={product.image} alt={product.name} />
-                  <div className="details">
-                    <span>{product.desc}</span>
-                    <span className="price">${product.price}</span>
-                  </div>
-                  <button onClick={() => handleAddToCart(product)}>
-                    Add To Cart
-                  </button>
-                </div>
-              ))}
-          </div>
-        </>
+        <div>
+          <SearchBox/>
         </div>
+        <div className="card-food">
+          <div className="home-container">
+          <div>
+          <SearchBox/>
+        </div>
+            {status === "success" ? (
+              <>
+                <h2>Healthy Foods</h2>
+                <div className="products">
+                  {data &&
+                    data?.map((menu_item) => (
+                      <div key={menu_item.id} className="product">
+                        <h3>{menu_item.name}</h3>
+                        <img src={menu_item.image_url} alt={menu_item.name} />
+                        <div className="details">
+                          <span>{menu_item.description}</span>
+                          <span className="price">${menu_item.price}</span>
+                        </div>
+                        <button onClick={() => handleAddToCart(menu_item)}>
+                          Add To Cart
+                        </button>
+                      </div>
+                    ))}
+                </div>
+              </>
+            ) : status === "pending" ? (
+              <p>Loading...</p>
+            ) : (
+              <p>Unexpected error occured...</p>
+            )}
+          </div>
         </div>
       </main>
     </div>
