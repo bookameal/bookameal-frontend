@@ -11,7 +11,7 @@ function Register(){
 
   useEffect(()=>{
 
-    fetch('http://localhost:3000/users/logins')
+    fetch('http://localhost:3000/users')
     .then(res=>res.json())
     .then(data=>setUser(data))
    },[])
@@ -30,7 +30,7 @@ function Register(){
         alert('This user Alredy Exist!');
         event.preventDefault();
         } else {     
-          fetch("http://localhost:3000/users", {
+          fetch("http://localhost:3000/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -46,7 +46,7 @@ function Register(){
   return (
     <form action="" onSubmit={handleSubmit}>
       <div className="form-inner">
-        <h2 className="heading">Sign up to get started</h2> 
+        <h2>Register to get started</h2> 
         <div className="form-group">
           <label htmlFor="name">Username:</label>
           <input type="text" name="username" id="username-field" className="input-field" placeholder="Username" onChange={handleChange} required></input>        
