@@ -149,7 +149,7 @@ form .form-inner input[type="submit"]:hover{
     font-weight: 900;
     cursor: pointer;
     margin-left: 50px;
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 30px;
     font-size: 22px;
 }
@@ -167,4 +167,13 @@ form .form-inner input[type="submit"]:hover{
 
 .logimg {
     z-index: 11;
+}
+
+.reg {
+    margin-left: 100px;
+}
+
+.regimg {
+    z-index: 11;
+    margin-left: 150px;
 }
