@@ -46,10 +46,10 @@ export default function SearchBox({ placeholder}) {
     };
   
     return (
-      <div className="searc">
+      <div className="search">
         <div className="searchInputs">
-        <Form className="d-flex">
-            <Form.Control
+        <div className="d-flex">
+            <input
               type="search"
               placeholder="Search for food"
               className="me-2"
@@ -66,7 +66,7 @@ export default function SearchBox({ placeholder}) {
                 <GrFormClose id="clearBtn" onClick={clearInput} />
               )}
             </div>
-          </Form>
+          </div>
           <div className="dataResult">
           {filteredData.length !== 0 && (
             <div className="dataResult">

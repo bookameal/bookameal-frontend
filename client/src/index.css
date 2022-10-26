@@ -43,18 +43,21 @@ body {
 }
 
 .d-flex {
-  position: absolute !important;
-  top: 360px !important;
-  left: 500px !important;
+  position: absolute;
+  top: 360px;
+  left: 500px;
 
 }
-.search {
-  left: 300;
-  
+
+input:focus {
+  outline: none;
 }
 
 .me-2{
   top: 600px;
+}
+#clearBtn {
+  cursor: pointer;
 }
 
 .menu {
