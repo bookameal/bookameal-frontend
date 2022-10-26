@@ -2,6 +2,15 @@ body {
   background-color: white;
 }
 
+.logo {
+  position: absolute;
+  top: -350px;
+  left: -200px; 
+  z-index: 1;
+  height: 600px;
+  width: 500px;
+}
+
 .home-container {
   padding: 2rem 4rem;
 }
@@ -34,9 +43,10 @@ body {
 }
 
 .d-flex {
-  position: absolute;
-  top: 360px;
-  left: 500px;
+  position: absolute !important;
+  top: 360px !important;
+  left: 500px !important;
+
 }
 .search {
   left: 300;

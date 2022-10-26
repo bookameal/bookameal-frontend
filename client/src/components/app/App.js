@@ -7,6 +7,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import '../../App.css';
 import Dashboard from '../main-dashboard/Dashboard';
+import LoginForm from '../main-dashboard/LoginForm';
+import Register from '../main-dashboard/Register';
+// import Form from './components/Credentials/Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,7 +27,8 @@ function App() {
       {/* <Route path="/" element={<UserHomepage />} /> */}
         <Route path="/" element={<Dashboard />} />
         <Route path="/UserHome" element={<UserHomepage />} />
-
+        <Route path='/login' element={<LoginForm />}/>
+        <Route path='/register' element={<Register />}/>
       </Routes>
     </Router>
   );

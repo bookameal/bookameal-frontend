@@ -1,20 +1,11 @@
 import React,{useState,useEffect} from 'react'
+import Navigation from './Navigation'
 import { Link,useNavigate } from 'react-router-dom'
-import './login.css'
+import './login.css';
+import logimg from '../../assets/Locked-Login.jpg';
 
 
 function LoginForm({ Login, error }){
-
-    // eslint-disable-next-line/
-    // const [details, setDetails] = useState({name: "", email: "", password: ""});
-
-    // const submitHandler = e => {
-    //     e.preventDefault();
-
-    //     Login(details);
-    // }
-
-
 
 const [formData,setData] = useState({})
 const[data,setUser]=useState('');
@@ -64,44 +55,32 @@ function submitHandler(event){
 }
 
     return(
-     
+     <div className="join">
+        <Navigation />
             <form onSubmit={submitHandler}>
+            <img src={logimg} alt="ramen" className="logimg" width ="750" height="750"/>
                 <div className="form-inner">
                     <h2>Login to order</h2>
                     {(error !== "") ? (<div classname="error">{error}</div>) : ""}
-                {/* <div className="form-group">
-                    <label htmlFor="name">Username:</label>
-                    <input className="input-field" type="text" name="name" id="name" placeholder="Enter Username" onChange={handleChange} required/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input className="input-field" type="email" name="email" id="email" placeholder="Enter Email" onChange={handleChange} required />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <input className="input-field" type="password" name="password" id="password" placeholder="Enter Password" onChange={handleChange} required />
-                </div>
-                    <input type="submit" value="Login"/>
-                </div>  */}
-            <div className="form-group">
-                <label htmlFor="email">Email:</label>
-                <input type="email" name="email" id="username-field" className="input-field" placeholder="Email" onChange={handleChange} required></input>
-            </div>
-            <div className="form-group">
-                <label htmlFor="password">Password:</label>
-                <input type="password" name="password" id="password-field" className="input-field" placeholder="Password" onChange={handleChange} required></input>
-            </div>
+               
+                    <div className="form-group">
+                        <label htmlFor="email">Email:</label>
+                        <input type="email" name="email" id="username-field" className="input-field" placeholder="Email" onChange={handleChange} required></input>
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Password:</label>
+                        <input type="password" name="password" id="password-field" className="input-field" placeholder="Password" onChange={handleChange} required></input>
+                    </div>
 
-           <button type='submit' classNameName='log' id='logIn'>{action?'Login' :'Delete'}</button>
-
-        {/* <h3 id="password"><a href ="##">forgot password?</a></h3> */}
+                  <button type='submit' classNameName='log' id='logIn'>{action?'Login' :'Delete'}</button>
        
-                <h3 id="account">Don't have an account? <Link to="" className="register">Sign up</Link></h3>      
-                <h3 id="account">Do you want to {action ?'Delete':'Login'} Account? <Link to="" className="register" onClick={handleAction}>{action?'Delete':'Login'}</Link></h3>
-        </div>
-    </form>
-  )
-}
+                  <h3 id="account">Don't have an account? <Link to="/register" className="register">Sign up</Link></h3>      
+                  <h3 id="account">Do you want to {action ?'Delete':'Login'} Account? <Link to="" className="register" onClick={handleAction}>{action?'Delete':'Login'}</Link></h3>
+              </div>
+          </form>
+      </div>
+     );
+    }
     
 
 export default LoginForm;
