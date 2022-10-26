@@ -105,7 +105,7 @@ export default function UserHomepage() {
         </div> */}
             {status === "success" ? (
               <>
-                <h2>Healthy Foods</h2>
+                <h2>Orders of the Day</h2>
                 <div className="products">
                   {data &&
                     data?.map((menu_item) => (
@@ -117,7 +117,7 @@ export default function UserHomepage() {
                           <span className="price">${menu_item.price}</span>
                         </div>
                         <button onClick={() => handleAddToCart(menu_item)}>
-                          Add To Cart
+                          Book meal
                         </button>
                       </div>
                     ))}

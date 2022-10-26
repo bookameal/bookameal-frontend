@@ -28,7 +28,7 @@ export default function Cart() {
 
   return (
   <div className="cart-container">
-  <h2>Shopping Cart</h2>
+  <h2>My Orders</h2>
   {cart.cartItems.length === 0 ? (
     <div className="cart-empty">
       <p>Your cart is currently empty</p>
@@ -97,7 +97,7 @@ export default function Cart() {
             <span className="amount">${cart.cartTotalAmount}</span>
           </div>
           <p>Taxes calculated at checkout</p>
-          <button>Check out</button>
+          <button>Book</button>
           <div className="continue-shopping">
             <Link to="/UserHome">
               <svg
