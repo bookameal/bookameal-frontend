@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart,  clearCart, decreaseCart,getTotals,removeFromCart,} from "./CartSlice";
+import Order from "../order/Order";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -97,7 +98,7 @@ export default function Cart() {
             <span className="amount">${cart.cartTotalAmount}</span>
           </div>
           <p>Taxes calculated at checkout</p>
-          <button>Book</button>
+          <Order/>
           <div className="continue-shopping">
             <Link to="/UserHome">
               <svg

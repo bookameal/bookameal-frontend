@@ -11,8 +11,7 @@ const initialState = {
 export const menu_itemsFetch = createAsyncThunk(
   "menu_items/menu_itemsFetch",
 
-
-//   payload creator
+  //   payload creator
   async () => {
     try {
       const response = await axios.get(
@@ -30,12 +29,11 @@ const menu_itemsSlice = createSlice({
   initialState,
   reducers: {},
 
-//   generate action creator and handle action creator
+  //   generate action creator and handle action creator
   extraReducers: {
     [menu_itemsFetch.pending]: (state, action) => {
-        // check immer
+      // check immer
       state.status = "pending";
-      
     },
     [menu_itemsFetch.fulfilled]: (state, action) => {
       state.items = action.payload;
