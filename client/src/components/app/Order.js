@@ -1,37 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Table from 'react-bootstrap/Table';
 
 export default function Orders() {
+
+    const [orders, setOrders] = useState([]);
+
+
+    useEffect(() => {
+        fetch("http://localhost:3000/orders")
+            .then((response) => response.json())
+            .then((data) => {
+                setOrders(data);
+                console.log(data)
+
+            }
+            )
+        // .then((data) => {
+        //     console.log(data)
+        // })
+    }, []);
+
+
     return (
         <Table striped bordered hover>
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th>User Name</th>
+                    <th>Menu Item</th>
+                    <th>Quantity</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td colSpan={2}>Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
+            {orders.map((item) => (
+                <tbody>
+                    <tr>
+                        <td>{item.id}</td>
+                        <td>{item.user.user_name}</td>
+                        <td>{item.menu_item_id}</td>
+                        <td>{item.quantity}</td>
+                    </tr>
+
+                </tbody>
+            ))}
+
         </Table>
     );
 }
