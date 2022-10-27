@@ -4,6 +4,7 @@ import Navigation from './Navigation';
 import './login.css';
 import regimg from '../../assets/Register2.jpg';
 
+
 function Register(){
 
   const [formData,setData] = useState({});
@@ -12,7 +13,7 @@ function Register(){
 
   useEffect(()=>{
 
-    fetch('http://localhost:3000/users')
+    fetch('https://bookameal-backend.herokuapp.com/users')
     .then(res=>res.json())
     .then(data=>setUser(data))
    },[])
@@ -31,7 +32,7 @@ function Register(){
         alert('This user Alredy Exist!');
         event.preventDefault();
         } else {     
-          fetch("http://localhost:3000/signup", {
+          fetch("https://bookameal-backend.herokuapp.com/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

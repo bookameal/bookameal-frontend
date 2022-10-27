@@ -1,3 +1,4 @@
+import React,{useState} from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -7,12 +8,25 @@ import { MdOutlineNotificationAdd} from 'react-icons/md';
 import { Link } from "react-router-dom";
 import {BsPerson} from 'react-icons/bs';
 import {AiOutlineShoppingCart} from 'react-icons/ai'
-// import useGetAllMenu_itemsQuery from "react-bootstrap/useGetAllMenu_itemsQuery";
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 
 function HomeNavbar() {
 
   const { cartTotalQuantity } = useSelector((state) => state.cart);
+
+  const [user, setUser] = useState(null);
+  const navigate=useNavigate()
+
+  function handleLogoutClick() {
+    fetch("https://bookameal-backend.herokuapp.com/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null)
+        navigate("/register")
+      }
+    });
+  }
+
 
   return (
     <Navbar bg="light" expand="lg" className="nav">
@@ -32,7 +46,7 @@ function HomeNavbar() {
             <Nav.Link href="#action2" className='orders'>My Orders</Nav.Link>
             <Nav.Link href="#action2" className='notification'>< MdOutlineNotificationAdd/></Nav.Link>
             <Button variant="outline-succss" className='avatar'><BsPerson/></Button>
-            <Button variant="outline-succss" className='logout'>Logout</Button>
+            <Button style={{float: 'right', marginRight: 10 + 'px'}} variant="outline-success" onClick={handleLogoutClick} className='logout'>Logout</Button>
             
           </Nav>
           <div>

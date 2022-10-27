@@ -39,7 +39,7 @@ function handleAction(){
 function submitHandler(e){
   e.preventDefault();
   setIsLoading(true);
-  fetch("http://127.0.0.1:3000/login", {
+  fetch("https://bookameal-backend.herokuapp.com/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
