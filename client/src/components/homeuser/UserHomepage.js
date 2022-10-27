@@ -90,6 +90,7 @@ export default function UserHomepage() {
               <Card.Title> Sushi </Card.Title>
               <Card.Text>$32 min sum</Card.Text>
               <Button variant="primary">Order</Button>
+              {/* <Link to="/register" className="register"><Button variant="primary">Order</Button></Link> */}
             </Card.Body>
           </Card>
           <Card style={{ width: "18rem" }} className="cards">

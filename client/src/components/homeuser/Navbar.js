@@ -5,11 +5,25 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { FiSearch} from 'react-icons/fi';
 import { MdOutlineNotificationAdd} from 'react-icons/md';
 import {BsPerson} from 'react-icons/bs';
 
 function HomeNavbar() {
+  const [user, setUser] = useState(null);
+  const navigate=useNavigate()
+
+  function handleLogoutClick() {
+    fetch("http://127.0.0.1:3000/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null)
+        navigate("/register")
+      }
+    });
+  }
+
   return (
     <Navbar bg="light" expand="lg" className='nav'>
       <Container fluid>
@@ -26,7 +40,7 @@ function HomeNavbar() {
             <Nav.Link href="#action2" className='orders'>My Orders</Nav.Link>
             <Nav.Link href="#action2" className='notification'>< MdOutlineNotificationAdd/></Nav.Link>
             <Button variant="outline-succss" className='avatar'><BsPerson/></Button>
-            <Button variant="outline-succss" className='logout'>Logout</Button>
+            <Button style={{float: 'right', marginRight: 10 + 'px'}} variant="outline-success" onClick={handleLogoutClick} className='logout'>Logout</Button>
             
           </Nav>
           <Form className="d-flex">
