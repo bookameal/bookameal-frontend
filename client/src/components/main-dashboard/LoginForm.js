@@ -7,8 +7,6 @@ import logimg from '../../assets/Locked-Login.jpg';
 
 function LoginForm({ onLogin, error }){
 
-// const [formData,setData] = useState({})
-// const[data,setUser]=useState('');
 const [action,setAction] = useState(true);
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -16,21 +14,6 @@ const [errors, setErrors] = useState([]);
 const [isLoading, setIsLoading] = useState(false);
 const navigate=useNavigate();
 
-// useEffect(()=>{
-//   fetch('http://localhost:3000/me')
-//   .then(res=>res.json())
-//   .then(data=>setUser(data))
-// },[])
-
-// function handleChange(event) {
-//   const name=event.target.name;
-//   const value=event.target.value;
-//   setData({
-//     ...formData,
-//     [name]: value,
-//   })
-
-// }
 function handleAction(){
   setAction(!action)
 }
@@ -55,25 +38,7 @@ function submitHandler(e){
       r.json().then((err) => setErrors(err.errors));
     }
   });
-    // const item=data.find(item=>item.email===formData.email)
-    // if (item && item.password===formData.password){
-    //   if(action){
-    //     alert('Login Successfull !...')
-    //     event.target.reset()
-    //     navigate('/menu')
-    //   }
-    //   else{
-    //     fetch(`http://localhost:3000/users/${item.id}`, {
-    //       method: "DELETE",
-    //     })
-    //   alert(`User Account Deleted succesfully`)
-    //   event.target.reset()
-    //   navigate('/')
-    //   }
-    // }else{
-    //   event.preventDefault();
-    //   alert('Login Failure! Wrong email or password!')
-    // };
+    
 }
 
     return(
@@ -96,7 +61,7 @@ function submitHandler(e){
 
                   <button type='submit' classNameName='log' id='logIn'>{action?'Login' :'Delete'}</button>
        
-                  <h3 id="account">Don't have an account? <Link to="/register" className="register">{isLoading ? "Loading..." : "Login"}</Link></h3>  
+                <h3 id="account">Don't have an account? <Link to="/register" className="register">{isLoading ? "Loading..." : "Sign Up"}</Link></h3>  
                     {errors.map((err) => (
                     <error key={err}>{err}</error>
                      ))}    
