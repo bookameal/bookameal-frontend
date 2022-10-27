@@ -4,56 +4,12 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import "bootstrap/dist/css/bootstrap.min.css";
-import { FiSearch } from "react-icons/fi";
-import { MdOutlineNotificationAdd } from "react-icons/md";
-import { BsPerson } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { GrFormClose } from "react-icons/gr";
-import { useSelector } from "react-redux";
-import { useGetAllMenu_itemsQuery } from "./ProductsApi";
-import { addToCart } from "./CartSlice";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FiSearch} from 'react-icons/fi';
+import { MdOutlineNotificationAdd} from 'react-icons/md';
+import {BsPerson} from 'react-icons/bs';
 
 function HomeNavbar() {
-  // cart items number navbar
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const { data, error, isLoading } = useGetAllMenu_itemsQuery();
-
-  const [filteredData, setFilteredData] = useState([]);
-  const [wordEntered, setWordEntered] = useState("");
-
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.name.toLowerCase().includes(searchWord.toLowerCase());
-    });
-
-    if (searchWord === "") {
-      setFilteredData([]);
-    } else {
-      setFilteredData(newFilter);
-    }
-  };
-
-  const clearInput = () => {
-    setFilteredData([]);
-    setWordEntered("");
-  };
-
-  const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
-    navigate("/cart");
-  };
-
   return (
     <Navbar bg="light" expand="lg" className="nav">
       <Container fluid>
@@ -68,21 +24,12 @@ function HomeNavbar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1" className=" menu">
-              Menu
-            </Nav.Link>
-            <Nav.Link href="#action2" className="orders">
-              MyOrders
-            </Nav.Link>
-            <Nav.Link href="#action2" className="notification">
-              <MdOutlineNotificationAdd size={30} />
-            </Nav.Link>
-            <Button variant="outline-succss" className="avatar">
-              <BsPerson size={36} />
-            </Button>
-            <Button variant="outline-succss" className="logout">
-              Logout
-            </Button>
+            <Nav.Link href="#action1" className =' menu'>Menu</Nav.Link>
+            <Nav.Link href="#action2" className='orders'>My Orders</Nav.Link>
+            <Nav.Link href="#action2" className='notification'>< MdOutlineNotificationAdd/></Nav.Link>
+            <Button variant="outline-succss" className='avatar'><BsPerson/></Button>
+            <Button variant="outline-succss" className='logout'>Logout</Button>
+            
           </Nav>
           <div>
             <Link className="cart" to="/cart">

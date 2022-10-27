@@ -39,7 +39,8 @@ function Register(){
           body: JSON.stringify(formData),
         })   
           event.target.reset()
-          navigate('/login')
+          navigate('/UserHome')
+          alert(`User Account Created succesfully`)
         }
     }
 
@@ -52,7 +53,7 @@ function Register(){
                 <h2>Register to get started</h2> 
                 <div className="form-group">
                   <label htmlFor="name">Username:</label>
-                  <input type="text" name="username" id="username-field" className="input-field" placeholder="Username" onChange={handleChange} required></input>        
+                  <input type="text" name="user_name" id="username-field" className="input-field" placeholder="Username" onChange={handleChange} required></input>        
                 </div>
                 <div className="form-group">
                   <label htmlFor="email">Email:</label>
