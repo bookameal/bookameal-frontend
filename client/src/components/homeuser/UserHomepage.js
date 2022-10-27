@@ -168,11 +168,12 @@ export default function UserHomepage({order}) {
           </div>
         </div>
         <div className="card-food">
-<<<<<<< HEAD
           <div className="home-container">
             <h2>Orders of the Day</h2>
             {status === "success" && filteredData.length === 0 ? (
               <>{foodcard}</>
+
+              
             ) : status === "success" && filteredData.length !== 0 ? (
               <div className="searchProducts">
                 {filteredData.map((product, key) => {
@@ -199,42 +200,6 @@ export default function UserHomepage({order}) {
               <p>Unexpected error occured...</p>
             )}
           </div>
-=======
-          <Card style={{ width: "18rem" }} className="cards">
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGx1bmNofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-            />
-            <Card.Body>
-              <Card.Title> Sushi </Card.Title>
-              <Card.Text>$32 min sum</Card.Text>
-              <Button variant="primary">Order</Button>
-              {/* <Link to="/register" className="register"><Button variant="primary">Order</Button></Link> */}
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "18rem" }} className="cards">
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-            />
-            <Card.Body>
-              <Card.Title> Sushi </Card.Title>
-              <Card.Text>$32 min sum</Card.Text>
-              <Button variant="primary">Order</Button>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "18rem" }} className="cards">
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1657299170950-87e5b0eaf77c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8bHVuY2h8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-            />
-            <Card.Body>
-              <Card.Title> Sushi </Card.Title>
-              <Card.Text>$32 min sum</Card.Text>
-              <Button variant="primary">Order</Button>
-            </Card.Body>
-          </Card>
->>>>>>> eb2a904073bba3a788d602e1deb3773bf694919f
         </div>
       </main>
     </div>

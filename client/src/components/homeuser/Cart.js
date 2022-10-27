@@ -69,7 +69,7 @@ export default function Cart() {
                 <div>
                   <h3>{cartItem.name}</h3>
                   <p>{cartItem.description}</p>
-                  <button  onClick={() => handleRemoveFromCart(cartItem)}>>
+                  <button  onClick={() => handleRemoveFromCart(cartItem)}>
                     Remove
                   </button>
                 </div>

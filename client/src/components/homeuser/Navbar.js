@@ -1,15 +1,19 @@
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FiSearch} from 'react-icons/fi';
 import { MdOutlineNotificationAdd} from 'react-icons/md';
+import { Link } from "react-router-dom";
 import {BsPerson} from 'react-icons/bs';
+import {AiOutlineShoppingCart} from 'react-icons/ai'
+// import useGetAllMenu_itemsQuery from "react-bootstrap/useGetAllMenu_itemsQuery";
+import { useSelector, useDispatch } from "react-redux";
 
 function HomeNavbar() {
+
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
+
   return (
     <Navbar bg="light" expand="lg" className="nav">
       <Container fluid>
@@ -40,46 +44,6 @@ function HomeNavbar() {
               <span>{cartTotalQuantity}</span>
             </span>
           </div>
-          {/* <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search for food"
-              className="me-2"
-              aria-label="Search"
-              value={wordEntered}
-              onChange={handleFilter}
-            />
-            <div className="searchIcon">
-              {filteredData.length === 0 ? (
-                <Button variant="outline-succss" className="search">
-                  <FiSearch />
-                </Button>
-              ) : (
-                <GrFormClose id="clearBtn" onClick={clearInput} />
-              )}
-            </div>
-          </Form>
-          <div className="dataResult">
-          {filteredData.length !== 0 && (
-            <div className="dataResult">
-              {filteredData.slice(0, 15).map((product, key) => {
-                return (
-                  <div key={product.id} className="product">
-                    <h3>{product.name}</h3>
-                    <img src={product.image} alt={product.name} />
-                    <div className="details">
-                      <span>{product.desc}</span>
-                      <span className="price">${product.price}</span>
-                    </div>
-                    <button onClick={() => handleAddToCart(product)}>
-                      Add To Cart
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-          </div> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
