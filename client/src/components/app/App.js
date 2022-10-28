@@ -12,9 +12,7 @@ import Register from '../main-dashboard/Register';
 // import Form from './components/Credentials/Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
+import Orders from "./OrderList";
 
 function App() {
   
@@ -23,6 +21,7 @@ function App() {
        <ToastContainer />
       <Routes>
       <Route path='/cart' element={<Cart />} />
+      <Route path='/orders' element={<Orders />} />
       <Route path="/not-found" element={<NotFound/>} />
       {/* <Route path="/" element={<UserHomepage />} /> */}
         <Route path="/" element={<Dashboard />} />
