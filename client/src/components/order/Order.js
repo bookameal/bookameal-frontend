@@ -5,9 +5,13 @@ const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
 
 export default function Order() {
 
-  const [quantity] = useState()
-  const [users_id] = useState()
-
+  // const [quantity] = useState()
+  // const [users_id] = useState()
+  const quantity = 3
+  const dayTime = "10/11/2022"
+  const user_id = 2
+  const menu_item_id = 1
+  
   const [orders, setOrders] = useState([]);
 
   function addOrder(newOrder) {
@@ -24,7 +28,9 @@ export default function Order() {
       },
       body: JSON.stringify({
       quantity,
-      users_id,
+      dayTime,
+      user_id,
+      menu_item_id,
       }),
     })
       .then((r) => r.json())
