@@ -25,13 +25,13 @@ export default function Orders() {
 
     return (
         <Table striped bordered hover className='order-table'>
-                <tr className='table-row'>
+                
                     <th>Order ID</th>
                     <th>Date</th>
                     <th>User Name</th>
                     <th>Menu Item</th>
                     <th>Quantity</th>
-                </tr>
+            
             {orders.map((item) => (
                 <tbody>
                     <tr>
