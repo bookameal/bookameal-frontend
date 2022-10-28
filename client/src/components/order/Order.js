@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import './order.css';
 
 
 const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
@@ -33,7 +34,7 @@ export default function Order() {
 
   return (
     <div>
-      <button onClick={handleSubmit}>Book</button>
+      <button className="getStarted" onClick={handleSubmit}>Book</button>
       {/* You have successfully placed your order */}
       </div>
   )

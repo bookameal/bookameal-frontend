@@ -13,7 +13,7 @@ import AdminDashboard from '../admin-dashboard/AdminDashboard';
 // import Form from './components/Credentials/Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Orders from "./OrderList";
+import Orders from "../admin-dashboard/OrderList";
 
 function App() {
   
