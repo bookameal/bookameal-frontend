@@ -94,13 +94,13 @@ function submitHandler(e){
                         <input type="password" name="password" id="password-field" className="input-field" placeholder="Password"  onChange={(e) => setPassword(e.target.value)} required></input>
                     </div>
 
-                  <button type='submit' classNameName='log' id='logIn'>{action?'Login' :'Delete'}</button>
+                  <button type='submit' classNameName='log' id='logIn'>{action?'Login' :'Register'}</button>
        
                   <h3 id="account">Don't have an account? <Link to="/register" className="register">{isLoading ? "Loading..." : "Login"}</Link></h3>  
                     {errors.map((err) => (
                     <error key={err}>{err}</error>
                      ))}    
-                  <h3 id="account">Do you want to {action ?'Delete':'Login'} Account? <Link to="" className="register" onClick={handleAction}>{action?'Delete':'Login'}</Link></h3>
+                  <h3 id="account">Do you want to {action ?'Register':'Login'} Account? <Link to="/register" className="register" onClick={handleAction}>{action?'Register':'Login'}</Link></h3>
               </div>
           </form>
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from "../homeuser/Cart";
 import UserHomepage from "../homeuser/UserHomepage";
 import NotFound from "../NotFound";
@@ -12,6 +12,7 @@ import Register from '../main-dashboard/Register';
 // import Form from './components/Credentials/Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import EditMenu from "../adminuser/EditMenu";
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/UserHome" element={<UserHomepage />} />
         <Route path='/login' element={<LoginForm />}/>
         <Route path='/register' element={<Register />}/>
+        {/* <Route path='/edit-menu' element={<EditMenu />} /> */}
       </Routes>
     </Router>
   );
