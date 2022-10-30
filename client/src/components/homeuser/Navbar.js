@@ -43,7 +43,7 @@ function HomeNavbar() {
             navbarScroll
           >
             <Nav.Link href="#action1" className =' menu'>Menu</Nav.Link>
-            <Nav.Link href="#action2" className='orders'>My Orders</Nav.Link>
+            <Nav.Link href="/UserOrder" className='orders'>My Orders</Nav.Link>
             <Nav.Link href="#action2" className='notification'>< MdOutlineNotificationAdd/></Nav.Link>
             <Button variant="outline-succss" className='avatar'><BsPerson/></Button>
             <Button style={{float: 'right', marginRight: 10 + 'px'}} variant="outline-success" onClick={handleLogoutClick} className='logout'>Logout</Button>

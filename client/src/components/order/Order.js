@@ -4,9 +4,12 @@ import React,{useState} from 'react'
 const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
 
 export default function Order() {
+const user_id = 2
+const menu_item_id= 6
+const quantity = 4
+const day = 11/11/2022
 
-  const [quantity] = useState()
-  const [users_id] = useState()
+  // const [users_id] = useState()
 
   const [orders, setOrders] = useState([]);
 
@@ -24,7 +27,9 @@ export default function Order() {
       },
       body: JSON.stringify({
       quantity,
-      users_id,
+      day,
+      user_id,
+      menu_item_id,
       }),
     })
       .then((r) => r.json())

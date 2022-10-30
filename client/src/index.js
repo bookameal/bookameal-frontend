@@ -9,7 +9,7 @@ import menu_itemsReducer, {
 } from "./components/homeuser/ProductSlice";
 
 import { menu_itemsApi } from "./components/homeuser/ProductsApi";
-import cartReducer from "./components/homeuser/CartSlice";
+import cartReducer, { getTotals }  from "./components/homeuser/CartSlice";
 
 const store = configureStore({
   //check what we have in state
@@ -23,7 +23,7 @@ const store = configureStore({
 });
 
 store.dispatch(menu_itemsFetch());
-// store.dispatch(getTotals());
+store.dispatch(getTotals());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

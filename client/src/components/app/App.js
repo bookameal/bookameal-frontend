@@ -12,6 +12,7 @@ import Register from '../main-dashboard/Register';
 // import Form from './components/Credentials/Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UserOrders from "../order/UserOrders";
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/UserHome" element={<UserHomepage />} />
         <Route path='/login' element={<LoginForm />}/>
         <Route path='/register' element={<Register />}/>
+        <Route path='/UserOrder' element={<UserOrders/>}/>
       </Routes>
     </Router>
   );
