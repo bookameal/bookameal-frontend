@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { addToCart } from "./CartSlice";
 import { useGetAllMenu_itemsQuery } from "./ProductsApi";
 import { GrFormClose } from "react-icons/gr";
+import SetMenu from "../adminuser/SetMenu";
 
 
 export default function UserHomepage({order}) {
@@ -136,8 +137,8 @@ export default function UserHomepage({order}) {
                 </Carousel>
               </div>
               <div className="special">TODAY’S SPECIAL MEALS</div>
-              <div className="roast">Roast Lamb &</div>
-              <div className="main-dish">Other Main Dishes</div>
+              <div className="roast">Roast Lamb</div>
+              <div className="main-dish"><SetMenu /></div>
             </Card>
           </div>
         </div>
