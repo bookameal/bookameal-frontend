@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { addToCart } from "./CartSlice";
 import { useGetAllMenu_itemsQuery } from "./ProductsApi";
 import { GrFormClose } from "react-icons/gr";
+import './user.css'
 
 
 export default function UserHomepage({order}) {
@@ -149,12 +150,12 @@ export default function UserHomepage({order}) {
                 <input
                   type="search"
                   placeholder="Search for food"
-                  className="me-2"
+                  className="searchInput"
                   aria-label="Search"
                   value={wordEntered}
                   onChange={handleFilter}
                 />
-                <div className="searchIcon">
+                {/* <div className="searchIcon">
                   {filteredData.length === 0 ? (
                     <Button variant="outline-succss" className="search">
                       <FiSearch />
@@ -162,7 +163,7 @@ export default function UserHomepage({order}) {
                   ) : (
                     <GrFormClose id="clearBtn" onClick={clearInput} />
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
