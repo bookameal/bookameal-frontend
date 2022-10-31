@@ -1,9 +1,22 @@
 import React,{useState} from 'react'
+import { useNavigate } from "react-router-dom"
+import { clearCart } from '../homeuser/CartSlice';
+import { useDispatch, useSelector } from "react-redux"
 
 
 const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
 
 export default function Order() {
+  const navigate = useNavigate();
+
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch()
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  
 const user_id = 2
 const menu_item_id= 6
 const quantity = 4
@@ -34,6 +47,8 @@ const day = 11/11/2022
     })
       .then((r) => r.json())
       .then((newOrder) => addOrder(newOrder));
+      handleClearCart()
+      navigate("/placed");
   }
 
   return (
