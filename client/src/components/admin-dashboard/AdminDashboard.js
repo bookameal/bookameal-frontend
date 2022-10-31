@@ -5,8 +5,9 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Order from '../order/Order';
 import Orders from './OrderList';
-// import EditMenu from '../adminuser/EditMenu';
-// import SetMenu from '../adminuser/SetMenu';
+
+import EditMenu from './adminuser/EditMenu';
+import SetMenu from './adminuser/SetMenu';
 
 
 function Admin () {
@@ -20,14 +21,14 @@ function Admin () {
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
             className="mb-3 toggle">
-            {/* <Tab eventKey="login" title="Login" id="login">
+            <Tab eventKey="setmenu" title="Set Menu" id="setmenu">
               <div>
               <SetMenu />
               </div>
             </Tab>
-            <Tab eventKey="register" title="Register">
+            <Tab eventKey="editmenu" title="Edit Menu">
               <EditMenu />
-            </Tab> */}
+            </Tab>
             <Tab eventKey="order" title="Orders" id="order">
               <div>
               <Orders />
