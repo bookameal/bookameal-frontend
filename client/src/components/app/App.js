@@ -17,8 +17,6 @@ import UserOrders from "../order/UserOrders";
 import AfterOrder from "../order/AfterOrder";
 // import EditMenu from "../adminuser/EditMenu";
 
-
-
 import Orders from "../admin-dashboard/OrderList";
 
 function App() {
