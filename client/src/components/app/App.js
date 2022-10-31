@@ -12,6 +12,7 @@ import Register from '../main-dashboard/Register';
 // import Form from './components/Credentials/Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AddItem from "../homeuser/AddItem";
 
 
 
@@ -19,6 +20,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   
   return (
+  <>
+  
+    <div>
     <Router>
        <ToastContainer />
       <Routes>
@@ -29,8 +33,11 @@ function App() {
         <Route path="/UserHome" element={<UserHomepage />} />
         <Route path='/login' element={<LoginForm />}/>
         <Route path='/register' element={<Register />}/>
+        <Route path='/additem' element={<AddItem />}/>
       </Routes>
     </Router>
+    </div>
+    </>
   );
 }
 
