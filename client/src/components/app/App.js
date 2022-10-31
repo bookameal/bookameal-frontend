@@ -25,6 +25,7 @@ function App() {
        <ToastContainer />
       <Routes>
       <Route path='/cart' element={<Cart />} />
+      <Route path='/orders' element={<Orders />} />
       <Route path="/not-found" element={<NotFound/>} />
       {/* <Route path="/" element={<UserHomepage />} /> */}
         <Route path="/" element={<Dashboard />} />
