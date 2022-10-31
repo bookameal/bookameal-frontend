@@ -1,29 +1,41 @@
-import React,{useState} from 'react'
-import { useNavigate } from "react-router-dom"
+import React,{useState, useEffect} from 'react'
+import { useNavigate, useParams} from "react-router-dom"
 import { clearCart } from '../homeuser/CartSlice';
 import { useDispatch, useSelector } from "react-redux"
 import './order.css';
-
-
+import Parse from 'parse/dist/parse.min.js';
+import {getUser} from '../homeuser/UserSclice'
+ 
 const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
 
 export default function Order() {
   const navigate = useNavigate();
+ 
+  // const [currentUser] = useState(Parse.User.current());
+  // console.log(currentUser)
 
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [user, dispatch]);
+  
+
+  console.log(cart)
+  console.log(user)
 
   const handleClearCart = () => {
     dispatch(clearCart());
   };
-
   
-const user_id = 2
-const menu_item_id= 6
-const quantity = 4
-const day = 11/11/2022
+  
+const user_id = {user}
+const menu_item_id= 7
+const quantity = cart.cartItems.length
+const dayTime = new Date()
 
-  // const [users_id] = useState()
 
   const [orders, setOrders] = useState([]);
 
@@ -41,7 +53,7 @@ const day = 11/11/2022
       },
       body: JSON.stringify({
       quantity,
-      day,
+      dayTime,
       user_id,
       menu_item_id,
       }),

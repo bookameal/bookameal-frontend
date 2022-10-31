@@ -31,7 +31,8 @@ function submitHandler(e){
   }).then((r) => {
     setIsLoading(false);
     if (r.ok) {
-      r.json().then((user) => onLogin(user))
+      r.json().then((user) =>  localStorage.setItem('user', JSON.stringify(user)))
+      
       navigate('/UserHome')
       alert('Login Successfull !...')
     } else {
@@ -48,7 +49,7 @@ function submitHandler(e){
             <img src={logimg} alt="ramen" className="logimg" width ="750" height="750"/>
                 <div className="form-inner">
                     <h2>Login to order</h2>
-                    {(error !== "") ? (<div classname="error">{error}</div>) : ""}
+                    {(error !== "") ? (<div className="error">{error}</div>) : ""}
                
                     <div className="form-group">
                         <label htmlFor="email">Email:</label>
@@ -59,7 +60,7 @@ function submitHandler(e){
                         <input type="password" name="password" id="password-field" className="input-field" placeholder="Password"  onChange={(e) => setPassword(e.target.value)} required></input>
                     </div>
 
-                  <button type='submit' classNameName='log' id='logIn'>{action?'Login' :'Delete'}</button>
+                  <button type='submit' className='log' id='logIn'>{action?'Login' :'Delete'}</button>
        
                 <h3 id="account">Don't have an account? <Link to="/register" className="register">{isLoading ? "Loading..." : "Sign Up"}</Link></h3>  
                     {errors.map((err) => (

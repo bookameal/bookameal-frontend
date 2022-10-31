@@ -38,7 +38,8 @@ function Register(){
             "Content-Type": "application/json",
         },
           body: JSON.stringify(formData),
-        })   
+        })
+        
           event.target.reset()
           navigate('/UserHome')
           alert(`User Account Created succesfully`)

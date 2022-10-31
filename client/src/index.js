@@ -10,12 +10,15 @@ import menu_itemsReducer, {
 
 import { menu_itemsApi } from "./components/homeuser/ProductsApi";
 import cartReducer, { getTotals }  from "./components/homeuser/CartSlice";
+import userReducer, {getUser} from './components/homeuser/UserSclice'
 
 const store = configureStore({
   //check what we have in state
   reducer: {
     menu_items: menu_itemsReducer,
     cart: cartReducer,
+    user: userReducer,
+
     [menu_itemsApi.reducerPath]: menu_itemsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
@@ -24,6 +27,7 @@ const store = configureStore({
 
 store.dispatch(menu_itemsFetch());
 store.dispatch(getTotals());
+store.dispatch(getUser());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
