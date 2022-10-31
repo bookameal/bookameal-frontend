@@ -65,7 +65,7 @@ function submitHandler(e){
                     {errors.map((err) => (
                     <error key={err}>{err}</error>
                      ))}    
-                  <h3 id="account">Do you want to {action ?'Delete':'Login'} Account? <Link to="" className="register" onClick={handleAction}>{action?'Delete':'Login'}</Link></h3>
+                  <h3 id="account">Do you want to {action ?'Delete':'Login'} Account? <Link to="/login" className="register" onClick={handleAction}>{action?'Delete':'Login'}</Link></h3>
               </div>
           </form>
       </div>
