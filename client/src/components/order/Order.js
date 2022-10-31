@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { useNavigate } from "react-router-dom"
 import { clearCart } from '../homeuser/CartSlice';
 import { useDispatch, useSelector } from "react-redux"
+import './order.css';
 
 
 const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
@@ -53,7 +54,7 @@ const day = 11/11/2022
 
   return (
     <div>
-      <button onClick={handleSubmit}>Book</button>
+      <button className="getStarted" onClick={handleSubmit}>Book</button>
       {/* You have successfully placed your order */}
       </div>
   )

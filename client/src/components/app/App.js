@@ -9,6 +9,7 @@ import '../../App.css';
 import Dashboard from '../main-dashboard/Dashboard';
 import LoginForm from '../main-dashboard/LoginForm';
 import Register from '../main-dashboard/Register';
+import AdminDashboard from '../admin-dashboard/AdminDashboard';
 // import Form from './components/Credentials/Form';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,6 +18,7 @@ import AfterOrder from "../order/AfterOrder";
 
 
 
+import Orders from "../admin-dashboard/OrderList";
 
 function App() {
   
@@ -34,6 +36,7 @@ function App() {
         <Route path='/register' element={<Register />}/>
         <Route path='/UserOrder' element={<UserOrders/>}/>
         <Route path='/placed' element={<AfterOrder/>}/>
+        <Route path='/admin' element={<AdminDashboard />}/>
       </Routes>
     </Router>
   );
