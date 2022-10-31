@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import {BsPerson} from 'react-icons/bs';
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 
 function HomeNavbar() {
 
@@ -22,7 +22,7 @@ function HomeNavbar() {
     fetch("https://bookameal-backend.herokuapp.com/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null)
-        navigate("/register")
+        navigate("/login")
       }
     });
   }

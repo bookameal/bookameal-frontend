@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from "../homeuser/Cart";
 import UserHomepage from "../homeuser/UserHomepage";
 import NotFound from "../NotFound";
@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserOrders from "../order/UserOrders";
 import AfterOrder from "../order/AfterOrder";
+// import EditMenu from "../adminuser/EditMenu";
 
 
 
@@ -37,6 +38,7 @@ function App() {
         <Route path='/UserOrder' element={<UserOrders/>}/>
         <Route path='/placed' element={<AfterOrder/>}/>
         <Route path='/admin' element={<AdminDashboard />}/>
+        {/* <Route path='/edit-menu' element={<EditMenu />} /> */}
       </Routes>
     </Router>
   );
