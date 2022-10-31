@@ -68,9 +68,11 @@ export default function UserHomepage({order}) {
                 <br />
                 ${menu_item.price}</span>
               </div>
-              <button style={{backgroundColor: "#002524", display:"flex", justifyContent:"center", alignItems: "center", width:"150px", height:"60px", paddingTop: "15px", paddingBottom: "15px" , fontSize:"18px", fontWeight: "600", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px", textAlign: "center", marginLeft:"7em"}} onClick={() => handleAddToCart(menu_item)}>
-                Book Meal
-              </button>
+              <div style={{display:"flex", justifyContent:"center", alignItems: "center"}}>
+                <button style={{backgroundColor: "#002524", width:"150px", height:"60px", paddingTop: "15px", paddingBottom: "15px" , fontSize:"18px", fontWeight: "600", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px", textAlign: "center"}} onClick={() => handleAddToCart(menu_item)}>
+                  Book Meal
+                </button>
+              </div>
             </div>
           ))}
       </div>
