@@ -1,5 +1,5 @@
 .wrapper {
-    min-height: 150vh;    
+    min-height: 400vh;    
     background-image: url('../../assets/Tasty-Treats-backdrop.jpg');
     width: 100%;
 }
@@ -19,6 +19,12 @@
 .caro {
     background-image: url('../../assets/greenbrown.jpg');
     background-position: cover;
+    position: absolute;
+    top: 200px;
+}
+
+.special {
+    color: red;
     position: absolute;
     top: 200px;
 }
