@@ -15,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UserOrders from "../order/UserOrders";
 import AfterOrder from "../order/AfterOrder";
+import AddItem from "../admin-dashboard/AddItem";
 // import EditMenu from "../adminuser/EditMenu";
 
 import Orders from "../admin-dashboard/OrderList";
@@ -36,6 +37,7 @@ function App() {
         <Route path='/UserOrder' element={<UserOrders/>}/>
         <Route path='/placed' element={<AfterOrder/>}/>
         <Route path='/admin' element={<AdminDashboard />}/>
+        <Route path='/addItem' element={<AddItem />}/>
         {/* <Route path='/edit-menu' element={<EditMenu />} /> */}
       </Routes>
     </Router>
