@@ -3,7 +3,6 @@ import { useNavigate, useParams} from "react-router-dom"
 import { clearCart } from '../homeuser/CartSlice';
 import { useDispatch, useSelector } from "react-redux"
 import './order.css';
-import Parse from 'parse/dist/parse.min.js';
 import {getUser} from '../homeuser/UserSclice'
  
 const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
