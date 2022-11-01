@@ -22,8 +22,8 @@ export default function Order() {
   }, [user, dispatch]);
   
 
-  console.log(cart)
-  console.log(user.user.body.id)
+  console.log(cart.cartItems)
+  console.log(user)
 
   const handleClearCart = () => {
     dispatch(clearCart());
@@ -31,8 +31,8 @@ export default function Order() {
   const logged =  (user.user.body.id)
   
 const user_id = logged  
-const menu_item_id= 7
-const quantity = cart.cartItems.length
+const menu_item_id= (cart.cartItems[0].id)
+const quantity = cart.cartTotalQuantity
 const dayTime = new Date()
 
 
@@ -43,25 +43,27 @@ const dayTime = new Date()
   }
 
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch(orderAPI, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-      quantity,
-      dayTime,
-      user_id,
-      menu_item_id,
-      }),
-    })
-      .then((r) => r.json())
-      .then((newOrder) => addOrder(newOrder));
-      handleClearCart()
+    function handleSubmit(e) {
+      e.preventDefault();
+      fetch(orderAPI, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+        quantity,
+        dayTime,
+        user_id,
+        menu_item_id,
+        }),
+      })
+        .then((r) => r.json())
+        .then((newOrder) => addOrder(newOrder));
+        handleClearCart()
       navigate("/placed");
-  }
+}
+
+
 
   return (
     <div>

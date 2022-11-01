@@ -30,16 +30,16 @@ export default function Orders() {
                     <th>Date</th>
                     <th>User Name</th>
                     <th>Menu Item</th>
-                    <th>Quantity</th>
+                    {/* <th>Quantity</th> */}
             
             {orders.map((item) => (
                 <tbody>
                     <tr>
                         <td>#{item.id}</td>
-                        <td>{item.day}</td>
+                        <td>{item.dayTime}</td>
                         <td>{item.user.user_name}</td>
                         <td>{item.menu_item_id}</td>
-                        <td>{item.quantity}</td>
+                        {/* <td>{item.quantity}</td> */}
                     </tr>
 
                 </tbody>

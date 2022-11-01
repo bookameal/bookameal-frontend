@@ -56,7 +56,7 @@ export default function UserHomepage({order}) {
   
 
   const foodcard = (
-    <div>
+    <div className=""> 
       {/* <h2>Orders of the Day</h2> */}
       <div className="products" style={{display:"flex", flexWrap:"wrap", gap:"50px",}}>
         {data &&
