@@ -13,7 +13,7 @@
 input, button {
     appearance: none;
     background: none;
-    border: none;
+    /* border: none; */
     outline: none;
 }
 
@@ -140,7 +140,8 @@ form .form-inner input[type="submit"]:hover{
     display: inline-block;
     padding: 10px 30px;
     border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;    background-color: #875d2c;
+    border-bottom-left-radius: 15px;    
+    background-color: #875d2c;
     /* background-image: linear-gradient(to right,  #FFCE00 50%, #FE4880 ); */
     background-size: 200%;
     background-position: 0%;

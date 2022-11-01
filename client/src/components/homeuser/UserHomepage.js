@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import HomeNavbar from "./Navbar";
-import Card from "react-bootstrap/Card";
-import { FiSearch } from "react-icons/fi";
-import Button from "react-bootstrap/Button";
+import Navbar from "./Navbar";
+// import Card from "react-bootstrap/Card";
+// import { FiSearch } from "react-icons/fi";
+// import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "./CartSlice";
 import { useGetAllMenu_itemsQuery } from "./ProductsApi";
-import { GrFormClose } from "react-icons/gr";
+// import { GrFormClose } from "react-icons/gr";
+import SetMenu from "../admin-dashboard/adminuser/SetMenu";
+// import { GrFormClose } from "react-icons/gr";
+import './user.css'
 
 
 export default function UserHomepage({order}) {
@@ -55,19 +58,23 @@ export default function UserHomepage({order}) {
   const foodcard = (
     <div>
       {/* <h2>Orders of the Day</h2> */}
-      <div className="products">
+      <div className="products" style={{display:"flex", flexWrap:"wrap", gap:"50px",}}>
         {data &&
           data?.map((menu_item) => (
-            <div key={menu_item.id} className="product">
-              <h3>{menu_item.name}</h3>
-              <img src={menu_item.image_url} alt={menu_item.name} />
-              <div className="details">
-                <span>{menu_item.description}</span>
-                <span className="price">${menu_item.price}</span>
+            <div key={menu_item.id} className="product" style={{marginTop:"50px", height:"600px", width:"20%", backgroundImage: 'url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)', border:"0.1px solid #875d2c", boxShadow:"0px 5px 5px 0px"}}>
+              <h3 style={{color:"#002524", fontWeight:"600", textAlign:"center"}}>{menu_item.name}</h3>
+              <img src={menu_item.image_url} alt={menu_item.name} style={{width:"100%", height:"250px",}} />
+              <div className="details" style={{color:"black", fontWeight:"600", fontSize:"25px", textAlign:"center"}}>
+                <span>{menu_item.description}
+                <br />
+                <br />
+                ${menu_item.price}</span>
               </div>
-              <button onClick={() => handleAddToCart(menu_item)}>
-                Book meal
-              </button>
+              <div style={{display:"flex", justifyContent:"center", alignItems: "center"}}>
+                <button style={{backgroundColor: "#002524", width:"150px", height:"60px", paddingTop: "15px", paddingBottom: "15px" , fontSize:"18px", fontWeight: "600", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px", textAlign: "center"}} onClick={() => handleAddToCart(menu_item)}>
+                  Book Meal
+                </button>
+              </div>
             </div>
           ))}
       </div>
@@ -76,100 +83,44 @@ export default function UserHomepage({order}) {
 
   return (
     <div>
-      <HomeNavbar />
+      <Navbar />
       <main>
         <div className="wrapper">
           <div className="container">
             {/* <Card className="bg-light text-black"> */}
-            <Card body className="cardbody">
-              <div className="caro">
                 <Carousel>
-                  <Carousel.Item interval={2000}>
-                    <img
-                      className="d-block w-200 "
-                      src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                      alt="First slide"
-                    />
+                  <Carousel.Item>
+                    <div className="w-600 d-flex flex-column justify-content-center align-items-center" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")' , backgroundPosition: 'center center' , backgroundSize: 'cover' , backgroundRepeat: 'no-repeat' , height: '40vh'}}>
+                      <h3 className="roast">Roast Lamb</h3>
+                    </div>
                   </Carousel.Item>
-                  <Carousel.Item interval={2000}>
-                    <img
-                      className="d-block w-200 "
-                      src="https://images.unsplash.com/photo-1513442542250-854d436a73f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJyZWFrZmFzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                      alt="First slide"
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item interval={2000}>
-                    <img
-                      className="d-block w-200 "
-                      src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJyZWFrZmFzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                      alt="Second slide"
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item interval={2000}>
-                    <img
-                      className="d-block w-200 "
-                      src="https://images.unsplash.com/photo-1538220856186-0be0e085984d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJyZWFrZmFzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                      alt="First slide"
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item interval={2000}>
-                    <img
-                      className="d-block w-200 "
-                      src="https://plus.unsplash.com/premium_photo-1661626833959-e051eff9d551?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJydW5jaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                      alt="First slide"
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item interval={2000}>
-                    <img
-                      className="d-block w-200 "
-                      src="https://images.unsplash.com/photo-1574783756547-258b3c720fe9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJydW5jaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                      alt="First slide"
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item interval={2000}>
-                    <img
-                      className="d-block w-200 "
-                      src="https://images.unsplash.com/photo-1513442542250-854d436a73f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGJyZWFrZmFzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                      alt="First slide"
-                    />
+                  <Carousel.Item>
+                    
                   </Carousel.Item>
                 </Carousel>
-              </div>
-              <div className="special">TODAY’S SPECIAL MEALS</div>
-              <div className="roast">Roast Lamb &</div>
-              <div className="main-dish">Other Main Dishes</div>
-            </Card>
-          </div>
+            </div>
+              {/* <div className="special">TODAY’S SPECIAL MEALS</div>
+              <div className="main-dish">Other Main Dishes</div> */}
         </div>
 
-        <div>
           <div className="search">
             <div className="searchInputs">
               <div className="d-flex">
                 <input
                   type="search"
                   placeholder="Search for food"
-                  className="me-2"
+                  className="searchInput"
                   aria-label="Search"
                   value={wordEntered}
                   onChange={handleFilter}
                 />
-                <div className="searchIcon">
-                  {filteredData.length === 0 ? (
-                    <Button variant="outline-succss" className="search">
-                      <FiSearch />
-                    </Button>
-                  ) : (
-                    <GrFormClose id="clearBtn" onClick={clearInput} />
-                  )}
-                </div>
+                
               </div>
             </div>
           </div>
-        </div>
         <div className="card-food">
           <div className="home-container">
-            <h2>Orders of the Day</h2>
+            <h2 style={{fontWeight:"600", fontSize:"40px"}}><br/><br/>Menu of the Day</h2>
             {status === "success" && filteredData.length === 0 ? (
               <>{foodcard}</>
 
@@ -187,7 +138,7 @@ export default function UserHomepage({order}) {
                           <span className="price">${product.price}</span>
                         </div>
                         <button onClick={() => handleAddToCart(product)}>
-                          Book meal
+                          Book Meal
                         </button>
                       </div>
                     </div>
