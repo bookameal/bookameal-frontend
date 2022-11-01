@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,7 +13,6 @@
 input, button {
     appearance: none;
     background: none;
-    /* border: none; */
     outline: none;
 }
 
@@ -37,17 +36,14 @@ form::after {
     bottom: -5px;
     z-index: 1;
     background-image: url('../../assets/Emerald-Backdrop2.jpg');
-    /* background-image: linear-gradient(to bottom right, #002524, #9688757f ); */
 }
 
 form .form-inner {
     position: relative;
     display: block;
-    /* background-color: transparent; */
     padding: 35px;
     z-index: 2;
     margin-top: 50px;
-    /* background-image: inherit; */
 }
 
 form .form-inner h2{
@@ -59,7 +55,6 @@ form .form-inner h2{
 }
 
 form .form-inner h3{
-    /* color: #fbad53; */
 
     color: white;
     font-size: 20px;
@@ -142,7 +137,6 @@ form .form-inner input[type="submit"]:hover{
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;    
     background-color: #875d2c;
-    /* background-image: linear-gradient(to right,  #FFCE00 50%, #FE4880 ); */
     background-size: 200%;
     background-position: 0%;
     transition: 0.4s;
@@ -170,11 +164,8 @@ form .form-inner input[type="submit"]:hover{
     z-index: 11;
 }
 
-.reg {
-    /* margin-left: 100px; */
-}
 
 .regimg {
     z-index: 11;
     margin-left: 50px;
-}
+} */

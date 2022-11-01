@@ -1,31 +1,65 @@
-import React, {useState} from 'react'
-export default function EditForm({menu_item, onEditMenu_item,isEditing,setisEditing}) {
-    const[mealdata, setMealData] = useState(menu_item)
-    // let { id } = useParams()
-    function handleChange(e){
-        setMealData({...mealdata, [e.target.name]: e.target.value})
-    }
+import React, {useState, useEffect} from 'react'
+import { useParams } from 'react-router-dom'
+
+
+
+export default function EditForm() {
+    
+    const[menu_item,setMenuItem] = useState({})
+    
+    let { id } = useParams()
+    
+
+    useEffect(() => {
+
+		let url = `https://bookameal-backend.herokuapp.com/menu_items/${id}`
+		fetch(url)
+			.then( res => res.json())
+			.then(data =>setMenuItem(data) )
+	},[])
+
+
+    function addItem(newItem) {
+        setMenuItem([...menu_item, newItem]);
+      }
+   
+
 function handleSubmit(e){
     e.preventDefault()
-    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${menu_item.id}`,{
+    // let id = e.target.id
+    // let id = menu_item.id
+    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`,{
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(mealdata)
+        body: JSON.stringify({
+            name: menu_item.name,
+            image_url: menu_item.image_url,
+            price: menu_item.price,
+            description: menu_item.description,
+
+        })
     })
         .then(r => r.json())
-        .then(editedMenu_item => onEditMenu_item(editedMenu_item))
-        setisEditing(()=> !isEditing)
-        setMealData({})
+        .then(data=>{ console.log(data)})
+        // console.log(e.target.id)
 }
+
+     
+const handleChange = (e) => {
+    setMenuItem({...menu_item,[e.target.name]:e.target.value});
+};
+
+
 return (
     <form onSubmit={handleSubmit} className="editform">
         <label htmlFor="title"><strong style={{color:"white"}}>Update Meal name</strong></label>
         <br />
         <input type="text"
-            defaultValue={mealdata.name}
+            value={menu_item.name}
             name="name"
+            placeholder='name'
             onChange={handleChange}
              />
         <br />
@@ -34,7 +68,7 @@ return (
             type="text"
             rows="10"
             columns="100"
-            defaultValue={mealdata.image_url}
+            value={menu_item.image_url}
             name="image_url"
             onChange={handleChange}
         />
@@ -43,7 +77,7 @@ return (
             type="number"
             rows="10"
             columns="100"
-            defaultValue={mealdata.price}
+            value={menu_item.price}
             name="price"
             onChange={handleChange}
         />
@@ -52,12 +86,12 @@ return (
             type="text"
             rows="10"
             columns="100"
-            defaultValue={mealdata.description}
+            value={menu_item.description}
             name="description"
             onChange={handleChange}
         />
         <br />
-        <button type="submit" className='edit'>Update</button>
+        <button type="submit" className='edit' >Update</button>
     </form>
 )
 }

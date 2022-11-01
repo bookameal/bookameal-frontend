@@ -13,7 +13,7 @@ export default function Orders() {
             .then((response) => response.json())
             .then((data) => {
                 setOrders(data);
-                console.log(data)
+                // console.log(data)
 
             }
             )
