@@ -27,6 +27,7 @@ export default function Orders() {
     return (
         <div className="admin-orders">
         <Nav />
+        <h2 className="menutoday" style={{marginTop:"-100px", fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Order List</h2>
         <Table striped bordered hover variant="dark" className='order-table' style={{position:"absolute", top:"200px", width:"65%"}}>
                 
                     <th className="thead">Order ID</th>
