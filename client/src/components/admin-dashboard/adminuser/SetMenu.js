@@ -61,7 +61,7 @@ export default function SetMenu() {
           <div className="products" style={{display:"flex", flexWrap:"wrap", gap:"50px"}}>
             {data &&
               data?.map((menu_item) => (
-                <div key={menu_item.id} className="product" style={{marginTop:"50px", height:"600px", width:"20%", backgroundImage: 'url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)', border:"0.1px solid #875d2c", boxShadow:"0px 5px 5px 0px", marginTop: "50px"}}>
+                <div key={menu_item.id} className="product" style={{marginTop:"50px", height:"600px", width:"20%", backgroundImage: 'url(https://images.unsplash.com/photo-1521193089946-7aa29d1fe776?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)', border:"0.1px solid #875d2c", boxShadow:"0px 5px 5px 0px", marginTop: "50px"}}>
                   <h3 style={{color:"#002524", fontWeight:"600", textAlign:"center"}}>{menu_item.name}</h3>
                   <img src={menu_item.image_url} alt={menu_item.name} style={{width:"100%", height:"250px",}} />
                   <div className="details" style={{color:"black", fontWeight:"600", fontSize:"25px", textAlign:"center"}}>
