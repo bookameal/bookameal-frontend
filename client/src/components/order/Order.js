@@ -24,14 +24,14 @@ export default function Order() {
   
 
   console.log(cart)
-  console.log(user)
+  console.log(user.user.body.id)
 
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+  const logged =  (user.user.body.id)
   
-  
-const user_id = {user}
+const user_id = logged  
 const menu_item_id= 7
 const quantity = cart.cartItems.length
 const dayTime = new Date()
