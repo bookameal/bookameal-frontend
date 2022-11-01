@@ -14,7 +14,7 @@
     position: absolute;
     top: -350px;
     left: -200px; 
-    z-index: 1;
+    z-index: 100;
 }
 
 .navbar-item-right{
@@ -44,7 +44,7 @@
 .link {
     text-decoration: none;
     font-family: 'Tangerine', serif;
-    font-size: 50px;
+    font-size: 35px;
     color: #002524;
     /* color: rgb(59, 106, 59) !important; */
     font-weight: bolder;
@@ -60,8 +60,27 @@
 .nav-menu-item{
     list-style: none;
     padding: 10px;
+
 }
 
 .nav-menu-item::hover {
     color: #FFCE00;
+}
+
+.logout {
+    text-decoration: none;
+    color: #FFCE00 !important;
+    padding: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: 'Tangerine', serif;
+    font-size: 30px;
+    background-color: #002524;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    position: absolute;
+    right: -10px;
 }

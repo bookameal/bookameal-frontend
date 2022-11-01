@@ -20,7 +20,8 @@ function Navigation() {
             </li>
             <li className="nav-menu-item" >
                 <Link className="link"  to="/UserHome">Menu |</Link> 
-            </li>
+            </li>            
+
             <li className="nav-menu-item">
                 <Link className="link" to="/login">Login |</Link>
             </li>

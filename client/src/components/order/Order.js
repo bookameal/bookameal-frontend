@@ -1,12 +1,40 @@
-import React,{useState} from 'react'
-
-
+import React,{useState, useEffect} from 'react'
+import { useNavigate, useParams} from "react-router-dom"
+import { clearCart } from '../homeuser/CartSlice';
+import { useDispatch, useSelector } from "react-redux"
+import './order.css';
+import {getUser} from '../homeuser/UserSclice'
+ 
 const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
 
 export default function Order() {
+  const navigate = useNavigate();
+ 
+  // const [currentUser] = useState(Parse.User.current());
+  // console.log(currentUser)
 
-  const [quantity] = useState()
-  const [users_id] = useState()
+  const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [user, dispatch]);
+  
+
+  console.log(cart)
+  console.log(user)
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+  
+  
+const user_id = {user}
+const menu_item_id= 7
+const quantity = cart.cartItems.length
+const dayTime = new Date()
+
 
   const [orders, setOrders] = useState([]);
 
@@ -24,16 +52,20 @@ export default function Order() {
       },
       body: JSON.stringify({
       quantity,
-      users_id,
+      dayTime,
+      user_id,
+      menu_item_id,
       }),
     })
       .then((r) => r.json())
       .then((newOrder) => addOrder(newOrder));
+      handleClearCart()
+      navigate("/placed");
   }
 
   return (
     <div>
-      <button onClick={handleSubmit}>Book</button>
+      <button className="getStarted" onClick={handleSubmit}>Book</button>
       {/* You have successfully placed your order */}
       </div>
   )

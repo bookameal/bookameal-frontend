@@ -9,7 +9,7 @@ export default function Orders() {
 
 
     useEffect(() => {
-        fetch("http://localhost:3000/orders")
+        fetch("https://bookameal-backend.herokuapp.com/orders")
             .then((response) => response.json())
             .then((data) => {
                 setOrders(data);
