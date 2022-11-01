@@ -13,6 +13,7 @@ import Register from '../main-dashboard/Register';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Orders from "./OrderList";
+import AddItem from "../AddItem";
 
 function App() {
   
@@ -28,6 +29,7 @@ function App() {
         <Route path="/UserHome" element={<UserHomepage />} />
         <Route path='/login' element={<LoginForm />}/>
         <Route path='/register' element={<Register />}/>
+        <Route path='/additem' element={<AddItem />}/>
       </Routes>
     </Router>
   );
