@@ -16,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserOrders from "../order/UserOrders";
 import AfterOrder from "../order/AfterOrder";
 import AddItem from "../admin-dashboard/AddItem";
+import Carousel from "../homeuser/Carousel"
 // import EditMenu from "../adminuser/EditMenu";
 
 import Orders from "../admin-dashboard/OrderList";
