@@ -22,7 +22,10 @@ function Navigation() {
                 <Link className="link"  to="/UserHome">Menu |</Link> 
             </li>
             <li className="nav-menu-item">
-                <Link className="link" to="/login">Login</Link>
+                <Link className="link" to="/login">Login |</Link>
+            </li>
+            <li className="nav-menu-item">
+                <Link className="link" to="/additem">AddItem</Link>
             </li>
             </ul>
         </div>

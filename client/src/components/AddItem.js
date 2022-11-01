@@ -30,7 +30,7 @@ function AddItem() {
     setItems({ ...Items, [e.target.name]: e.target.value });
   }
 
-  function handleClickDelete(e) {
+  function handleDeleteClick(e) {
     fetch(`https://bookameal-backend.herokuapp.com/menu_items/${e.target.id}`, {
       method: "DELETE",
     })
@@ -38,8 +38,8 @@ function AddItem() {
       .then((deleteItem) => handleDelete(deleteItem));
   }
   function handleDelete(deleteItem) {
-    let newItems = Items.filter((Items) => Items.id !== deleteItem.id);
-    setItems(newItems);
+    let newMeals = Items.filter((item) => item.id !== deleteItem.id);
+    setItems(newMeals);
   }
 
   return (
@@ -115,10 +115,10 @@ function AddItem() {
           onChange={handleChange}
         />
          <button className='button'>submit</button>
-        <button id={Items.id} className="button" onClick={handleClickDelete}>
+      </form>
+      <button id={Items.id} className="button" onClick={handleDeleteClick}>
               Remove
             </button>
-      </form>
     </div>
   );
 }
