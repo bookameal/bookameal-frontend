@@ -71,7 +71,7 @@ function Register(){
                 </div>
                 <button type='submit' className='log' id='logIn'>Sign Up</button>
               </div>
-              <img src={regimg} alt="ramen" className="regimg" width ="770" height="760"/>
+              <img src={regimg} alt="ramen" className="regimg" width ="570" height="760"/>
 
             </form>
     </div>

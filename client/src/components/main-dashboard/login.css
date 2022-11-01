@@ -171,10 +171,10 @@ form .form-inner input[type="submit"]:hover{
 }
 
 .reg {
-    margin-left: 100px;
+    /* margin-left: 100px; */
 }
 
 .regimg {
     z-index: 11;
-    margin-left: 150px;
+    margin-left: 50px;
 }
