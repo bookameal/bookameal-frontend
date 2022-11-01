@@ -45,8 +45,7 @@ body {
 .d-flex {
   position: absolute;
   top: 360px;
-  left: 500px;
-
+  left: 600px;
 }
 
 input:focus {
