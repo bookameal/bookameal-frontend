@@ -39,7 +39,7 @@ function App() {
         <Route path='/placed' element={<AfterOrder/>}/>
         <Route path='/admin' element={<AdminDashboard />}/>
         <Route path='/addItem' element={<AddItem />}/>
-        {/* <Route path='/edit-menu' element={<EditMenu />} /> */}
+        <Route path='/orders' element={<Orders />} />
       </Routes>
     </Router>
   );
