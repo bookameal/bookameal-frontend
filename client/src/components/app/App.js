@@ -39,7 +39,6 @@ function App() {
         <Route path='/placed' element={<AfterOrder/>}/>
         <Route path='/admin' element={<AdminDashboard />}/>
         <Route path='/addItem' element={<AddItem />}/>
-        <Route path='/layout' element={<AdminDash />}/>
         {/* <Route path='/edit-menu' element={<EditMenu />} /> */}
       </Routes>
     </Router>
