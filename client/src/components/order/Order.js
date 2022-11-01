@@ -64,9 +64,11 @@ const dayTime = new Date()
   }
 
   return (
-    <div>
-      <button className="getStarted" onClick={handleSubmit}>Book</button>
-      {/* You have successfully placed your order */}
+    <div className="bookmeal">
+      <div>
+        <button className="getStarted" style={{padding:"7px", backgroundColor:"#002524", fontSize:"22px", fontWeight:"600", borderBottomRightRadius:"15px", borderBottomLeftRadius:"15px"}} onClick={handleSubmit}>Place Order</button>
       </div>
+      {/* You have successfully placed your order */}
+    </div>
   )
 }
