@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from "react";
 import axios from "axios";
-// import './addItem.css'; 
+import Nav from '../Nav';
+import './addItem.css'; 
 
 function AddItem() {
   const [Items, setItems] = useState({
@@ -43,82 +44,85 @@ function AddItem() {
   }
 
   return (
-    <div >
-      <form id="addItem" onSubmit={handleSubmit}>
-        <h3>Add meal </h3>
-        
-        <br />
-        <label htmlFor="name">Name</label>
-        <input
-          placeholder="enter the name"
-          type="text"
-          name="name"
-          value={Items.name}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="price">
-          {""}
-          price</label>
-        <input
-          placeholder="enter the price"
-          type="text"
-          name="price"
-          value={Items.price}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="description">description</label>
-        <input
-          placeholder="enter the description"
-          type="text"
-          name="description"
-          value={Items.description}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="image">Image</label>
-        <input
-          placeholder="enter the image_url"
-          type="text"
-          name="image_url"
-          id="image"
-          value={Items.image_url}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="onmenu">on_menu</label>
-        <input
-          placeholder="enter the menu"
-          type="text"
-          name="on-menu"
-          input="true"
-          value= {Items.on_menu}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="category">Category</label>
-        <input
-          placeholder="enter the category_id"
-          type="text"
-          name="category_id"
-          value={Items.category_id}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="usertype">user_type</label>
-        <input
-          placeholder="enter the user_type"
-          type="text"
-          name="user_type"
-          value={Items.user_type}
-          onChange={handleChange}
-        />
-         <button className='button'>submit</button>
-        <button id={Items.id} className="button" onClick={handleClickDelete}>
-              Remove
-            </button>
-      </form>
+    <div className="add-menu-item">
+      <div><Nav /></div>
+        <div>
+          <h2 className="menutoday" style={{marginTop:"-100px", fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Add to Menu</h2>
+          <form className="add-item-form" id="addItem" onSubmit={handleSubmit}>
+            <br />
+            <label htmlFor="name">Name :</label>
+            <input
+              placeholder="Enter Meal Name"
+              type="text"
+              name="name"
+              value={Items.name}
+              onChange={handleChange}
+              />
+            <br />
+            <label htmlFor="price">
+              {""}
+              Price :</label>
+            <input
+              placeholder="Enter the Meal's Price"
+              type="text"
+              name="price"
+              value={Items.price}
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="description">
+              Meal Description :</label>
+            <input
+              placeholder="Enter the Meal's Description"
+              type="text"
+              name="description"
+              value={Items.description}
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="image">Image URL:</label>
+            <input
+              placeholder="Enter the Meal's Image Link"
+              type="text"
+              name="image_url"
+              id="image"
+              value={Items.image_url}
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="onmenu">Is Item on Today's Menu ?</label>
+            <input
+              placeholder="Is Item on Today's Menu?"
+              type="text"
+              name="on-menu"
+              input="true"
+              value= {Items.on_menu}
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="category">Menu Category :</label>
+            <input
+              placeholder="enter the category_id"
+              type="text"
+              name="category_id"
+              value={Items.category_id}
+              onChange={handleChange}
+              />
+            <br />
+            <label htmlFor="usertype">User_Type :</label>
+            <input
+              placeholder="enter the user_type"
+              type="text"
+              name="user_type"
+              value={Items.user_type}
+              onChange={handleChange}
+            />
+          <button className='add-button'>Add to Menu</button>
+          {/* <button id={Items.id} className="button" onClick={handleClickDelete}>
+                Clear
+          </button> */}
+        </form>
+      </div>
     </div>
   );
 }
