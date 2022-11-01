@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import './order.css';
 
 export default function AfterOrder() {
   return (
-    <div className="order-details">
+    <div className="order-details" >
          <h3 className="success-message">Your order has been placed.</h3>
          <div className="continue-shopping">
             <Link to="/UserHome">
