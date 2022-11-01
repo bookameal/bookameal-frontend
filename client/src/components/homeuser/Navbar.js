@@ -53,7 +53,7 @@ function HomeNavbar() {
             </li>
 
             <li className="nav-menu-item">
-                <Link className="link" to="/orders">| My Orders |</Link>
+                <Link className="link" to="/UserOrder">| My Orders |</Link>
             </li>
             <li className="nav-menu-item">
               <Link className="link" to="/login">Logout</Link>

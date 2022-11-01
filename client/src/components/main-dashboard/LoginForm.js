@@ -46,7 +46,7 @@ function submitHandler(e){
      <div className="join">
         <Navigation />
             <form onSubmit={submitHandler}>
-            <img src={logimg} alt="ramen" className="logimg" width ="750" height="750"/>
+            <img src={logimg} alt="ramen" className="logimg" width ="50%" height="750"/>
                 <div className="form-inner">
                     <h2>Login to order</h2>
                     {(error !== "") ? (<div className="error">{error}</div>) : ""}

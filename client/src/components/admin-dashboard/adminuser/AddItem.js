@@ -1,7 +1,11 @@
 import React from 'react';
 import { useState } from "react";
 import axios from "axios";
+<<<<<<< HEAD:client/src/components/admin-dashboard/AddItem.js
 import '../admin-dashboard/adminuser/AddItem.css'; 
+=======
+// import './addItem.css'; 
+>>>>>>> 535f5809f978db1421e27988ca844f381bc34db3:client/src/components/admin-dashboard/adminuser/AddItem.js
 
 function AddItem() {
   const [Items, setItems] = useState({

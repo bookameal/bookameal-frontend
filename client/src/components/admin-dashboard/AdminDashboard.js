@@ -5,27 +5,33 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Order from '../order/Order';
 import Orders from './OrderList';
-
+import AddItem from './adminuser/AddItem';
 import EditMenu from './adminuser/EditMenu';
 import SetMenu from './adminuser/SetMenu';
+import '../homeuser/user.css';
+
 
 
 function Admin () {
 
+
     return (
         <div className="admin">
             <Navigation />
-            <Order />
-            <Orders />
+            <div>
+            <h2 className="menutoday" style={{fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Menu Items</h2>
+            </div>
+            <SetMenu />
+            {/* <Order />
+            <Orders /> */}
             <Tabs
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
             className="mb-3 toggle">
-            <Tab eventKey="setmenu" title="Set Menu" id="setmenu">
-              <div>
-              <SetMenu />
-              </div>
+            <Tab eventKey="editmenu" title="Add Item">
+              <AddItem />
             </Tab>
+            
             <Tab eventKey="editmenu" title="Edit Menu">
               <EditMenu />
             </Tab>

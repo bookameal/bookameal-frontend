@@ -28,11 +28,11 @@ export default function Cart() {
   };
 
   return (
-  <div className="cart-container">
+  <div className="cart-container" style={{backgroundImage:'url("../../assets/Tasty-Treats-backdrop.jpg")'}}>
   <h2>My Orders</h2>
   {cart.cartItems.length === 0 ? (
     <div className="cart-empty">
-      <p>Your cart is currently empty</p>
+      <p style={{color:"#002524"}}>Your cart is currently empty &#128533;</p>
       <div className="start-shopping">
         <Link to="/UserHome">
           <svg
