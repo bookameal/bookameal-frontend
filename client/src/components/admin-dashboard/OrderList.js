@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Card from 'react-bootstrap/Card';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Table from 'react-bootstrap/Table';
 import '../../../src/App.css';
@@ -8,9 +9,8 @@ export default function Orders() {
 
     const [orders, setOrders] = useState([]);
 
-
     useEffect(() => {
-        fetch("https://bookameal-backend.herokuapp.com/orders")
+        fetch("http://localhost:3000/orders")
             .then((response) => response.json())
             .then((data) => {
                 setOrders(data);
@@ -23,7 +23,6 @@ export default function Orders() {
         // })
     }, []);
 
-
     return (
         <div className="admin-orders">
         <Nav />
@@ -35,21 +34,40 @@ export default function Orders() {
                     <th className="thead">User Name</th>
                     <th className="thead">Menu Item</th>
                     <th className="thead">Quantity</th>
+                    <th className="thead">Total</th>
+
             
             {orders.map((item) => (
                 <tbody>
                     <tr style={{color:"#002524", textAlign:"center", fontSize:"18px"}}>
                         <td className="tdid">#{item.id}</td>
-                        <td>{item.day}</td>
+                        <td>{item.dayTime}</td>
                         <td>{item.user.user_name}</td>
                         <td>{item.menu_item_id}</td>
-                        {/* <td>{item.quantity}</td> */}
+                        <td>{item.quantity}</td>
+                        <td>{item.total * item.quantity}</td>
+                        
+
                     </tr>
 
                 </tbody>
             ))}
 
         </Table>
+        {/* <Card className='totalsale' border="primary" style={{ width: '18rem' }}>
+        <Card.Header>Total Sales</Card.Header>
+        <Card.Body>
+
+          <Card.Title>End of day total sales</Card.Title>
+          {orders.map((item) => (
+
+          <Card.Text>
+            <p>{item.total * item.quantity}</p>
+          </Card.Text>
+                      ))}
+
+        </Card.Body>
+      </Card> */}
         </div>
     );
 }
