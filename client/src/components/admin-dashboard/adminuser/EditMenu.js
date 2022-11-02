@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import { useNavigate, useParams} from "react-router-dom"
-
+import React, {useState, useEffect} from 'react';
+import { useNavigate, useParams} from "react-router-dom";
+import Nav from '../Nav';
+import './addItem.css';
 
 
 export default function EditForm() {
@@ -52,45 +53,51 @@ const handleChange = (e) => {
 
 
 return (
-    <form onSubmit={handleSubmit} className="editform">
-        <label htmlFor="title"><strong style={{color:"white"}}>Update Meal name</strong></label>
-        <br />
-        <input type="text"
-            value={menu_item.name}
-            name="name"
-            placeholder='name'
-            onChange={handleChange}
-             />
-        <br />
-        <label htmlFor='image_url' />
-        <textarea
-            type="text"
-            rows="10"
-            columns="100"
-            value={menu_item.image_url}
-            name="image_url"
-            onChange={handleChange}
-        />
-        <label htmlFor='price' />
-        <textarea
-            type="number"
-            rows="10"
-            columns="100"
-            value={menu_item.price}
-            name="price"
-            onChange={handleChange}
-        />
-        <label htmlFor='body' />
-        <textarea
-            type="text"
-            rows="10"
-            columns="100"
-            value={menu_item.description}
-            name="description"
-            onChange={handleChange}
-        />
-        <br />
-        <button type="submit" className='edit' >Update</button>
-    </form>
+    <div className="edit-page">
+        <div><Nav /></div>
+        <div>
+            <h2 className="menutoday" style={{marginTop:"-100px",fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Edit Menu Item</h2>
+            <form onSubmit={handleSubmit} className="editform">
+                <label htmlFor="title"><strong style={{color:"white"}}>Update Meal Name :</strong></label>
+                <br />
+                <input type="text"
+                    value={menu_item.name}
+                    name="name"
+                    placeholder='name'
+                    onChange={handleChange}
+                    />
+                <br />
+                <label htmlFor='image_url'><strong style={{color:"white"}}>Edit Image URL :</strong></label>
+                <textarea
+                    type="text"
+                    rows="4"
+                    columns="100"
+                    value={menu_item.image_url}
+                    name="image_url"
+                    onChange={handleChange}
+                />
+                <br />
+                <label htmlFor='price'><strong style={{color:"white"}}>Edit Price :</strong></label>
+                <input
+                    type="text"
+                    value={menu_item.price}
+                    name="price"
+                    placeholder="Price"
+                    onChange={handleChange}
+                    />
+                <label htmlFor='body'><strong style={{color:"white"}}>Edit Description :</strong></label>
+                <textarea
+                    type="text"
+                    rows="4"
+                    columns="100"
+                    value={menu_item.description}
+                    name="description"
+                    onChange={handleChange}
+                    />
+                <br />
+                <button type="submit" className='edit' >Update</button>
+            </form>
+        </div>
+    </div>
 )
 }
