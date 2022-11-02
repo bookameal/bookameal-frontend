@@ -3,8 +3,10 @@ import { useState } from "react";
 import axios from "axios";
 import Nav from '../Nav';
 import './addItem.css'; 
+import { useNavigate} from "react-router-dom";
 
 function AddItem() {
+  const navigate = useNavigate();
   const [Items, setItems] = useState({
     name: "",
     price: "",
@@ -26,6 +28,7 @@ function AddItem() {
       category_id: Items.category_id,
       user_type: Items.user_type,
     });
+    navigate("/admin");
     
   }
   
@@ -52,7 +55,7 @@ function AddItem() {
           <h2 className="menutoday" style={{marginTop:"-100px", fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Add to Menu</h2>
           <form className="add-item-form" id="addItem" onSubmit={handleSubmit}>
             <br />
-            <label htmlFor="name">Name :</label>
+            <label htmlFor="name"><span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43;  Name :</span></label>
             <input
               placeholder="Enter Meal Name"
               type="text"
@@ -63,7 +66,7 @@ function AddItem() {
             <br />
             <label htmlFor="price">
               {""}
-              Price :</label>
+              <span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43;  Price :</span></label>
             <input
               placeholder="Enter the Meal's Price"
               type="text"
@@ -73,7 +76,7 @@ function AddItem() {
             />
             <br />
             <label htmlFor="description">
-              Meal Description :</label>
+            <span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43;  Meal Description :</span></label>
             <input
               placeholder="Enter the Meal's Description"
               type="text"
@@ -82,7 +85,7 @@ function AddItem() {
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="image">Image URL:</label>
+            <label htmlFor="image"><span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43;  Image URL :</span></label>
             <input
               placeholder="Enter the Meal's Image Link"
               type="text"
@@ -92,7 +95,7 @@ function AddItem() {
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="onmenu">Is Item on Today's Menu ?</label>
+            <label htmlFor="onmenu"><span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43; Is Item on Today's Menu ? </span></label>
             <input
               placeholder="Is Item on Today's Menu?"
               type="text"
@@ -102,7 +105,7 @@ function AddItem() {
               onChange={handleChange}
             />
             <br />
-            <label htmlFor="category">Menu Category :</label>
+            <label htmlFor="category"><span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43;  Menu Category :</span></label>
             <input
               placeholder="enter the category_id"
               type="text"
@@ -111,7 +114,7 @@ function AddItem() {
               onChange={handleChange}
               />
             <br />
-            <label htmlFor="usertype">User_Type :</label>
+            <label htmlFor="usertype"><span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43;  User Type :</span></label>
             <input
               placeholder="enter the user_type"
               type="text"
