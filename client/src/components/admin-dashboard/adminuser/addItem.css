@@ -1,22 +1,60 @@
-#addItem{
-    margin-block: 20px;
-    padding-left: 30px;
-    justify-content: right;
+.add-menu-item {
+    background-image: url('../../../assets/Tasty-Treats-backdrop.jpg');
+    /* background-image: url('../../../assets/Avocado.gif'); */
+    min-height: 150vh;
+}
+
+.add-item-form{
+    position:absolute;
+    top: 250px;
+    left: 400px;
+    padding: 30px;
     border: 10px;
-    /* background-color: blue; */
-    width: 200px;
+    background-image: url(../../../assets/Emerald-Backdrop2.jpg);
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    width: 60%;
+    height: 1150px;
   } 
-  
-  h3{
-    text-align: left;
+
+  .add-item-form label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #FFCE00;
+    font-size: 18px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    transition: 0.4s;
+    margin-left: 175px;
+    font-weight: 600;
+  }
+
+  .add-item-form input {
+    display: block;
+    width: 75%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color:rgba(245, 245, 245, 0.854);
+    transition: 0.4s;
+    margin-left: 175px;
+    height: 50px;
+    font-size: 18px;
   }
   
-  .itemform{
-    background-color: burlywood;
-  }
-  .button{
-    border-radius: 10px;
-    margin: 10px;
-    padding: 10px;
-    left: 60px; 
+  .add-button{
+    display: inline-block;
+    padding: 10px 55px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-color: #875d2c;
+    background-size: 200%;
+    transition: 0.4s;
+    font-size: 22px;
+    font-weight: 900;
+    cursor: pointer;
+    margin-left: 400px;
+    margin-top: 75px;
+    color: white;
+    border: 1px solid #002524;
   }

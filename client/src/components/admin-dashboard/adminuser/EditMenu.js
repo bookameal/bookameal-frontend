@@ -37,8 +37,6 @@ export default function EditForm() {
 
 function handleSubmit(e){
     e.preventDefault()
-    // let id = e.target.id
-    // let id = menu_item.id
     fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`,{
         method: "PATCH",
         headers: {
@@ -56,7 +54,6 @@ function handleSubmit(e){
     .then((updatedItem) => handleUpdateItem(updatedItem));
 
         navigate("/admin");
-        // console.log(e.target.id)
 }
 
      

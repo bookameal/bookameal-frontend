@@ -45,7 +45,7 @@ function submitHandler(e){
     return(
      <div className="join">
         <Navigation />
-            <form onSubmit={submitHandler}>
+            <form className="form-login" onSubmit={submitHandler}>
             <img src={logimg} alt="ramen" className="logimg" width ="50%" height="750"/>
                 <div className="form-inner">
                     <h2>Login to order</h2>

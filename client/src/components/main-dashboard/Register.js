@@ -50,7 +50,7 @@ function Register(){
   return (
     <div className="join">
         <Navigation />
-            <form action="" onSubmit={handleSubmit}>
+            <form className="form-login" onSubmit={handleSubmit}>
               <div className="form-inner reg">
                 <h2>Register to get started</h2> 
                 <div className="form-group">

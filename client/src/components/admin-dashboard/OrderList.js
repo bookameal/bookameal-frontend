@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Table from 'react-bootstrap/Table';
-import '../../../src/App.css'
+import '../../../src/App.css';
+import Nav from './Nav'
 
 export default function Orders() {
 
@@ -24,19 +25,22 @@ export default function Orders() {
 
 
     return (
-        <Table striped bordered hover className='order-table'>
+        <div className="admin-orders">
+        <Nav />
+        <h2 className="menutoday" style={{marginTop:"-100px", fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Order List</h2>
+        <Table striped bordered hover variant="dark" className='order-table' style={{position:"absolute", top:"200px", width:"65%"}}>
                 
-                    <th>Order ID</th>
-                    <th>Date</th>
-                    <th>User Name</th>
-                    <th>Menu Item</th>
-                    {/* <th>Quantity</th> */}
+                    <th className="thead">Order ID</th>
+                    <th className="thead">Date</th>
+                    <th className="thead">User Name</th>
+                    <th className="thead">Menu Item</th>
+                    <th className="thead">Quantity</th>
             
             {orders.map((item) => (
                 <tbody>
-                    <tr>
-                        <td>#{item.id}</td>
-                        <td>{item.dayTime}</td>
+                    <tr style={{color:"#002524", textAlign:"center", fontSize:"18px"}}>
+                        <td className="tdid">#{item.id}</td>
+                        <td>{item.day}</td>
                         <td>{item.user.user_name}</td>
                         <td>{item.menu_item_id}</td>
                         {/* <td>{item.quantity}</td> */}
@@ -46,5 +50,6 @@ export default function Orders() {
             ))}
 
         </Table>
+        </div>
     );
 }

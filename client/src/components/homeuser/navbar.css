@@ -12,6 +12,13 @@
 }
 
 .carticon {
+    color: #002524;
+    position: relative;
+    top: -5px;
+    font-weight: 700;
+    }
+
+.carticon:hover {
 color: #875d2c;
 position: relative;
 top: -5px;

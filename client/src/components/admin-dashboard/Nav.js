@@ -1,10 +1,10 @@
 import React from 'react'
-import "./navigation.css"
+import "../main-dashboard/navigation.css"
 import { Link } from "react-router-dom";
 import tastytreats from '../../assets/titty.gif';
 import { FaHome } from "react-icons/fa";
 
-function Navigation() {
+function Nav() {
   return (
     <div className="navbar">
         <div className = "navbar-item-left">
@@ -17,18 +17,19 @@ function Navigation() {
         <div className = "navbar-item-right">
             <ul className="nav-menu">
             <li className="nav-menu-item" >
-                <Link className="link" to="/"><FaHome className="carticon" /> |</Link>
+                <Link className="link" to="/admin">
+                <FaHome className="carticon" /> |</Link>
             </li>
             <li className="nav-menu-item" >
-                <Link className="link"  to="/UserHome">Menu |</Link> 
+                <Link className="link"  to="/addItem"><span style={{fontFamily:"Simonetta", fontSize:"28px", fontWeight:"900", color:"#875d2c"}}>&#43;</span> Menu Item |</Link> 
             </li>            
 
             <li className="nav-menu-item">
-                <Link className="link" to="/login">Login</Link>
+                <Link className="link" to="/orders">Orders</Link>
             </li>
             </ul>
         </div>
       </div>
 )};
 
-export default Navigation;
+export default Nav;

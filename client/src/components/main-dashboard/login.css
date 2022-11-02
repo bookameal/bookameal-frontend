@@ -1,4 +1,4 @@
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,7 +16,7 @@ input, button {
     outline: none;
 }
 
-form {
+.form-login {
     display: flex;
     position: relative;
     top:200px;
@@ -26,7 +26,7 @@ form {
     border-top-right-radius: 15px;
 }
 
-form::after {
+.form-login::after {
     content: '';
     display: block;
     position: absolute;
@@ -168,4 +168,4 @@ form .form-inner input[type="submit"]:hover{
 .regimg {
     z-index: 11;
     margin-left: 50px;
-} */
+}

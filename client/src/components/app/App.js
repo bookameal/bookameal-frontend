@@ -39,6 +39,7 @@ function App() {
         <Route path='/placed' element={<AfterOrder/>}/>
         <Route path='/admin' element={<AdminDashboard />}/>
         <Route path='/addItem' element={<AddItem />}/>
+        <Route path='/orders' element={<Orders />} />
         <Route path='/EditMenu/:id' element={<EditMenu />} />
       </Routes>
     </Router>
