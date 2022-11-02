@@ -57,7 +57,7 @@ export default function SetMenu() {
         <div>
           <div
             className="products"
-            style={{ display: "flex", flexWrap: "wrap", gap: "50px" }}
+            style={{ display: "flex", flexWrap: "wrap", gap: "50px", height: "750px"}}
           >
             {data &&
               data?.map((menu_item) => (
@@ -66,7 +66,7 @@ export default function SetMenu() {
                   className="product"
                   style={{
                     marginTop: "50px",
-                    height: "600px",
+                    height: "750px",
                     width: "20%",
                     backgroundImage:
                       "url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)",
@@ -94,7 +94,7 @@ export default function SetMenu() {
                     style={{
                       color: "black",
                       fontWeight: "600",
-                      fontSize: "25px",
+                      fontSize: "22px",
                       textAlign: "center",
                     }}
                   >
@@ -106,10 +106,7 @@ export default function SetMenu() {
                   </div>
                   <div
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
+                      display: "block", }}
                   >
                     <button
                       style={{
@@ -118,6 +115,7 @@ export default function SetMenu() {
                         height: "60px",
                         paddingTop: "15px",
                         paddingBottom: "15px",
+                        margin: "20px",
                         fontSize: "18px",
                         fontWeight: "600",
                         borderBottomLeftRadius: "15px",
@@ -127,7 +125,7 @@ export default function SetMenu() {
                     >
                       Set to Menu
                     </button>
-                    <Link id={menu_item.id} className="link" to={`/EditMenu/${menu_item.id}`}>
+                    <Link id={menu_item.id} to={`/EditMenu/${menu_item.id}`}>
                       <button
                         id={menu_item.id}
                         style={{
@@ -143,14 +141,15 @@ export default function SetMenu() {
                           textAlign: "center",
                         }}
                       >
-                        Edit
+                        Edit Item
                       </button>
                     </Link>
                     <button
                       id={menu_item.id}
                       onClick={handleClickDelete}
                       style={{
-                        backgroundColor: "#002524",
+                        backgroundColor: "#875d2c",
+                        color: "#fff",
                         width: "150px",
                         height: "60px",
                         paddingTop: "15px",
@@ -169,11 +168,6 @@ export default function SetMenu() {
               ))}
           </div>
         </div>
-        {/* <h2>Today's Special delicacy</h2>
-                <img src={image_url} style={{height: 200 + 'px', width: 200 + 'px',}} alt="name" />
-                <p><strong>Name:</strong>{name}</p>
-                <p><strong>Price:</strong>{price}</p>
-                <p><strong>Description:</strong>{description}</p> */}
       </center>
     </div>
   );
