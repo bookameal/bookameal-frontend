@@ -1,0 +1,22 @@
+#addItem{
+    margin-block: 20px;
+    padding-left: 30px;
+    justify-content: right;
+    border: 10px;
+    /* background-color: blue; */
+    width: 200px;
+  } 
+  
+  h3{
+    text-align: left;
+  }
+  
+  .itemform{
+    background-color: burlywood;
+  }
+  .button{
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    left: 60px; 
+  }

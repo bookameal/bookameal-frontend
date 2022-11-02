@@ -17,8 +17,10 @@ import UserOrders from "../order/UserOrders";
 import AfterOrder from "../order/AfterOrder";
 import AddItem from "../admin-dashboard/AddItem";
 // import EditMenu from "../adminuser/EditMenu";
+// import Orders from "../admin-dashboard/OrderList";
+import OrderGet from "../order/OrderGet";
 
-import Orders from "../admin-dashboard/OrderList";
+
 
 function App() {
   
@@ -38,7 +40,9 @@ function App() {
         <Route path='/placed' element={<AfterOrder/>}/>
         <Route path='/admin' element={<AdminDashboard />}/>
         <Route path='/addItem' element={<AddItem />}/>
+    
         {/* <Route path='/edit-menu' element={<EditMenu />} /> */}
+        <Route path='/orders' element={<OrderGet />}/>
       </Routes>
     </Router>
   );

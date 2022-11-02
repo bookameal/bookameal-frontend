@@ -26,8 +26,12 @@ function Navigation() {
                 <Link className="link" to="/login">Login |</Link>
             </li>
             <li className="nav-menu-item">
-                <Link className="link" to="/additem">AddItem</Link>
+                <Link className="link" to="/additem">AddItem |</Link>
             </li>
+           
+            {/* <li className="nav-menu_item">
+                <Link className="link" to="/OrderGet">OrderGet</Link>
+            </li> */}
             </ul>
         </div>
       </div>
