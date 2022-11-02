@@ -16,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserOrders from "../order/UserOrders";
 import AfterOrder from "../order/AfterOrder";
 import AddItem from "../admin-dashboard/AddItem";
+import OrderGet from "../order/OrderGet";
 // import EditMenu from "../adminuser/EditMenu";
 
 
@@ -27,7 +28,7 @@ function App() {
        <ToastContainer />
       <Routes>
       <Route path='/cart' element={<Cart />} />
-      <Route path='/orders' element={<Orders />} />
+      <Route path='/orders' element={<OrderGet/>} />
       <Route path="/not-found" element={<NotFound/>} />
       {/* <Route path="/" element={<UserHomepage />} /> */}
         <Route path="/" element={<Dashboard />} />
