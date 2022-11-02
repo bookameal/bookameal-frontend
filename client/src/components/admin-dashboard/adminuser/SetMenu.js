@@ -9,6 +9,7 @@ export default function SetMenu() {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const { data, error, isLoading } = useGetAllMenu_itemsQuery();
+  const [menuItem, setMenuItem] =useState([])
 
   const [Items, setItems] = useState({
     name: "",
@@ -33,9 +34,10 @@ export default function SetMenu() {
         setImage_url(menu_item.image_url);
       });
   }, []);
+  
 
   function handleDelete(deleteItem) {
-    setItems(Items.filter((Items) => Items.id !== deleteItem.id));
+    setItems(Items.filter((Item) => Item.id !== deleteItem.id));
   }
 
   function handleClickDelete(e) {
@@ -53,7 +55,6 @@ export default function SetMenu() {
     <div>
       <center>
         <div>
-          {/* <h2>Orders of the Day</h2> */}
           <div
             className="products"
             style={{ display: "flex", flexWrap: "wrap", gap: "50px" }}

@@ -5,13 +5,10 @@ import { useDispatch, useSelector } from "react-redux"
 import './order.css';
 import {getUser} from '../homeuser/UserSclice'
  
-const orderAPI = "http://127.0.0.1:3000/orders"
+const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
 
 export default function Order() {
   const navigate = useNavigate();
- 
-  // const [currentUser] = useState(Parse.User.current());
-  // console.log(currentUser)
 
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
@@ -72,7 +69,6 @@ const dayTime = new Date()
       <div>
         <button className="getStarted" style={{padding:"7px", backgroundColor:"#002524", fontSize:"22px", fontWeight:"600", borderBottomRightRadius:"15px", borderBottomLeftRadius:"15px"}} onClick={handleSubmit}>Place Order</button>
       </div>
-      {/* You have successfully placed your order */}
     </div>
   )
 }
