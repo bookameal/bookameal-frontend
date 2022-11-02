@@ -20,6 +20,7 @@ import Carousel from "../homeuser/Carousel"
 // import EditMenu from "../adminuser/EditMenu";
 
 import Orders from "../admin-dashboard/OrderList";
+import EditForm from "../admin-dashboard/adminuser/EditForm";
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
         <Route path='/placed' element={<AfterOrder/>}/>
         <Route path='/admin' element={<AdminDashboard />}/>
         <Route path='/addItem' element={<AddItem />}/>
+        <Route path='/editform' element={<EditForm />}/>
         {/* <Route path='/edit-menu' element={<EditMenu />} /> */}
       </Routes>
     </Router>

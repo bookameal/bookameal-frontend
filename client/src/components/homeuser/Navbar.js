@@ -19,6 +19,9 @@ function HomeNavbar() {
   const { cartTotalQuantity } = useSelector((state) => state.cart);
 
   // const [user, setUser] = useState(null);
+  // let user = JSON.parse(localStorage.getItem("user-info"))
+  // console.log(user)
+
   const navigate=useNavigate()
 
   function handleLogoutClick() {
@@ -42,6 +45,7 @@ function HomeNavbar() {
         </div>
         <div className = "navbar-item-right">
             <ul className="nav-menu">
+              {/* localStorage.get */}
             <li className="nav-menu-item" >
                 <Link className="link" to="/">Home |</Link>
             </li>
@@ -55,9 +59,13 @@ function HomeNavbar() {
             <li className="nav-menu-item">
                 <Link className="link" to="/UserOrder">| My Orders |</Link>
             </li>
-            <li className="nav-menu-item">
-              <Link className="link" to="/login">Logout</Link>
-            </li>
+            {/* {   localStorage.getItem("user-info")? */}
+               <li className="nav-menu-item" >
+               <Link className="link" to="/login" onClick={handleLogoutClick}>Logout</Link>
+             </li>
+             {/* :null
+            } */}
+           
           </ul>
         </div>
         

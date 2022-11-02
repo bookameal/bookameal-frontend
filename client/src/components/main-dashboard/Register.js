@@ -41,7 +41,7 @@ function Register(){
         })
         
           event.target.reset()
-          navigate('/UserHome')
+          navigate('/login')
           alert(`User Account Created succesfully`)
         }
     }

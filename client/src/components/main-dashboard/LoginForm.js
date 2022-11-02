@@ -30,8 +30,15 @@ function submitHandler(e){
     body: JSON.stringify({ email, password }),
   }).then((r) => {
     setIsLoading(false);
+    // r.json().then((user) => {
+    //   user.admin === true ? navigate("/admin") : navigate("/UserHome");
+    // });
     if (r.ok) {
-      r.json().then((user) =>  localStorage.setItem('user', JSON.stringify(user)))
+      // r.json().then((user) =>  localStorage.setItem('user', JSON.stringify(user)))
+
+      r.json().then((user) => {
+        user.user_type === 1 ? navigate("/admin") : navigate("/UserHome");
+      });
       
       navigate('/UserHome')
       alert('Login Successfull !...')
