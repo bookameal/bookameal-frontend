@@ -13,7 +13,6 @@
 input, button {
     appearance: none;
     background: none;
-    /* border: none; */
     outline: none;
 }
 
@@ -37,17 +36,14 @@ input, button {
     bottom: -5px;
     z-index: 1;
     background-image: url('../../assets/Emerald-Backdrop2.jpg');
-    /* background-image: linear-gradient(to bottom right, #002524, #9688757f ); */
 }
 
 form .form-inner {
     position: relative;
     display: block;
-    /* background-color: transparent; */
     padding: 35px;
     z-index: 2;
     margin-top: 50px;
-    /* background-image: inherit; */
 }
 
 form .form-inner h2{
@@ -59,7 +55,6 @@ form .form-inner h2{
 }
 
 form .form-inner h3{
-    /* color: #fbad53; */
 
     color: white;
     font-size: 20px;

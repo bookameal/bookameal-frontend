@@ -26,22 +26,24 @@ function AddItem() {
       category_id: Items.category_id,
       user_type: Items.user_type,
     });
+    
   }
+  
   function handleChange(e) {
     setItems({ ...Items, [e.target.name]: e.target.value });
   }
 
-  function handleClickDelete(e) {
-    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${e.target.id}`, {
-      method: "DELETE",
-    })
-      .then((r) => r.json())
-      .then((deleteItem) => handleDelete(deleteItem));
-  }
-  function handleDelete(deleteItem) {
-    let newItems = Items.filter((Items) => Items.id !== deleteItem.id);
-    setItems(newItems);
-  }
+  // function handleClickDelete(e) {
+  //   fetch(`https://bookameal-backend.herokuapp.com/menu_items/${e.target.id}`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((r) => r.json())
+  //     .then((deleteItem) => handleDelete(deleteItem));
+  // }
+  // function handleDelete(deleteItem) {
+  //   let newItems = Items.filter((Items) => Items.id !== deleteItem.id);
+  //   setItems(newItems);
+  // }
 
   return (
     <div className="add-menu-item">

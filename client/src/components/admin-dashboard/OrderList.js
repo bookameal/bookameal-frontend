@@ -14,7 +14,7 @@ export default function Orders() {
             .then((response) => response.json())
             .then((data) => {
                 setOrders(data);
-                console.log(data)
+                // console.log(data)
 
             }
             )
@@ -43,7 +43,7 @@ export default function Orders() {
                         <td>{item.day}</td>
                         <td>{item.user.user_name}</td>
                         <td>{item.menu_item_id}</td>
-                        <td>{item.quantity}</td>
+                        {/* <td>{item.quantity}</td> */}
                     </tr>
 
                 </tbody>

@@ -17,7 +17,7 @@ import UserOrders from "../order/UserOrders";
 import AfterOrder from "../order/AfterOrder";
 import AddItem from "../admin-dashboard/adminuser/AddItem";
 import Carousel from "../homeuser/Carousel"
-// import EditMenu from "../adminuser/EditMenu";
+import EditMenu from "../admin-dashboard/adminuser/EditMenu"
 
 import Orders from "../admin-dashboard/OrderList";
 
@@ -28,7 +28,7 @@ function App() {
        <ToastContainer />
       <Routes>
       <Route path='/cart' element={<Cart />} />
-      {/* <Route path='/orders' element={<Orders />} /> */}
+      <Route path='/orders' element={<Orders />} />
       <Route path="/not-found" element={<NotFound/>} />
       {/* <Route path="/" element={<UserHomepage />} /> */}
         <Route path="/" element={<Dashboard />} />
@@ -40,6 +40,7 @@ function App() {
         <Route path='/admin' element={<AdminDashboard />}/>
         <Route path='/addItem' element={<AddItem />}/>
         <Route path='/orders' element={<Orders />} />
+        <Route path='/EditMenu/:id' element={<EditMenu />} />
       </Routes>
     </Router>
   );
