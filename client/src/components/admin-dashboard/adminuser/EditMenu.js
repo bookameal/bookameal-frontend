@@ -24,6 +24,16 @@ export default function EditForm() {
         setMenuItem([...menu_item, newItem]);
       }
    
+      function handleUpdateItem(updatedItem) {
+        const updatedItems = menu_item.map((item) => {
+          if (item.id === updatedItem.id) {
+            return updatedItem;
+          } else {
+            return item;
+          }
+        });
+        setMenuItem(updatedItems);
+      }
 
 function handleSubmit(e){
     e.preventDefault()
@@ -42,8 +52,9 @@ function handleSubmit(e){
 
         })
     })
-        .then(r => r.json())
-        .then(data=>{ console.log(data)})
+    .then((r) => r.json())
+    .then((updatedItem) => handleUpdateItem(updatedItem));
+
         navigate("/admin");
         // console.log(e.target.id)
 }

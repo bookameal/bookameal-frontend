@@ -31,8 +31,8 @@ export default function Order() {
   const logged =  (user.user.body.id)
   
 const user_id = logged  
-const menu_item_id= (cart.cartItems[0].id)
-// const cart_items = cart.cartItems
+// const menu_item_id= (cart.cartItems[0].id)
+const cart_items = cart.cartItems.map((item)=>{return(item.name,item.cartQuantity)})
 const quantity = cart.cartTotalQuantity
 const dayTime = new Date()
 
@@ -55,8 +55,7 @@ const dayTime = new Date()
         quantity,
         dayTime,
         user_id,
-        menu_item_id,
-        // cart_items,
+        cart_items,
         }),
       })
         .then((r) => r.json())
