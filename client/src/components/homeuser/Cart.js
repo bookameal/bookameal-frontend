@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart,  clearCart, decreaseCart,getTotals,removeFromCart,} from "./CartSlice";
 import Order from "../order/Order";
+import Navbar from './Navbar';
+import './cart.css';
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -28,11 +30,12 @@ export default function Cart() {
   };
 
   return (
-  <div className="cart-container" style={{backgroundImage:'url("../../assets/Tasty-Treats-backdrop.jpg")'}}>
-  <h2>My Orders</h2>
+  <div className="cart-container">
+  <Navbar />
+  <h2 className="menutoday" style={{marginTop:"-100px", fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>My Cart</h2>
   {cart.cartItems.length === 0 ? (
     <div className="cart-empty">
-      <p style={{color:"#002524"}}>Your cart is currently empty &#128533;</p>
+      <p style={{color:"#002524", fontWeight:"600", fontSize:"22px", marginTop:"30px"}}>Your cart is currently empty &#128533;</p>
       <div className="start-shopping">
         <Link to="/UserHome">
           <svg
