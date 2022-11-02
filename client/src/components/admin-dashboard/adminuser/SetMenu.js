@@ -66,7 +66,7 @@ export default function SetMenu() {
                   className="product"
                   style={{
                     marginTop: "50px",
-                    height: "750px",
+                    height: "730px",
                     width: "20%",
                     backgroundImage:
                       "url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)",
@@ -96,6 +96,8 @@ export default function SetMenu() {
                       fontWeight: "600",
                       fontSize: "22px",
                       textAlign: "center",
+                      marginTop: "20px",
+                      marginBottom: "5px"
                     }}
                   >
                     <span>
@@ -161,7 +163,7 @@ export default function SetMenu() {
                         textAlign: "center",
                       }}
                     >
-                      Delete
+                      Delete Item
                     </button>
                   </div>
                 </div>
