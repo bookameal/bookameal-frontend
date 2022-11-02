@@ -21,7 +21,7 @@ function Nav() {
                 <FaHome className="carticon" /> |</Link>
             </li>
             <li className="nav-menu-item" >
-                <Link className="link"  to="/addItem"><span style={{fontFamily:"Simonetta", fontSize:"28px", fontWeight:"900", color:"#875d2c"}}>&#43;</span> Menu Item |</Link> 
+                <Link className="link"  to="/addItem"> Add Item |</Link> 
             </li>            
 
             <li className="nav-menu-item">
