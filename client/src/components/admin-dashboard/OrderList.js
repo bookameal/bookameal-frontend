@@ -40,10 +40,10 @@ export default function Orders() {
                 <tbody>
                     <tr style={{color:"#002524", textAlign:"center", fontSize:"18px"}}>
                         <td className="tdid">#{item.id}</td>
-                        <td>{item.day}</td>
+                        <td>{item.dayTime}</td>
                         <td>{item.user.user_name}</td>
                         <td>{item.menu_item_id}</td>
-                        {/* <td>{item.quantity}</td> */}
+                        <td>{item.quantity}</td>
                     </tr>
 
                 </tbody>
