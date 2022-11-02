@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams} from "react-router-dom"
 
 
 
 export default function EditForm() {
     
     const[menu_item,setMenuItem] = useState({})
+    const navigate = useNavigate();
     
     let { id } = useParams()
     
@@ -43,6 +44,7 @@ function handleSubmit(e){
     })
         .then(r => r.json())
         .then(data=>{ console.log(data)})
+        navigate("/admin");
         // console.log(e.target.id)
 }
 

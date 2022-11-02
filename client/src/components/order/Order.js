@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import './order.css';
 import {getUser} from '../homeuser/UserSclice'
  
-const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
+const orderAPI = "http://127.0.0.1:3000/orders"
 
 export default function Order() {
   const navigate = useNavigate();
@@ -32,6 +32,7 @@ export default function Order() {
   
 const user_id = logged  
 const menu_item_id= (cart.cartItems[0].id)
+// const cart_items = cart.cartItems
 const quantity = cart.cartTotalQuantity
 const dayTime = new Date()
 
@@ -55,6 +56,7 @@ const dayTime = new Date()
         dayTime,
         user_id,
         menu_item_id,
+        // cart_items,
         }),
       })
         .then((r) => r.json())
