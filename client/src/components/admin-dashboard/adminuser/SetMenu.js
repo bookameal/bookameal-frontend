@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGetAllMenu_itemsQuery } from "../../homeuser/ProductsApi";
 import { Link } from "react-router-dom";
+import './addItem.css';
 
 export default function SetMenu() {
   // const[menu_items, setmenu_items] = useState([])
@@ -39,7 +40,7 @@ export default function SetMenu() {
   function handleDelete(deleteItem) {
     setItems(Items.filter((Item) => Item.id !== deleteItem.id));
   }
-
+  
   function handleClickDelete(e) {
     let id = e.target.id;
     fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
@@ -47,7 +48,7 @@ export default function SetMenu() {
     });
     // .then((r) => r.json())
     // .then((deleteItem) => handleDelete(deleteItem));
-    // console.log(Items.id)
+    console.log("Item Sucessfully Deleted")
     handleDelete(Items);
   }
 
@@ -57,7 +58,7 @@ export default function SetMenu() {
         <div>
           <div
             className="products"
-            style={{ display: "flex", flexWrap: "wrap", gap: "50px", height: "750px"}}
+            style={{ display: "flex", flexWrap: "wrap", gap: "50px", height: "500px"}}
           >
             {data &&
               data?.map((menu_item) => (
@@ -66,7 +67,7 @@ export default function SetMenu() {
                   className="product"
                   style={{
                     marginTop: "50px",
-                    height: "730px",
+                    height: "650px",
                     width: "20%",
                     backgroundImage:
                       "url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)",
@@ -87,42 +88,54 @@ export default function SetMenu() {
                   <img
                     src={menu_item.image_url}
                     alt={menu_item.name}
-                    style={{ width: "100%", height: "250px" }}
+                    style={{ width: "100%", height: "200px" }}
                   />
                   <div
-                    className="details"
+                    className="details">
+                    <p
+                    className="ellipsis"
                     style={{
                       color: "black",
                       fontWeight: "600",
                       fontSize: "22px",
                       textAlign: "center",
                       marginTop: "20px",
-                      marginBottom: "5px"
-                    }}
-                  >
-                    <span>
+                      marginBottom: "5px",
+                      height: "130px"
+                    }}>
                       {menu_item.description}
-                      <br />
-                      <br />${menu_item.price}
+                    </p>
+                    </div>
+                  <div>
+                    <br />
+                    <span
+                    style={{
+                      color: "black",
+                      fontWeight: "600",
+                      fontSize: "20px",
+                      textAlign: "center",
+                      height: "50px"}}>
+                      Ksh. {menu_item.price} /-
                     </span>
                   </div>
+                    
                   <div
                     style={{
-                      display: "block", }}
+                      display: "block"}}
                   >
                     <button
                       style={{
                         backgroundColor: "#002524",
-                        width: "150px",
-                        height: "60px",
-                        paddingTop: "15px",
+                        width: "120px",
+                        height: "45px",
+                        paddingTop: "10px",
                         paddingBottom: "15px",
-                        margin: "20px",
-                        fontSize: "18px",
+                        fontSize: "16px",
                         fontWeight: "600",
                         borderBottomLeftRadius: "15px",
                         borderTopRightRadius: "15px",
                         textAlign: "center",
+                        marginRight: "20px",
                       }}
                     >
                       Set to Menu
@@ -132,11 +145,11 @@ export default function SetMenu() {
                         id={menu_item.id}
                         style={{
                           backgroundColor: "#002524",
-                          width: "150px",
-                          height: "60px",
-                          paddingTop: "15px",
+                          width: "120px",
+                          height: "45px",
+                          paddingTop: "10px",
                           paddingBottom: "15px",
-                          fontSize: "18px",
+                          fontSize: "16px",
                           fontWeight: "600",
                           borderBottomLeftRadius: "15px",
                           borderTopRightRadius: "15px",
@@ -146,17 +159,18 @@ export default function SetMenu() {
                         Edit Item
                       </button>
                     </Link>
+                    <br />
                     <button
                       id={menu_item.id}
                       onClick={handleClickDelete}
                       style={{
                         backgroundColor: "#875d2c",
                         color: "#fff",
-                        width: "150px",
-                        height: "60px",
-                        paddingTop: "15px",
+                        width: "120px",
+                        height: "45px",
+                        paddingTop: "10px",
                         paddingBottom: "15px",
-                        fontSize: "18px",
+                        fontSize: "15px",
                         fontWeight: "600",
                         borderBottomLeftRadius: "15px",
                         borderTopRightRadius: "15px",
