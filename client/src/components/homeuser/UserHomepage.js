@@ -64,15 +64,20 @@ export default function UserHomepage({order}) {
           data?.map((menu_item) => (
             <div key={menu_item.id} className="product" style={{marginTop:"50px", height:"600px", width:"20%", backgroundImage: 'url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)', border:"0.1px solid #875d2c", boxShadow:"0px 5px 5px 0px", marginTop: "50px"}}>
               <h3 style={{color:"#002524", fontWeight:"600", textAlign:"center"}}>{menu_item.name}</h3>
-              <img src={menu_item.image_url} alt={menu_item.name} style={{width:"100%", height:"250px",}} />
-              <div className="details" style={{color:"black", fontWeight:"600", fontSize:"25px", textAlign:"center"}}>
-                <span>{menu_item.description}
-                <br />
-                <br />
-                ${menu_item.price}</span>
+              <img src={menu_item.image_url} alt={menu_item.name} style={{width:"100%", height:"200px",}} />
+              <div className="details" style={{color:"black", fontWeight:"600", fontSize:"20px", textAlign:"center", marginTop:"20px"}}>
+                  {menu_item.description}
               </div>
+                <span style={{
+                      color: "black",
+                      fontWeight: "600",
+                      fontSize: "22px",
+                      textAlign: "center",
+                      marginTop: "20px",
+                      height: "50px"}}>
+                ${menu_item.price}</span>
               <div style={{display:"flex", justifyContent:"center", alignItems: "center"}}>
-                <button style={{backgroundColor: "#002524", width:"150px", height:"60px", paddingTop: "15px", paddingBottom: "15px" , fontSize:"18px", fontWeight: "600", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px", textAlign: "center"}} onClick={() => handleAddToCart(menu_item)}>
+                <button style={{backgroundColor: "#002524", width:"130px", height:"50px", paddingTop: "15px", paddingBottom: "15px" , fontSize:"18px", fontWeight: "600", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px", textAlign: "center", marginBottom:"20px"}} onClick={() => handleAddToCart(menu_item)}>
                   Book Meal
                 </button>
               </div>
