@@ -29,10 +29,9 @@ export default function Order() {
   
 const user_id = logged  
 const menu_item_id= (cart.cartItems[0].id)
-// const cart_items = cart.cartItems
-// .map((item)=>{return(item.name)})
 const quantity = cart.cartTotalQuantity
 const dayTime = new Date()
+const total = cart.cartTotalAmout
 
 
   const [orders, setOrders] = useState([]);
@@ -54,6 +53,7 @@ const dayTime = new Date()
         dayTime,
         user_id,
         menu_item_id,
+        total,
         }),
       })
         .then((r) =>console.log( r.json()))
