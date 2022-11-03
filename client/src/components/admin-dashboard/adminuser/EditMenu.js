@@ -56,7 +56,7 @@ return (
     <div className="edit-page">
         <div><Nav /></div>
         <div>
-            <h2 className="menutoday" style={{marginTop:"-100px",fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Edit Menu Item</h2>
+            <h2 className="menutoday" style={{position:"relative",marginTop:"-100px",fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Edit Menu Item</h2>
             <form onSubmit={handleSubmit} className="editform">
                 <label htmlFor="title"><strong style={{color:"white"}}>Update Meal Name :</strong></label>
                 <br />
