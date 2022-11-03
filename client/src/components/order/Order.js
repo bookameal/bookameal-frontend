@@ -19,7 +19,7 @@ export default function Order() {
   }, [user, dispatch]);
   
 
-  console.log(cart.cartItems)
+  console.log(cart)
   console.log(user)
 
   const handleClearCart = () => {
