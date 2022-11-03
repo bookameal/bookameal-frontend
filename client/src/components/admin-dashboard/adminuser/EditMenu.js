@@ -33,6 +33,7 @@ export default function EditForm() {
           }
         });
         setMenuItem(updatedItems);
+        
       }
 
 function handleSubmit(e){
@@ -47,13 +48,14 @@ function handleSubmit(e){
             image_url: menu_item.image_url,
             price: menu_item.price,
             description: menu_item.description,
+            on_menu: !menu_item.on_menu,
 
         })
     })
     .then((r) => r.json())
     .then((updatedItem) => handleUpdateItem(updatedItem));
-
         navigate("/admin");
+        // refreshPage()
 }
 
      
@@ -72,6 +74,7 @@ return (
             placeholder='name'
             onChange={handleChange}
              />
+             
         <br />
         <label htmlFor='image_url' />
         <textarea
@@ -100,6 +103,16 @@ return (
             name="description"
             onChange={handleChange}
         />
+
+<label htmlFor="menu"/>
+        <br />
+        <input type="text"
+            defaultValue={menu_item.on_menu}
+            name="menu"
+            placeholder='set menu'
+            onChange={handleChange}
+             />
+        <br />
         <br />
         <button type="submit" className='edit' >Update</button>
     </form>

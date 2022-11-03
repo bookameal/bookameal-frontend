@@ -28,8 +28,9 @@ export default function Order() {
   const logged =  (user.user.body.id)
   
 const user_id = logged  
-// const menu_item_id= (cart.cartItems[0].id)
-const cart_items = cart.cartItems.map((item)=>{return(item.name,item.cartQuantity)})
+const menu_item_id= (cart.cartItems[0].id)
+// const cart_items = cart.cartItems
+// .map((item)=>{return(item.name)})
 const quantity = cart.cartTotalQuantity
 const dayTime = new Date()
 
@@ -52,10 +53,10 @@ const dayTime = new Date()
         quantity,
         dayTime,
         user_id,
-        cart_items,
+        menu_item_id,
         }),
       })
-        .then((r) => r.json())
+        .then((r) =>console.log( r.json()))
         .then((newOrder) => addOrder(newOrder));
         handleClearCart()
       navigate("/placed");

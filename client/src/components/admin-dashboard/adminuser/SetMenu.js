@@ -1,39 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { useGetAllMenu_itemsQuery } from "../../homeuser/ProductsApi";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function SetMenu() {
-  // const[menu_items, setmenu_items] = useState([])
+  const[menu_items, setMenuItems] = useState([])
   const [image_url, setImage_url] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const { data, error, isLoading } = useGetAllMenu_itemsQuery();
-  const [menuItem, setMenuItem] =useState([])
+
 
   const [Items, setItems] = useState({
     name: "",
     price: "",
     description: "",
     image_url: "",
-    on_menu: true,
+    on_menu: "",
     category_id: 1,
     user_type: 1,
   });
 
-  useEffect(() => {
-    let url = "https://bookameal-backend.herokuapp.com/menu_items";
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        const menu_item = data[2];
+  // useEffect(() => {
+  //   let url = "https://bookameal-backend.herokuapp.com/menu_items";
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const menu_item = data[2];
 
-        setName(menu_item.name);
-        setPrice(menu_item.price);
-        setDescription(menu_item.description);
-        setImage_url(menu_item.image_url);
-      });
-  }, []);
+  //       setName(menu_item.name);
+  //       setPrice(menu_item.price);
+  //       setDescription(menu_item.description);
+  //       setImage_url(menu_item.image_url);
+  //     });
+  // }, []);
   
 
   function handleDelete(deleteItem) {
@@ -49,7 +50,36 @@ export default function SetMenu() {
     // .then((deleteItem) => handleDelete(deleteItem));
     // console.log(Items.id)
     handleDelete(Items);
+   
   }
+
+  function handleUpdateItem(updatedItem) {
+    const updatedItems = menu_items.map((item) => {
+      if (item.id === updatedItem.id) {
+        return updatedItem;
+      } else {
+        return item;
+      }
+    });
+    setMenuItems(updatedItems);
+  }
+
+function handleSetMenu(item) {
+  let id = item.target.id;
+  fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      on_menu: !(item.on_menu),
+    }),
+  })
+    .then((r) => r.json())
+    .then((updatedItem) => handleUpdateItem(updatedItem));
+    console.log("mr")
+    
+}
 
   return (
     <div>
@@ -112,6 +142,8 @@ export default function SetMenu() {
                     }}
                   >
                     <button
+                    id ={menu_item.id}
+                    onClick={handleSetMenu}
                       style={{
                         backgroundColor: "#002524",
                         width: "150px",
@@ -125,7 +157,8 @@ export default function SetMenu() {
                         textAlign: "center",
                       }}
                     >
-                      Set to Menu
+                       {menu_item.on_menu==true ? "onmenu" : "setmenu"}
+                    
                     </button>
                     <Link id={menu_item.id} className="link" to={`/EditMenu/${menu_item.id}`}>
                       <button
