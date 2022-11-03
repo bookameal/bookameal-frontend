@@ -2,15 +2,30 @@ import React, { useEffect, useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Table from 'react-bootstrap/Table';
 import '../../../src/App.css';
-import Nav from './Nav'
+// import Nav from './Nav'
+import Navbar from '../homeuser/Navbar';
+import {getUser} from '../homeuser/UserSclice'
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate, useParams} from "react-router-dom"
+import UserOrders from './UserOrders';
 
-export default function Orders() {
+export default function SpecificOrders() {
 
     const [orders, setOrders] = useState([]);
-   
+    const navigate = useNavigate();
 
+    const user = useSelector((state) => state.user);
+    const dispatch = useDispatch()
+  
+    useEffect(() => {
+      dispatch(getUser());
+    }, [user, dispatch]);
+  
+     
 
+     
     //all orders
+    
 
     useEffect(() => {
         fetch("https://bookameal-backend.herokuapp.com/orders")
@@ -23,14 +38,22 @@ export default function Orders() {
             )
     }, []);
 
-
+    const logged =  (user.user.body.id)
+    const ordersToDisplay = orders.filter((item) =>(item.user.id === logged));
+  
     return (
         <div>
+          {(ordersToDisplay.length === 0) ? (
+              <>
+              <UserOrders/>
+              </>
+
+              
+            ): (
         <div className="admin-orders">
-        <Nav />
+        <Navbar />
         <h2 className="menutoday" style={{marginTop:"-100px", fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Order List</h2>
-        <Table striped bordered hover variant="dark" className='order-table' style={{position:"absolute", top:"200px", width:"65%"}}>
-                
+        <Table striped bordered hover variant="dark" className='order-table' style={{position:"absolute", top:"200px", width:"65%"}}>               
                     <th className="thead">Order ID</th>
                     <th className="thead">Date</th>
                     <th className="thead">User Name</th>
@@ -38,7 +61,7 @@ export default function Orders() {
                     <th className="thead">Quantity</th>
                     <th className="thead">Totals</th>
             
-            {orders.map((item) => (
+            {ordersToDisplay.map((item) => (
                 <tbody>
                     <tr style={{color:"#002524", textAlign:"center", fontSize:"18px"}}>
                         <td className="tdid">#{item.id}</td>
@@ -54,6 +77,7 @@ export default function Orders() {
 
         </Table>   
         </div>
+)}
         </div>
     );
 }

@@ -22,6 +22,7 @@ import EditMenu from "../admin-dashboard/adminuser/EditMenu"
 import Orders from "../admin-dashboard/OrderList";
 import EditForm from "../admin-dashboard/adminuser/EditForm";
 import Sales from "../admin-dashboard/adminuser/Sales ";
+import SpecificOrders from "../order/SpecificOrder";
 
 function App() {
   
@@ -43,6 +44,7 @@ function App() {
         <Route path='/addItem' element={<AddItem />}/>
         <Route path='/orders' element={<Orders />} />
         <Route path='/sales' element={<Sales/>} />
+        <Route path='/specific' element={<SpecificOrders/>} />
         <Route path='/EditMenu/:id' element={<EditMenu />} />
       </Routes>
     </Router>
