@@ -25,6 +25,17 @@ export default function EditForm() {
         setMenuItem([...menu_item, newItem]);
       }
    
+      function handleUpdateItem(updatedItem) {
+        const updatedItems = menu_item.map((item) => {
+          if (item.id === updatedItem.id) {
+            return updatedItem;
+          } else {
+            return item;
+          }
+        });
+        setMenuItem(updatedItems);
+        
+      }
 
 function handleSubmit(e){
     e.preventDefault()
@@ -38,12 +49,14 @@ function handleSubmit(e){
             image_url: menu_item.image_url,
             price: menu_item.price,
             description: menu_item.description,
+            on_menu: !menu_item.on_menu,
 
         })
     })
-        .then(r => r.json())
-        .then(data=>{ console.log(data)})
+    .then((r) => r.json())
+    .then((updatedItem) => handleUpdateItem(updatedItem));
         navigate("/admin");
+        // refreshPage()
 }
 
      
