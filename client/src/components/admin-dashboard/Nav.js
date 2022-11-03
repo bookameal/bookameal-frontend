@@ -10,7 +10,7 @@ function Nav() {
         <div className = "navbar-item-left">
             <ul className="nav-menu">
                 <li className="nav-menu-item" >
-                <img src={tastytreats} alt="ramen" className="logo" style={{position:"absolute", top:"75px", left:"25px", height:"175px", width:"200px"}}/>
+                <img src={tastytreats} alt="ramen" className="logo" style={{position:"absolute", top:"50px", left:"25px", height:"180px", width:"200px", objectFit:"contain"}}/>
                 </li>
             </ul>
         </div>
