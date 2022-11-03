@@ -13,7 +13,7 @@ function Admin () {
         <div className="admin">
             <Nav />
             <div>
-            <h2 className="menutoday" style={{marginTop:"-100px",fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Menu Items</h2>
+            <h2 className="menutoday" style={{position:"relative", marginTop:"-100px",fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Menu Items</h2>
             </div>
             <SetMenu />
         </div>

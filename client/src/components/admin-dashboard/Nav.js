@@ -10,7 +10,7 @@ function Nav() {
         <div className = "navbar-item-left">
             <ul className="nav-menu">
                 <li className="nav-menu-item" >
-                <img src={tastytreats} alt="ramen" className="logo" style={{position:"absolute", top:"75px", left:"25px", height:"175px", width:"200px"}}/>
+                <img src={tastytreats} alt="ramen" className="logo" style={{position:"absolute", top:"50px", left:"25px", height:"180px", width:"200px", objectFit:"contain"}}/>
                 </li>
             </ul>
         </div>
@@ -21,7 +21,7 @@ function Nav() {
                 <FaHome className="carticon" /> |</Link>
             </li>
             <li className="nav-menu-item" >
-                <Link className="link"  to="/addItem"><span style={{fontFamily:"Simonetta", fontSize:"28px", fontWeight:"900", color:"#875d2c"}}>&#43;</span> Menu Item |</Link> 
+                <Link className="link"  to="/addItem"> Add Item |</Link> 
             </li>            
 
             <li className="nav-menu-item">
