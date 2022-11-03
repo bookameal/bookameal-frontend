@@ -35,6 +35,7 @@ export default function Orders() {
                     <th className="thead">User Name</th>
                     <th className="thead">Menu Item</th>
                     <th className="thead">Quantity</th>
+                    <th className="thead">Totals</th>
             
             {orders.map((item) => (
                 <tbody>
@@ -44,6 +45,7 @@ export default function Orders() {
                         <td>{item.user.user_name}</td>
                         <td>{item.menu_item_id}</td>
                         <td>{item.quantity}</td>
+                        <td>{item.total}</td>
                     </tr>
 
                 </tbody>

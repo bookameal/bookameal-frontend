@@ -12,7 +12,7 @@ function AddItem() {
     price: "",
     description: "",
     image_url: "",
-    on_menu: true,
+    on_menu: "",
     category_id: 1,
     user_type: 1,
   });
@@ -100,10 +100,16 @@ function AddItem() {
               placeholder="Is Item on Today's Menu?"
               type="text"
               name="on-menu"
-              input="true"
-              value= {Items.on_menu}
+              // input="true"
+              defaultValue={Items.on_menu}
               onChange={handleChange}
             />
+            {/* <input
+            placeholder="on_menu"
+            type="text"
+            name="new menu"
+            defaultValue={Items.on_menu}
+            /> */}
             <br />
             <label htmlFor="category"><span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43;  Menu Category :</span></label>
             <input

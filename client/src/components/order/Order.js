@@ -33,6 +33,7 @@ const menu_item_id= (cart.cartItems[0].id)
 // .map((item)=>{return(item.name)})
 const quantity = cart.cartTotalQuantity
 const dayTime = new Date()
+const total = cart.cartTotalAmount
 
 
   const [orders, setOrders] = useState([]);
@@ -54,6 +55,8 @@ const dayTime = new Date()
         dayTime,
         user_id,
         menu_item_id,
+        total,
+        // cart_items,
         }),
       })
         .then((r) =>console.log( r.json()))
