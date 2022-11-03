@@ -30,6 +30,7 @@ export default function Order() {
 const user_id = logged  
 const menu_item_id= (cart.cartItems[0].id)
 // const cart_items = cart.cartItems
+// .map((item)=>{return(item.name)})
 const quantity = cart.cartTotalQuantity
 const dayTime = new Date()
 const total = cart.cartTotalAmount
@@ -58,7 +59,7 @@ const total = cart.cartTotalAmount
         // cart_items,
         }),
       })
-        .then((r) => r.json())
+        .then((r) =>console.log( r.json()))
         .then((newOrder) => addOrder(newOrder));
         handleClearCart()
       navigate("/placed");

@@ -8,6 +8,7 @@
 .join{
     background-image: url(../../assets/Tasty-Treats-backdrop.jpg);
     min-height: 100vh;
+    
 }
 
 input, button {
@@ -19,9 +20,9 @@ input, button {
 .form-login {
     display: flex;
     position: relative;
-    top:200px;
-    left:450px;
-    width: 60%;
+    top:25px;
+    left:400px;
+    width: min(1100px,60%);
     box-shadow: 0 0 2px rgba(15 15 15 0.3);
     border-top-right-radius: 15px;
 }
@@ -87,7 +88,7 @@ form .form-inner .form-group:focus-within label {
 
 form .form-inner .form-group input {
     display: block;
-    width: 90%;
+    width: min(350px,70%);
     padding: 10px 15px;
     border-radius: 8px;
     background-color: #f8f8f8;
@@ -161,11 +162,14 @@ form .form-inner input[type="submit"]:hover{
 }
 
 .logimg {
+    width: min(500px,50%);
+    height: 700;
     z-index: 11;
 }
 
 
 .regimg {
     z-index: 11;
-    margin-left: 50px;
+    width: min(570px,55%);
+    height: 700;
 }

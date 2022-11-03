@@ -3,7 +3,7 @@ import React from "react";
 // import Container from "react-bootstrap/Container";
 // import Nav from "react-bootstrap/Nav";
 // import Navbar from "react-bootstrap/Navbar";
-import "../main-dashboard/navigation.css";
+// import "../main-dashboard/navigation.css";
 import "./navbar.css";
 import tastytreats from '../../assets/titty.gif';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,11 +37,11 @@ function HomeNavbar() {
 
 
   return (
-    <div className="navbar">
+    <div className="navybar">
       <div className = "navbar-item-left">
             <ul className="nav-menu">
               <li className="nav-menu-item" >
-              <img src={tastytreats} alt="ramen" className="logo" style={{position:"absolute", top:"75px", left:"25px", height:"175px", width:"200px"}}/>
+              <img src={tastytreats} alt="ramen" className="logo" style={{position:"absolute", top:"50px", left:"25px", height:"200px", width:"200px", zIndex:"11", objectFit:"cover"}}/>
               </li>
             </ul>
         </div>
@@ -62,13 +62,9 @@ function HomeNavbar() {
             <li className="nav-menu-item">
                 <Link className="link" to="/UserOrder">| My Orders |</Link>
             </li>
-            {/* {   localStorage.getItem("user-info")? */}
-               <li className="nav-menu-item" >
-               <Link className="link" to="/login" onClick={handleLogoutClick}>Logout</Link>
-             </li>
-             {/* :null
-            } */}
-           
+            <li className="nav-menu-item">
+              <button className="link" onClick={handleLogoutClick} style={{border:"none"}}>Logout</button>
+            </li>
           </ul>
         </div>
         
