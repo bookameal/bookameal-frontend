@@ -1,81 +1,144 @@
-import React, { useState, useEffect } from 'react';
-import { useParams} from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Nav from "../Nav";
+import "./addItem.css";
 
- const menuApi = "https://bookameal-backend.herokuapp.com/menu_items";
+export default function EditForm() {
+  const [menu_item, setMenuItem] = useState({});
+  const navigate = useNavigate();
 
-export default function EditMenu(){
+  let { id } = useParams();
 
-    const [menuItem, setMenuItem] = useState({})
-    let { id } = useParams()
-    let menuItem_url = `/https://bookameal-backend.herokuapp.com/menu_items/${id}`;
-    
-    useEffect(()=>{
-        fetch(menuItem_url)
-        .then(response=>response.json())
-        .then(data=>setMenuItem(data))
-    },[menuItem_url])
-    //  let navigate = useNavigate();
-      console.log(menuItem)
+  useEffect(() => {
+    let url = `https://bookameal-backend.herokuapp.com/menu_items/${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setMenuItem(data));
+  }, []);
 
-      const handleSubmit = (e) =>{
-        e.preventDefault()
-          fetch(`${menuApi}/${id}`, {
-              method: "PATCH",
-              headers: {
-                'content-type': 'application/json'
-              },
-              body: JSON.stringify({
-                  name: menuItem.name,
-                  price: menuItem.price,
-                  image_url: menuItem.image_url,
-                  description: menuItem.description,
-                  on_menu: menuItem.on_menu,
-                  category_id: menuItem.category_id,
-                  user_type: menuItem.user_type
-              })
-            })
-            .then(response=>response.json())
-            .then(data=>{
-              // console.log(data)
-            })
-           
-          };
-   
-        const handleFormChange = (e) => {
-            setMenuItem({...menuItem,[e.target.name]:e.target.value
-                ,[e.target.price]:e.target.value
-                ,[e.target.image_url]:e.target.value
-                ,[e.target.description]:e.target.value
-                ,[e.target.on_menu]:e.target.value
-                ,[e.target.category_id]:e.target.value
-                ,[e.target.user_type]:e.target.value});
-        };
-      
+  function addItem(newItem) {
+    setMenuItem([...menu_item, newItem]);
+  }
+
+  function handleUpdateItem(updatedItem) {
+    const updatedItems = menu_item.map((item) => {
+      if (item.id === updatedItem.id) {
+        return updatedItem;
+      } else {
+        return item;
+      }
+    });
+    setMenuItem(updatedItems);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: menu_item.name,
+        image_url: menu_item.image_url,
+        price: menu_item.price,
+        description: menu_item.description,
+        on_menu: !menu_item.on_menu,
+      }),
+    })
+      .then((r) => r.json())
+      .then((updatedItem) => handleUpdateItem(updatedItem));
+    navigate("/admin");
+    // refreshPage()
+  }
+
+  const handleChange = (e) => {
+    setMenuItem({ ...menu_item, [e.target.name]: e.target.value });
+  };
 
   return (
-    <div className='container py-5'>
-      <center>
-          <form onSubmit={handleSubmit} >
-            <div className='py-4'>
-            <input placeholder="name" name='name'value={menuItem.name} type = "text"
-              onChange={handleFormChange}/>
-               <input placeholder="price" name='price'value={menuItem.price} type = "text"
-              onChange={handleFormChange}/>
-               <input placeholder="image_url" name='image_url'value={menuItem.image_url} type = "text"
-              onChange={handleFormChange}/>
-               <input placeholder="description" name='description'value={menuItem.description} type = "text"
-              onChange={handleFormChange}/>
-               <input placeholder="on_menu" name='on_menu'value={menuItem.on_menu} type = "text"
-              onChange={handleFormChange}/>
-               <input placeholder="category_id" name='category_id'value={menuItem.category_id} type = "text"
-              onChange={handleFormChange}/>
-               <input placeholder="user_type" name='user_type'value={menuItem.user_type} type = "text"
-              onChange={handleFormChange}/>
-            </div>
-            <button className='btn btn-primary' type="submit" value="Update"> Update Menu Item</button>
-          </form>
-      </center>
+    <div className="edit-page">
+      <div>
+        <Nav />
+      </div>
+      <div>
+        <h2
+          className="menutoday"
+          style={{
+            position: "relative",
+            marginTop: "-100px",
+            fontWeight: "600",
+            fontSize: "40px",
+            width: "100%",
+            textAlign: "center",
+          }}
+        >
+          <br />
+          <br />
+          Edit Menu Item
+        </h2>
+        <form onSubmit={handleSubmit} className="editform">
+          <label htmlFor="title">
+            <strong style={{ color: "white" }}>Update Meal Name :</strong>
+          </label>
+          <br />
+          <input
+            type="text"
+            value={menu_item.name}
+            name="name"
+            placeholder="name"
+            onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="image_url">
+            <strong style={{ color: "white" }}>Edit Image URL :</strong>
+          </label>
+          <textarea
+            type="text"
+            rows="4"
+            columns="100"
+            value={menu_item.image_url}
+            name="image_url"
+            onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="price">
+            <strong style={{ color: "white" }}>Edit Price :</strong>
+          </label>
+          <input
+            type="text"
+            value={menu_item.price}
+            name="price"
+            placeholder="Price"
+            onChange={handleChange}
+          />
+          <label htmlFor="body">
+            <strong style={{ color: "white" }}>Edit Description :</strong>
+          </label>
+          <textarea
+            type="text"
+            rows="4"
+            columns="100"
+            value={menu_item.description}
+            name="description"
+            onChange={handleChange}
+          />
+          <br />
+          <label htmlFor="menu" />
+          <br />
+          <input
+            type="text"
+            defaultValue={menu_item.on_menu}
+            name="menu"
+            placeholder="set menu"
+            onChange={handleChange}
+          />
+          <br />
+          <button type="submit" className="edit">
+            Update
+          </button>
+        </form>
+      </div>
     </div>
-  )
+  );
 }
-

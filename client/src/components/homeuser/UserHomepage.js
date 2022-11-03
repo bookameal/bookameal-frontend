@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Navbar";
+import Carr from './Carousel';
 // import Card from "react-bootstrap/Card";
 // import { FiSearch } from "react-icons/fi";
 // import Button from "react-bootstrap/Button";
-import Carousel from "react-bootstrap/Carousel";
+// import Carousel from "react-bootstrap/Carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "./CartSlice";
 import { useGetAllMenu_itemsQuery } from "./ProductsApi";
 // import { GrFormClose } from "react-icons/gr";
-import SetMenu from "../admin-dashboard/adminuser/SetMenu";
 // import { GrFormClose } from "react-icons/gr";
 import './user.css'
 
@@ -29,6 +29,10 @@ export default function UserHomepage({order}) {
 
   const { data, error, isLoading } = useGetAllMenu_itemsQuery();
   console.log("Api", isLoading);
+
+  //filter on menu
+  const itemsToDisplay = menu_items.filter((item) =>item.on_menu);
+ 
 
   const handleAddToCart = (menu_item) => {
     dispatch(addToCart(menu_item));
@@ -56,22 +60,27 @@ export default function UserHomepage({order}) {
   
 
   const foodcard = (
-    <div>
+    <div className=""> 
       {/* <h2>Orders of the Day</h2> */}
-      <div className="products" style={{display:"flex", flexWrap:"wrap", gap:"50px",}}>
-        {data &&
-          data?.map((menu_item) => (
-            <div key={menu_item.id} className="product" style={{marginTop:"50px", height:"600px", width:"20%", backgroundImage: 'url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)', border:"0.1px solid #875d2c", boxShadow:"0px 5px 5px 0px"}}>
+      <div className="products" style={{display:"flex", flexWrap:"wrap", gap:"50px"}}>
+        {itemsToDisplay &&
+          itemsToDisplay?.map((menu_item) => (
+            <div key={menu_item.id} className="product" style={{marginTop:"50px", height:"600px", width:"20%", backgroundImage: 'url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)', border:"0.1px solid #875d2c", boxShadow:"0px 5px 5px 0px", marginTop: "50px"}}>
               <h3 style={{color:"#002524", fontWeight:"600", textAlign:"center"}}>{menu_item.name}</h3>
-              <img src={menu_item.image_url} alt={menu_item.name} style={{width:"100%", height:"250px",}} />
-              <div className="details" style={{color:"black", fontWeight:"600", fontSize:"25px", textAlign:"center"}}>
-                <span>{menu_item.description}
-                <br />
-                <br />
-                ${menu_item.price}</span>
+              <img src={menu_item.image_url} alt={menu_item.name} style={{width:"100%", height:"200px",}} />
+              <div className="details" style={{color:"black", fontWeight:"600", fontSize:"20px", textAlign:"center", marginTop:"20px"}}>
+                  {menu_item.description}
               </div>
+                <span style={{
+                      color: "black",
+                      fontWeight: "600",
+                      fontSize: "22px",
+                      textAlign: "center",
+                      marginTop: "20px",
+                      height: "50px"}}>
+                ${menu_item.price}</span>
               <div style={{display:"flex", justifyContent:"center", alignItems: "center"}}>
-                <button style={{backgroundColor: "#002524", width:"150px", height:"60px", paddingTop: "15px", paddingBottom: "15px" , fontSize:"18px", fontWeight: "600", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px", textAlign: "center"}} onClick={() => handleAddToCart(menu_item)}>
+                <button style={{backgroundColor: "#002524", width:"130px", height:"50px", paddingTop: "15px", paddingBottom: "15px" , fontSize:"18px", fontWeight: "600", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px", textAlign: "center", marginBottom:"20px"}} onClick={() => handleAddToCart(menu_item)}>
                   Book Meal
                 </button>
               </div>
@@ -86,26 +95,16 @@ export default function UserHomepage({order}) {
       <Navbar />
       <main>
         <div className="wrapper">
-          <div className="container">
-            {/* <Card className="bg-light text-black"> */}
-                <Carousel>
-                  <Carousel.Item>
-                    <div className="w-600 d-flex flex-column justify-content-center align-items-center" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60")' , backgroundPosition: 'center center' , backgroundSize: 'cover' , backgroundRepeat: 'no-repeat' , height: '40vh'}}>
-                      <h3 className="roast">Roast Lamb</h3>
-                    </div>
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    
-                  </Carousel.Item>
-                </Carousel>
-            </div>
+          <div className="container" style={{}}>
+            <Carr />
+          </div>
               {/* <div className="special">TODAY’S SPECIAL MEALS</div>
               <div className="main-dish">Other Main Dishes</div> */}
         </div>
 
-          <div className="search">
-            <div className="searchInputs">
-              <div className="d-flex">
+          <div className="search" >
+            <div className="searchInputs" >
+              <div className="d-flex" >
                 <input
                   type="search"
                   placeholder="Search for food"
@@ -120,7 +119,7 @@ export default function UserHomepage({order}) {
           </div>
         <div className="card-food">
           <div className="home-container">
-            <h2 style={{fontWeight:"600", fontSize:"40px"}}><br/><br/>Menu of the Day</h2>
+            <h2 className="menutoday" style={{fontWeight:"600", fontSize:"40px", width:"100%", marginTop:"150px"}}><br/><br/>Menu of the Day</h2>
             {status === "success" && filteredData.length === 0 ? (
               <>{foodcard}</>
 

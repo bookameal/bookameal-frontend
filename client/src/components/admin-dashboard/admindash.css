@@ -1,4 +1,13 @@
 .admin {
     background-image: url('../../assets/Tasty-Treats-backdrop.jpg');
     min-height: 150vh;
+    
+}
+.toggle {
+    margin-top: 150px;
+    z-index: 1;
+}
+
+.menutoday {
+    z-index: 111111;
 }

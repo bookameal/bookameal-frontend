@@ -5,26 +5,36 @@
 }
 
 .search{
-    position: absolute;
-    /* top: 50px; */
+    /* position: absolute;
+    top: 400px; */
 }
 
 .searchInput {
-    border: 1px solid #002524 !important;
-    width: 500px;
+    border:"0.1px solid #875d2c";
+    box-shadow:"0px 5px 5px 0px";
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    /* border: 1px solid #002524 !important; */
+    width: 750px;
     color: #002524;
-    background-color:white
+    background-color:white;
+    padding: 10px;
 }
 
-.caro {
-    background-image: url('../../assets/greenbrown.jpg');
-    background-position: cover;
-    position: absolute;
-    top: 200px;
-}
 
 .special {
     color: red;
     position: absolute;
     top: 200px;
 }
+
+/* .products {
+    position: absolute;
+    top: 750px;
+}
+
+.menutoday {
+    position: absolute;
+    top: 550px;
+} */
+/* transform: scale(1.01); */

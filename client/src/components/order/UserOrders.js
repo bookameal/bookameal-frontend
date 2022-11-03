@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchOrders } from "./OrderAction";
+import Navbar from '../homeuser/Navbar';
+import '../homeuser/cart.css';
 // import './orders.css'
 // import formatCurrency from "../util";
 
@@ -11,7 +13,11 @@ class Orders extends Component {
   render() {
     const { orders } = this.props;
     return !orders ? (
-      <div><h2>No Orders have been made</h2></div>
+      <div className="cart-container">
+        <Navbar />
+        <h2 className="menutoday" style={{marginTop:"-100px", fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>My Orders</h2>
+        <p className="cart-empty" style={{color:"#002524", fontWeight:"500", fontSize:"28px", marginTop:"30px"}}>No Orders have been made &#129335;&#127998;</p>
+      </div>
     ) : (
       <div className="orders">
         <h2>Orders</h2>
