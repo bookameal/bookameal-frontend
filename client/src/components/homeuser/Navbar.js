@@ -59,7 +59,7 @@ function HomeNavbar() {
                 <Link className="link" to="/UserOrder">| My Orders |</Link>
             </li>
             <li className="nav-menu-item">
-              <Link className="link" to="/login">Logout</Link>
+              <button className="link" onClick={handleLogoutClick} style={{border:"none"}}>Logout</button>
             </li>
           </ul>
         </div>

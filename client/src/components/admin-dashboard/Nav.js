@@ -1,10 +1,24 @@
 import React from 'react'
 import "../main-dashboard/navigation.css"
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 import tastytreats from '../../assets/titty.gif';
 import { FaHome } from "react-icons/fa";
 
+
 function Nav() {
+
+    const navigate=useNavigate()
+
+    function handleLogoutClick() {
+      fetch("https://bookameal-backend.herokuapp.com/logout", { method: "DELETE" }).then((r) => {
+        if (r.ok) {
+          // setUser(null)
+          navigate("/login")
+        }
+      });
+    }
+
   return (
     <div className="navbar">
         <div className = "navbar-item-left">
@@ -25,7 +39,10 @@ function Nav() {
             </li>            
 
             <li className="nav-menu-item">
-                <Link className="link" to="/orders">Orders</Link>
+                <Link className="link" to="/orders">Orders |</Link>
+            </li>
+            <li className="nav-menu-item">
+              <button className="link" onClick={handleLogoutClick} style={{border:"none"}}>Logout</button>
             </li>
             </ul>
         </div>
