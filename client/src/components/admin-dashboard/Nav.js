@@ -41,6 +41,11 @@ function Nav() {
             <li className="nav-menu-item">
                 <Link className="link" to="/orders">Orders |</Link>
             </li>
+
+            <li className="nav-menu-item">
+                <Link className="link" to="/sales">Sales |</Link>
+            </li>
+
             <li className="nav-menu-item">
               <button className="link" onClick={handleLogoutClick} style={{border:"none"}}>Logout</button>
             </li>

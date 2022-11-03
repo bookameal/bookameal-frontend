@@ -7,7 +7,35 @@ import Nav from './Nav'
 export default function Orders() {
 
     const [orders, setOrders] = useState([]);
+    const [totals, setTotals] = useState([]);
+    const [Todaytotals, setTodaytotals] = useState([]);
 
+
+// total sales
+    useEffect(() => {
+        fetch("https://bookameal-backend.herokuapp.com/totals")
+            .then((response) => response.json())
+            .then((data) => {
+                setTotals(data);
+                // console.log(data)
+
+            }
+            )
+    }, []);
+
+// totals sales in a day
+    useEffect(() => {
+        fetch("https://bookameal-backend.herokuapp.com/Todaytotals")
+            .then((response) => response.json())
+            .then((data) => {
+                setTodaytotals(data);
+                // console.log(data)
+
+            }
+            )
+    }, []);
+
+    //all orders
 
     useEffect(() => {
         fetch("https://bookameal-backend.herokuapp.com/orders")
@@ -18,13 +46,11 @@ export default function Orders() {
 
             }
             )
-        // .then((data) => {
-        //     console.log(data)
-        // })
     }, []);
 
 
     return (
+        <div>
         <div className="admin-orders">
         <Nav />
         <h2 className="menutoday" style={{marginTop:"-100px", fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Order List</h2>
@@ -51,7 +77,12 @@ export default function Orders() {
                 </tbody>
             ))}
 
-        </Table>
+        </Table>   
+        </div>
+        {/* <br/>
+        <h2> OVERALL TOTAL SALES MADE: ${totals}</h2>
+        <br/>
+        <h2>TOTAL SALES FOR TODAY ONLY: ${Todaytotals}</h2> */}
         </div>
     );
 }
