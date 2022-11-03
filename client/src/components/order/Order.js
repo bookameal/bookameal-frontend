@@ -9,9 +9,6 @@ const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
 
 export default function Order() {
   const navigate = useNavigate();
- 
-  // const [currentUser] = useState(Parse.User.current());
-  // console.log(currentUser)
 
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
@@ -22,18 +19,20 @@ export default function Order() {
   }, [user, dispatch]);
   
 
-  console.log(cart)
+  console.log(cart.cartItems)
   console.log(user)
 
   const handleClearCart = () => {
     dispatch(clearCart());
   };
+  const logged =  (user.user.body.id)
   
-  
-const user_id = {user}
-const menu_item_id= 7
-const quantity = cart.cartItems.length
+const user_id = logged  
+const menu_item_id= (cart.cartItems[0].id)
+// const cart_items = cart.cartItems
+const quantity = cart.cartTotalQuantity
 const dayTime = new Date()
+const total = cart.cartTotalAmount
 
 
   const [orders, setOrders] = useState([]);
@@ -43,32 +42,35 @@ const dayTime = new Date()
   }
 
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch(orderAPI, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-      quantity,
-      dayTime,
-      user_id,
-      menu_item_id,
-      }),
-    })
-      .then((r) => r.json())
-      .then((newOrder) => addOrder(newOrder));
-      handleClearCart()
+    function handleSubmit(e) {
+      e.preventDefault();
+      fetch(orderAPI, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+        quantity,
+        dayTime,
+        user_id,
+        menu_item_id,
+        total,
+        // cart_items,
+        }),
+      })
+        .then((r) => r.json())
+        .then((newOrder) => addOrder(newOrder));
+        handleClearCart()
       navigate("/placed");
-  }
+}
+
+
 
   return (
     <div className="bookmeal">
       <div>
         <button className="getStarted" style={{padding:"7px", backgroundColor:"#002524", fontSize:"22px", fontWeight:"600", borderBottomRightRadius:"15px", borderBottomLeftRadius:"15px"}} onClick={handleSubmit}>Place Order</button>
       </div>
-      {/* You have successfully placed your order */}
     </div>
   )
 }

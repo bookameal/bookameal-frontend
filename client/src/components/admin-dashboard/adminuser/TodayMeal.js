@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
-import {useParams} from "react-router-dom"
+// import {useParams} from "react-router-dom"
 
 function TodayMeal({menu_item}) {
  
   const [menu_items, setMenu_items] = useState([]);
-  const [onMenu, setOnMenu] = useState(false)
+  // const [on_menu, setOnMenu] = useState(false)
 
-  let {id} = useParams()
+  // let {id} = useParams()
   // function handleOnMenu(){
   //   setOnMenu((onMenu) => !onMenu)
   // }
@@ -31,15 +31,16 @@ function TodayMeal({menu_item}) {
 	  }
 
 
-  function handleAddOnMenu() {
+  function handleAddOnMenu(menu_item) {
     
-    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${menu_item.id}`, {
+    let id = menu_item.target.id
+    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        onMenu: !menu_item.onMenu,
+        on_menu: !menu_item.on_menu,
       }),
     })
       .then((r) => r.json())
@@ -54,7 +55,7 @@ function TodayMeal({menu_item}) {
     <div>
       <div className="sidebar">
      
-			<button className='edit'  onClick={handleAddOnMenu}>{onMenu? "Today Special" : "Not Today special"}</button>
+			<button className='edit' id={menu_item.id} onClick={handleAddOnMenu}>{menu_item.on_menu ? "Today Special" : "Not Today special"}</button>
       </div>
     </div>
   );

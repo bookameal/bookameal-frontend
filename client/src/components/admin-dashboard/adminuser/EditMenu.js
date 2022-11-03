@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import { useNavigate, useParams} from "react-router-dom"
-
+import React, {useState, useEffect} from 'react';
+import { useNavigate, useParams} from "react-router-dom";
+// import Nav from '../Nav';
+import './addItem.css';
 
 
 export default function EditForm() {
@@ -37,6 +38,7 @@ function handleSubmit(e){
             image_url: menu_item.image_url,
             price: menu_item.price,
             description: menu_item.description,
+            on_menu: !menu_item.on_menu,
 
         })
     })
@@ -56,6 +58,8 @@ return (
         <label htmlFor="title"><strong style={{color:"white"}}>Update Meal name</strong></label>
         <br />
         <input type="text"
+            rows="5"
+            columns="10"
             value={menu_item.name}
             name="name"
             placeholder='name'
@@ -65,8 +69,8 @@ return (
         <label htmlFor='image_url' />
         <textarea
             type="text"
-            rows="10"
-            columns="100"
+            rows="5"
+            columns="10"
             value={menu_item.image_url}
             name="image_url"
             onChange={handleChange}
@@ -74,8 +78,8 @@ return (
         <label htmlFor='price' />
         <textarea
             type="number"
-            rows="10"
-            columns="100"
+            rows="5"
+            columns="10"
             value={menu_item.price}
             name="price"
             onChange={handleChange}
@@ -83,13 +87,32 @@ return (
         <label htmlFor='body' />
         <textarea
             type="text"
-            rows="10"
-            columns="100"
+            rows="5"
+            columns="10"
             value={menu_item.description}
             name="description"
             onChange={handleChange}
         />
+        <label htmlFor='on_menu' />
+        <textarea
+            type="text"
+            rows="5"
+            columns="10"
+            defaultValue={menu_item.on_menu}
+            name="price"
+            onChange={handleChange}
+        />
+        {/* <select
+        name="filter"
+        defaultValue={menu_item.on_menu}
+        onChange={handleChange}
+      >
+        <option value="All">Filter by category</option>
+        <option value="true">True</option>
+        <option value="false">False</option>
+      </select> */}
         <br />
+
         <button type="submit" className='edit' >Update</button>
     </form>
 )

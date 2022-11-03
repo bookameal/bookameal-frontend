@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import { useGetAllMenu_itemsQuery } from "../../homeuser/ProductsApi";
 import { Link } from "react-router-dom";
@@ -19,24 +17,24 @@ export default function SetMenu() {
     price: "",
     description: "",
     image_url: "",
-    on_menu: true,
+    on_menu: "",
     category_id: 1,
     user_type: 1,
   });
 
-  useEffect(() => {
-    let url = "https://bookameal-backend.herokuapp.com/menu_items";
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        const menu_item = data[2];
+  // useEffect(() => {
+  //   let url = "https://bookameal-backend.herokuapp.com/menu_items";
+  //   fetch(url)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const menu_item = data[2];
 
-        setName(menu_item.name);
-        setPrice(menu_item.price);
-        setDescription(menu_item.description);
-        setImage_url(menu_item.image_url);
-      });
-  }, []);
+  //       setName(menu_item.name);
+  //       setPrice(menu_item.price);
+  //       setDescription(menu_item.description);
+  //       setImage_url(menu_item.image_url);
+  //     });
+  // }, []);
   
 
   function handleDelete(deleteItem) {
@@ -60,7 +58,7 @@ export default function SetMenu() {
         <div>
           <div
             className="products"
-            style={{ display: "flex", flexWrap: "wrap", gap: "50px" }}
+            style={{ display: "flex", flexWrap: "wrap", gap: "50px", height: "750px"}}
           >
             {data &&
               data?.map((menu_item) => (
@@ -69,7 +67,7 @@ export default function SetMenu() {
                   className="product"
                   style={{
                     marginTop: "50px",
-                    height: "600px",
+                    height: "730px",
                     width: "20%",
                     backgroundImage:
                       "url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)",
@@ -97,8 +95,10 @@ export default function SetMenu() {
                     style={{
                       color: "black",
                       fontWeight: "600",
-                      fontSize: "25px",
+                      fontSize: "22px",
                       textAlign: "center",
+                      marginTop: "20px",
+                      marginBottom: "5px"
                     }}
                   >
                     <span>
@@ -114,7 +114,7 @@ export default function SetMenu() {
                       alignItems: "center",
                     }}
                   >
-                    < TodayMeal menu_item={menu_item} />
+                    <TodayMeal menu_item={menu_item} />
                     {/* <button
                       style={{
                         backgroundColor: "#002524",
