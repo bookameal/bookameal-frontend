@@ -31,7 +31,7 @@ const user_id = logged
 const menu_item_id= (cart.cartItems[0].id)
 const quantity = cart.cartTotalQuantity
 const dayTime = new Date()
-const total = cart.cartTotalAmout
+const total = cart.cartTotalAmount
 
 
   const [orders, setOrders] = useState([]);

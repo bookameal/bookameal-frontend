@@ -21,6 +21,9 @@ function HomeNavbar() {
   const { cartTotalQuantity } = useSelector((state) => state.cart);
 
   // const [user, setUser] = useState(null);
+  // let user = JSON.parse(localStorage.getItem("user-info"))
+  // console.log(user)
+
   const navigate=useNavigate()
 
   function handleLogoutClick() {
@@ -44,6 +47,7 @@ function HomeNavbar() {
         </div>
         <div className = "navbar-item-right">
             <ul className="nav-menu">
+              {/* localStorage.get */}
             <li className="nav-menu-item" >
                 <Link className="link" to="/">
                 <FaHome className="carticon" /> |</Link>

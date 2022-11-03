@@ -189,7 +189,7 @@ function handleSetMenu(item) {
                           textAlign: "center",
                         }}
                       >
-                        Edit Item
+                        Edit
                       </button>
                     </Link>
                     <br />
@@ -210,13 +210,18 @@ function handleSetMenu(item) {
                         textAlign: "center",
                       }}
                     >
-                      Delete Item
+                      Delete
                     </button>
                   </div>
                 </div>
               ))}
           </div>
         </div>
+        {/* <h2>Today's Special delicacy</h2>
+                <img src={image_url} style={{height: 200 + 'px', width: 200 + 'px',}} alt="name" />
+                <p><strong>Name:</strong>{name}</p>
+                <p><strong>Price:</strong>{price}</p>
+                <p><strong>Description:</strong>{description}</p> */}
       </center>
     </div>
   );
