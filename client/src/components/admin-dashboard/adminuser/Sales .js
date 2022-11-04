@@ -28,12 +28,12 @@ export default function Sales() {
   }, []);
 
   return (
-    <div className="">
+    <div className="cart-container">
       <Nav />
       <br />
-      <h2> OVERALL TOTAL SALES MADE: ${totals}</h2>
+      <h2> <b>OVERALL TOTAL SALES MADE:</b> KSH{totals}</h2>
       <br />
-      <h2>TOTAL SALES FOR TODAY ONLY: ${Todaytotals}</h2>
+      <h2><b>TOTAL SALES FOR TODAY ONLY: </b>KSH{Todaytotals}</h2>
     </div>
   );
 }
