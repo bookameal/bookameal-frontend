@@ -134,7 +134,7 @@ export default function UserHomepage({order}) {
                         <img src={product.image_url} alt={product.name} />
                         <div className="details">
                           <span>{product.description}</span>
-                          <span className="price">${product.price}</span>
+                          <span className="price"> Ksh. {product.price}</span>
                         </div>
                         <button onClick={() => handleAddToCart(product)}>
                           Book Meal
