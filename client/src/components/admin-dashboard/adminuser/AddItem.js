@@ -14,7 +14,7 @@ function AddItem() {
     image_url: "",
     on_menu: "",
     category_id: 1,
-    user_type: 1,
+    is_admin: true,
   });
 
   function handleSubmit(e) {
@@ -26,7 +26,7 @@ function AddItem() {
       image_url: Items.image_url,
       on_menu: Items.on_menu,
       category_id: Items.category_id,
-      user_type: Items.user_type,
+      is_admin: Items.is_admin,
     });
     navigate("/admin");
     
@@ -125,7 +125,7 @@ function AddItem() {
               placeholder="enter the user_type"
               type="text"
               name="user_type"
-              value={Items.user_type}
+              value={Items.is_admin}
               onChange={handleChange}
             />
           <button className='add-button'>Add to Menu</button>
