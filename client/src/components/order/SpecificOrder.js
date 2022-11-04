@@ -17,9 +17,9 @@ export default function SpecificOrders() {
     const user = useSelector((state) => state.user);
     const dispatch = useDispatch()
   
-    useEffect(() => {
-      dispatch(getUser());
-    }, [user, dispatch]);
+    // useEffect(() => {
+    //   dispatch(getUser());
+    // }, [user, dispatch]);
   
      
 

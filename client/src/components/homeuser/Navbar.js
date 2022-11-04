@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 function HomeNavbar() {
 
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const handleClearCart = () => {
@@ -27,9 +28,10 @@ function HomeNavbar() {
     fetch("https://bookameal-backend.herokuapp.com/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         // setUser(null)
-        
+        handleClearCart()
+        localStorage.removeItem(user)
         navigate("/login")
-        localStorage.clear(cart)
+        localStorage.clear()
       }
     });
   }
@@ -59,7 +61,7 @@ function HomeNavbar() {
             </li>
 
             <li className="nav-menu-item">
-                <Link className="link" to="/UserOrder">| My Orders |</Link>
+                <Link className="link" to="/specific">| My Orders |</Link>
             </li>
             <li className="nav-menu-item">
               <button className="link" onClick={handleLogoutClick} style={{border:"none"}}>Logout</button>
