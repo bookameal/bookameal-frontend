@@ -109,7 +109,7 @@ function AddItem() {
               onChange={handleChange}
               />
             <br />
-            <label htmlFor="usertype"><span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43;  User Type :</span></label>
+            <label htmlFor="usertype"><span style={{fontFamily:"Simonetta", fontSize:"18px", fontWeight:"900", color:"whitesmoke"}}>&#43;  Is Admin :</span></label>
             <input
               placeholder="enter the user_type"
               type="text"
