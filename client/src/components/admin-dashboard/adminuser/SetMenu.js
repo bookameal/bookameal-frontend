@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useGetAllMenu_itemsQuery } from "../../homeuser/ProductsApi";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import './addItem.css';
+import "./addItem.css";
 
 export default function SetMenu() {
-  const[menu_items, setMenuItems] = useState([])
+  const [menu_items, setMenuItems] = useState([]);
   const [image_url, setImage_url] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const { data, error, isLoading } = useGetAllMenu_itemsQuery();
-
 
   const [Items, setItems] = useState({
     name: "",
@@ -36,12 +35,11 @@ export default function SetMenu() {
   //       setImage_url(menu_item.image_url);
   //     });
   // }, []);
-  
 
   function handleDelete(deleteItem) {
     setItems(Items.filter((Item) => Item.id !== deleteItem.id));
   }
-  
+
   function handleClickDelete(e) {
     let id = e.target.id;
     fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
@@ -49,9 +47,8 @@ export default function SetMenu() {
     });
     // .then((r) => r.json())
     // .then((deleteItem) => handleDelete(deleteItem));
-    console.log("Item Sucessfully Deleted")
+    console.log("Item Sucessfully Deleted");
     handleDelete(Items);
-   
   }
 
   function handleUpdateItem(updatedItem) {
@@ -65,30 +62,34 @@ export default function SetMenu() {
     setMenuItems(updatedItems);
   }
 
-function handleSetMenu(item) {
-  let id = item.target.id;
-  fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      on_menu: !(item.on_menu),
-    }),
-  })
-    .then((r) => r.json())
-    .then((updatedItem) => handleUpdateItem(updatedItem));
-    console.log("mr")
-    
-}
-
+  function handleSetMenu(item) {
+    let id = item.target.id;
+    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        on_menu: !item.on_menu,
+      }),
+    })
+      .then((r) => r.json())
+      .then((updatedItem) => handleUpdateItem(updatedItem));
+    console.log("mr");
+  }
+ 
   return (
     <div>
       <center>
         <div>
           <div
             className="products"
-            style={{ display: "flex", flexWrap: "wrap", gap: "50px", height: "500px"}}
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "50px",
+              height: "500px",
+            }}
           >
             {data &&
               data?.map((menu_item) => (
@@ -120,42 +121,45 @@ function handleSetMenu(item) {
                     alt={menu_item.name}
                     style={{ width: "100%", height: "200px" }}
                   />
-                  <div
-                    className="details">
+                  <div className="details">
                     <p
-                    className="ellipsis"
-                    style={{
-                      color: "black",
-                      fontWeight: "600",
-                      fontSize: "22px",
-                      textAlign: "center",
-                      marginTop: "20px",
-                      marginBottom: "5px",
-                      height: "130px"
-                    }}>
+                      className="ellipsis"
+                      style={{
+                        color: "black",
+                        fontWeight: "600",
+                        fontSize: "22px",
+                        textAlign: "center",
+                        marginTop: "20px",
+                        marginBottom: "5px",
+                        height: "130px",
+                      }}
+                    >
                       {menu_item.description}
                     </p>
-                    </div>
+                  </div>
                   <div>
                     <br />
                     <span
-                    style={{
-                      color: "black",
-                      fontWeight: "600",
-                      fontSize: "20px",
-                      textAlign: "center",
-                      height: "50px"}}>
+                      style={{
+                        color: "black",
+                        fontWeight: "600",
+                        fontSize: "20px",
+                        textAlign: "center",
+                        height: "50px",
+                      }}
+                    >
                       Ksh. {menu_item.price} /-
                     </span>
                   </div>
-                    
+
                   <div
                     style={{
-                      display: "block"}}
+                      display: "block",
+                    }}
                   >
                     <button
-                    id ={menu_item.id}
-                    onClick={handleSetMenu}
+                      id={menu_item.id}
+                      onClick={handleSetMenu}
                       style={{
                         backgroundColor: "#002524",
                         width: "120px",
@@ -170,8 +174,7 @@ function handleSetMenu(item) {
                         marginRight: "20px",
                       }}
                     >
-                       {menu_item.on_menu==true ? "onmenu" : "setmenu"}
-                    
+                      {menu_item.on_menu == true ? "onmenu" : "setmenu"}
                     </button>
                     <Link id={menu_item.id} to={`/EditMenu/${menu_item.id}`}>
                       <button

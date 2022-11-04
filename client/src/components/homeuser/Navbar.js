@@ -1,28 +1,26 @@
-import React from "react";
-// import Button from "react-bootstrap/Button";
-// import Container from "react-bootstrap/Container";
-// import Nav from "react-bootstrap/Nav";
-// import Navbar from "react-bootstrap/Navbar";
-// import "../main-dashboard/navigation.css";
+import React,{useEffect, useState} from "react";
 import "./navbar.css";
 import tastytreats from '../../assets/titty.gif';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { MdOutlineNotificationAdd} from 'react-icons/md';
 import { Link } from "react-router-dom";
-// import {BsPerson} from 'react-icons/bs';
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
-import { useSelector} from "react-redux";
 import { FaHome } from "react-icons/fa";
+import {clearCart} from './CartSlice'
+import { useDispatch, useSelector } from "react-redux";
 
 
 function HomeNavbar() {
 
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
-  // const [user, setUser] = useState(null);
-  // let user = JSON.parse(localStorage.getItem("user-info"))
-  // console.log(user)
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
 
   const navigate=useNavigate()
 
@@ -30,7 +28,10 @@ function HomeNavbar() {
     fetch("https://bookameal-backend.herokuapp.com/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         // setUser(null)
+        handleClearCart()
+        localStorage.removeItem(user)
         navigate("/login")
+        localStorage.clear()
       }
     });
   }
@@ -60,7 +61,7 @@ function HomeNavbar() {
             </li>
 
             <li className="nav-menu-item">
-                <Link className="link" to="/UserOrder">| My Orders |</Link>
+                <Link className="link" to="/specific">| My Orders |</Link>
             </li>
             <li className="nav-menu-item">
               <button className="link" onClick={handleLogoutClick} style={{border:"none"}}>Logout</button>

@@ -27,12 +27,33 @@ export default function Order() {
   };
   const logged =  (user.user.body.id)
   
+  
+  // ✅ Format a date to YYYY-MM-DD (or any other format)
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+  }
+  
+  function formatDate(date) {
+    return [
+      date.getFullYear(),
+      padTo2Digits(date.getMonth() + 1),
+      padTo2Digits(date.getDate()),
+    ].join('-');
+  }
+  
+  // 👇️ 2022-01-18 (yyyy-mm-dd)
+  console.log(formatDate(new Date()));
+  
+  //  👇️️ 2025-05-09 (yyyy-mm-dd)
+  console.log(formatDate(new Date(2025, 4, 9)));
+  
+
+
+
 const user_id = logged  
 const menu_item_id= (cart.cartItems[0].id)
-// const cart_items = cart.cartItems
-// .map((item)=>{return(item.name)})
 const quantity = cart.cartTotalQuantity
-const dayTime = new Date()
+const dayTime = (formatDate(new Date()))
 const total = cart.cartTotalAmount
 
 
@@ -56,7 +77,6 @@ const total = cart.cartTotalAmount
         user_id,
         menu_item_id,
         total,
-        // cart_items,
         }),
       })
         .then((r) =>console.log( r.json()))
