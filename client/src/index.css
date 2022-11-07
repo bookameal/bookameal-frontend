@@ -433,6 +433,7 @@ input:focus {
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 2rem;
+  column-count: 3;
 }
 
 .product {
@@ -494,7 +495,7 @@ input:focus {
 
 @media (max-width: 665px) {
   /* NavBar */
-  .nav{
+  .navybar{
     padding: 0 0.5rem;
   }
   .nav h2 {
@@ -502,6 +503,7 @@ input:focus {
   }
 
   /* Cart */
+  
   .cart-container {
     padding: 2rem;
   }

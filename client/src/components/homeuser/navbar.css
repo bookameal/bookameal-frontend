@@ -3,6 +3,7 @@
     height: 229px;
     position: sticky !important;
     z-index: 1000;
+    
 }
 
 .numerator {
@@ -93,4 +94,16 @@ font-weight: 700;
     display: flex;
     position: absolute;
     right: -10px;
+}
+
+@media (max-width: 665px) {
+
+    .navybar{
+        padding: 0 0.5rem;
+        
+      }
+
+      .nav h2 {
+        font-size: 30px;
+      }
 }
