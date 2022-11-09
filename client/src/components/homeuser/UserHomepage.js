@@ -60,15 +60,15 @@ export default function UserHomepage({order}) {
   
 
   const foodcard = (
-    <div className=""> 
+    <div className="foods"> 
       {/* <h2>Orders of the Day</h2> */}
-      <div className="products" style={{display:"flex", flexWrap:"wrap", gap:"50px"}}>
+      <div className="products" style={{display:"flex", flexWrap:"wrap", gap:"8%"}}>
         {itemsToDisplay &&
           itemsToDisplay?.map((menu_item) => (
-            <div key={menu_item.id} className="product" style={{marginTop:"50px", height:"600px", width:"20%", backgroundImage: 'url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)', border:"0.1px solid #875d2c", boxShadow:"0px 5px 5px 0px", marginTop: "50px"}}>
+            <div key={menu_item.id} className="product" style={{marginTop:"50px",    backgroundImage: 'url(https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60)', border:"0.1px solid #875d2c", boxShadow:"0px 5px 5px 0px", marginTop: "50px"}}>
               <h3 style={{color:"#002524", fontWeight:"600", textAlign:"center"}}>{menu_item.name}</h3>
-              <img src={menu_item.image_url} alt={menu_item.name} style={{width:"100%", height:"200px",}} />
-              <div className="details" style={{color:"black", fontWeight:"600", fontSize:"20px", textAlign:"center", marginTop:"20px"}}>
+              <img src={menu_item.image_url} alt={menu_item.name} />
+              <div className="details" style={{color:"black", fontWeight:"600", fontSize:"15px", textAlign:"center", marginTop:"10px"}}>
                   {menu_item.description}
               </div>
                 <span style={{
@@ -76,11 +76,11 @@ export default function UserHomepage({order}) {
                       fontWeight: "600",
                       fontSize: "22px",
                       textAlign: "center",
-                      marginTop: "20px",
+                      marginTop: "10px",
                       height: "50px"}}>
                 ${menu_item.price}</span>
               <div style={{display:"flex", justifyContent:"center", alignItems: "center"}}>
-                <button style={{backgroundColor: "#002524", width:"130px", height:"50px", paddingTop: "15px", paddingBottom: "15px" , fontSize:"18px", fontWeight: "600", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px", textAlign: "center", marginBottom:"20px"}} onClick={() => handleAddToCart(menu_item)}>
+                <button style={{backgroundColor: "#002524", width:"130px", height:"40px", paddingBottom: "10px" , fontSize:"18px", fontWeight: "600", borderBottomLeftRadius: "15px", borderTopRightRadius: "15px", textAlign: "center", marginTop:'10px', marginBottom:"5px"}} onClick={() => handleAddToCart(menu_item)}>
                   Book Meal
                 </button>
               </div>
@@ -119,9 +119,9 @@ export default function UserHomepage({order}) {
           </div>
         <div className="card-food">
           <div className="home-container">
-            <h2 className="menutoday" style={{fontWeight:"600", fontSize:"40px", width:"100%", marginTop:"150px"}}><br/><br/>Menu of the Day</h2>
+            <h2 className="menutoday" style={{fontWeight:"600", fontSize:"40px", width:"100%", marginTop:"15px"}}><br/><br/>Menu of the Day</h2>
             {status === "success" && filteredData.length === 0 ? (
-              <>{foodcard}</>
+              <div className="products">{foodcard}</div>
 
               
             ) : status === "success" && filteredData.length !== 0 ? (

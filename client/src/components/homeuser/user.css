@@ -1,21 +1,22 @@
 .wrapper {
-    min-height: 400vh;    
+    min-height: auto;    
     background-image: url('../../assets/Tasty-Treats-backdrop.jpg');
     width: 100%;
 }
 
-.search{
-    /* position: absolute;
-    top: 400px; */
-}
+/* .search{
+    position: flex;
+    top: 400px;
+} */
 
 .searchInput {
+    
     border:"0.1px solid #875d2c";
     box-shadow:"0px 5px 5px 0px";
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
     border: 1px solid #002524 !important;
-    width: 650px;
+    width: 100%;
     color: #002524;
     background-color:white;
     padding: 10px;
@@ -28,13 +29,6 @@
     top: 200px;
 }
 
-/* .products {
-    position: absolute;
-    top: 750px;
-}
 
-.menutoday {
-    position: absolute;
-    top: 550px;
-} */
+/*  */
 /* transform: scale(1.01); */
