@@ -1,13 +1,13 @@
 .wrapper {
-    min-height: auto;    
+    min-height: 400vh;    
     background-image: url('../../assets/Tasty-Treats-backdrop.jpg');
     width: 100%;
 }
 
-/* .search{
-    position: flex;
-    top: 400px;
-} */
+.search{
+    /* position: absolute;
+    top: 400px; */
+}
 
 .searchInput {
     
