@@ -11,6 +11,8 @@ import menu_itemsReducer, {
 import { menu_itemsApi } from "./components/homeuser/ProductsApi";
 import cartReducer, { getTotals }  from "./components/homeuser/CartSlice";
 import userReducer, {getUser} from './components/homeuser/UserSclice'
+import authReducer from "./components/slices/authSlice";
+
 
 const store = configureStore({
   //check what we have in state
@@ -18,6 +20,7 @@ const store = configureStore({
     menu_items: menu_itemsReducer,
     cart: cartReducer,
     user: userReducer,
+    auth: authReducer,
 
     [menu_itemsApi.reducerPath]: menu_itemsApi.reducer,
   },

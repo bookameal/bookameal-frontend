@@ -20,6 +20,8 @@ export default function UserHomepage({order}) {
   const { items: menu_items, status } = useSelector(
     (state) => state.menu_items
   );
+  const auth = useSelector((state) => state.auth);
+  console.log(auth)
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

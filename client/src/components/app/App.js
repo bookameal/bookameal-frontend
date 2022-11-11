@@ -32,7 +32,7 @@ function App() {
       <Routes>
       <Route path='/cart' element={<Cart />} />
       <Route path='/orders' element={<Orders />} />
-      <Route path="/not-found" element={<NotFound/>} />
+      
       {/* <Route path="/" element={<UserHomepage />} /> */}
         <Route path="/" element={<Dashboard />} />
         <Route path="/UserHome" element={<UserHomepage />} />
@@ -46,6 +46,8 @@ function App() {
         <Route path='/sales' element={<Sales/>} />
         <Route path='/specific' element={<SpecificOrders/>} />
         <Route path='/EditMenu/:id' element={<EditMenu />} />
+        <Route path="/not-found" element={<NotFound/>} />
+        <Route to='/not-found'/>
       </Routes>
     </Router>
   );
