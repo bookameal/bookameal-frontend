@@ -3,13 +3,19 @@ import axios from "axios";
 import { url, setHeaders } from './Api'
 import jwtDecode from "jwt-decode";
 
+// const jwtToken = localStorage.getItem("jwtToken");
+// if (jwtToken !== "undefined") {
+//   // Set auth token header auth
+//   setAuthToken(jwtToken);
+//   // Decode token and get user info and exp
 
+// }
 const initialState = {
     token: localStorage.getItem("token"),
     user_name: "",
     email: "",
     user_id: "",
-    isAdmin: false,
+    is_dmin: false,
     registerStatus: "",
     registerError: "",
     loginStatus: "",
@@ -30,11 +36,11 @@ export const registerUser = createAsyncThunk(
           is_admin: values.is_admin,
         });
   
-        JSON.parse(localStorage.setItem("token", token.data));
+        localStorage.setItem("token", (token.data));
   
         return token.data;
       } catch (error) {
-        console.log(error.response.data);
+        console.log(error.response);
         return rejectWithValue(error.response.data);
       }
     }
@@ -45,18 +51,19 @@ const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
+      
       loadUser(state, action) {
         const token = state.token;
   
         if (token) {
-          const user = jwtDecode(token);
+          const user = (token);
           return {
             ...state,
             token,
             user_name: user.user_name,
             email: user.email,
             user_id: user.user_id,
-            isAdmin: user.isAdmin,
+            is_admin: user.is_admin,
             userLoaded: true,
           };
         } else return { ...state, userLoaded: true };
@@ -84,7 +91,7 @@ const authSlice = createSlice({
         });
         builder.addCase(registerUser.fulfilled, (state, action) => {
           if (action.payload) {
-            const user = jwtDecode(action.payload);
+            const user = (action.payload);
             return {
               ...state,
               token: action.payload,

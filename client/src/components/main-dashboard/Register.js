@@ -185,9 +185,9 @@ const Register = () => {
                 <button type='submit' className='log' id='logIn'>
                 {auth.registerStatus === "pending" ? "Submitting..." : "Register"}
         </button>
-        {auth.registerStatus === "rejected" ? (
+        {/* {auth.registerStatus === "rejected" ? (
           <h2>User already exixts</h2>
-        ) : null}
+        ) : null} */}
               </div>
             <img src={regimg} alt="ramen" className="regimg" width ="570" height="760"/>
 
