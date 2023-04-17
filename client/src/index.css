@@ -427,7 +427,7 @@ input:focus {
 }
 /* Responsive */
 
-@media (max-width: 665px) {
+@media (max-width: 600px) {
   /* NavBar */
   .nav{
     padding: 0 0.5rem;

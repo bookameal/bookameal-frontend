@@ -2,17 +2,11 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Navbar";
 import Carr from './Carousel';
-// import Card from "react-bootstrap/Card";
-// import { FiSearch } from "react-icons/fi";
-// import Button from "react-bootstrap/Button";
-// import Carousel from "react-bootstrap/Carousel";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "./CartSlice";
 import { useGetAllMenu_itemsQuery } from "./ProductsApi";
-// import { GrFormClose } from "react-icons/gr";
 import SetMenu from "../admin-dashboard/adminuser/SetMenu";
-// import { GrFormClose } from "react-icons/gr";
 import './user.css'
 
 
@@ -58,7 +52,6 @@ export default function UserHomepage({order}) {
 
   const foodcard = (
     <div>
-      {/* <h2>Orders of the Day</h2> */}
       <div className="products" style={{display:"flex", flexWrap:"wrap", gap:"50px"}}>
         {data &&
           data?.map((menu_item) => (

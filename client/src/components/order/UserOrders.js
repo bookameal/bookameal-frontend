@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchOrders } from "./OrderAction";
-// import './orders.css'
-// import formatCurrency from "../util";
 
 class Orders extends Component {
   componentDidMount() {
@@ -20,10 +18,8 @@ class Orders extends Component {
             <tr>
               <th>ID</th>
               <th>DATE</th>
-              {/* <th>TOTAL</th> */}
               <th>NAME</th>
               <th>EMAIL</th>
-              {/* <th>ADDRESS</th> */}
               <th>ITEMS</th>
             </tr>
           </thead>
@@ -32,10 +28,8 @@ class Orders extends Component {
               <tr>
                 <td>{order.id}</td>
                 <td>{order.createdAt}</td>
-                {/* <td> {formatCurrency(order.total)}</td> */}
                 <td>{order.user.name}</td>
                 <td>{order.menu_item_id}</td>
-                {/* <td>{order.address}</td> */}
                 <td>
                   {order.cartItems.map((item) => (
                     <div>

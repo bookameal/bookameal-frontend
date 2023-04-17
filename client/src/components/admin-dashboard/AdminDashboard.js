@@ -16,7 +16,6 @@ function Admin () {
         <div className="admin">
             <Navigation />
             <Order />
-            <Orders />
             <Tabs
             defaultActiveKey="profile"
             id="uncontrolled-tab-example"
@@ -34,11 +33,6 @@ function Admin () {
               <Orders />
               </div>
             </Tab>
-            {/* <Tab eventKey="order" title="Order" id="order">
-              <div>
-              <Order />
-              </div>
-            </Tab> */}
             </Tabs>
         </div>
     );   

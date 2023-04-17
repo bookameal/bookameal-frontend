@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import './order.css';
 import {getUser} from '../homeuser/UserSclice'
  
-const orderAPI = "https://bookameal-backend.herokuapp.com/orders"
+const orderAPI = "https://ror-meals.onrender.com/orders"
 
 export default function Order() {
   const navigate = useNavigate();
