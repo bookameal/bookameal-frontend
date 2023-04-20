@@ -29,7 +29,7 @@ export default function Sales() {
 
   return (
     <div className="cart-container">
-      <Nav />
+      {/* <Nav /> */}
       <br />
       <h2> <b>OVERALL TOTAL SALES MADE:</b> KSH{totals}</h2>
       <br />

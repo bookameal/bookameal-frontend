@@ -6,18 +6,18 @@
 
 .add-item-form{
   position:absolute;
-  top: 250px;
+  top: 200px;
   left: 400px;
   padding: 30px;
   border: 10px;
   background-image: url(../../../assets/Emerald-Backdrop2.jpg);
   border-bottom-right-radius: 100px;
   border-bottom-left-radius: 100px;
-  width: 60%;
-  height: 1150px;
+  width: 50%;
+  height: 500px;
 } 
 
-.add-item-form label {
+/* .add-item-form label {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -28,9 +28,9 @@
   transition: 0.4s;
   margin-left: 175px;
   font-weight: 600;
-}
+} */
 
-.add-item-form input {
+/* .add-item-form input {
   display: block;
   width: 75%;
   padding: 10px 15px;
@@ -39,16 +39,16 @@
   transition: 0.4s;
   margin-left: 175px;
   height: 50px;
-  font-size: 18px}
+  font-size: 18px} */
 
 
-.ellipsis {
+/* .ellipsis {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   text-overflow: ellipsis;
   overflow: hidden;
-}
+} */
 
 .add-button{
   display: inline-block;
@@ -78,7 +78,7 @@
   left: 400px;
   padding: 50px;
   border: 10px;
-  /* background-image: url(../../../assets/Emerald-Backdrop2.jpg); */
+  background-image: url(../../../assets/Emerald-Backdrop2.jpg);
   border-top-right-radius: 100px;
   border-bottom-left-radius: 100px;
   width: 60%;

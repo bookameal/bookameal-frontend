@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import axios from "axios";
-import Nav from '../admin-dashboard/Nav';
+// import Nav from '../admin-dashboard/Nav';
 import '../admin-dashboard/adminuser/addItem.css'; 
 import { useNavigate} from "react-router-dom";
 
@@ -39,7 +39,7 @@ function AddItem() {
 
   return (
     <div className="add-menu-item">
-      <div><Nav /></div>
+      {/* <div><Nav /></div> */}
         <div>
           <h2 className="menutoday" style={{marginTop:"-100px", fontWeight:"600", fontSize:"40px", width:"100%", textAlign:"center"}}><br/><br/>Add to Menu</h2>
           <form className="add-item-form" id="addItem" onSubmit={handleSubmit}>
