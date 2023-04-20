@@ -55,7 +55,7 @@ function Register({onLogin}){
     function handleSubmit(e) {
       e.preventDefault()
       setIsLoading(true)
-      fetch("https://ror-meals.onrender.com/signup", {
+      fetch("https://bookameal-backend.herokuapp.com/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

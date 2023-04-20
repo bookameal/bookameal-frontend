@@ -9,7 +9,7 @@ export default function Sales() {
 
   // total sales
   useEffect(() => {
-    fetch("https://ror-meals.onrender.com/totals")
+    fetch("https://bookameal-backend.herokuapp.com/totals")
       .then((response) => response.json())
       .then((data) => {
         setTotals(data);
@@ -19,7 +19,7 @@ export default function Sales() {
 
   // totals sales in a day
   useEffect(() => {
-    fetch("https://ror-meals.onrender.com/Todaytotals")
+    fetch("https://bookameal-backend.herokuapp.com/Todaytotals")
       .then((response) => response.json())
       .then((data) => {
         setTodaytotals(data);

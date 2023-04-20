@@ -15,7 +15,7 @@ function HomeNavbar() {
   const navigate=useNavigate()
 
   function handleLogoutClick() {
-    fetch("https://ror-meals.onrender.com/logout",
+    fetch("https://bookameal-backend.herokuapp.com/logout",
      { method: "DELETE" }).then((r) => {
       if (r.ok) {
         // setUser(null)

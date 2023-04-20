@@ -29,7 +29,7 @@ export default function SetMenu() {
 
   function handleClickDelete(e) {
     let id = e.target.id;
-    fetch(`https://ror-meals.onrender.com/menu_items/${id}`, {
+    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
       method: "DELETE",
     });
     // .then((r) => r.json())
@@ -51,7 +51,7 @@ export default function SetMenu() {
 
   function handleSetMenu(item) {
     let id = item.target.id;
-    fetch(`https://ror-meals.onrender.com/menu_items/${id}`, {
+    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -212,6 +212,7 @@ export default function SetMenu() {
     </div>
   );
 }
+
 // import React, {useEffect, useState} from 'react'
 
 // export default function SetMenu() {
@@ -222,7 +223,7 @@ export default function SetMenu() {
 //     const [description, setDescription] = useState("")
 
 // 	useEffect(() => {
-// 		let url = "https://ror-meals.onrender.com/menu_items"
+// 		let url = "https://bookameal-backend.herokuapp.com/menu_items"
 // 		fetch(url)
 // 			.then( res => res.json())
 // 			.then(data => {

@@ -31,7 +31,7 @@ function handleAction(){
 function submitHandler(e){
   e.preventDefault();
   setIsLoading(true);
-  fetch("https://ror-meals.onrender.com/login", {
+  fetch("https://bookameal-backend.herokuapp.com/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

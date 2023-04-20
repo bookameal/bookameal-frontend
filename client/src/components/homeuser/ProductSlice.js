@@ -15,7 +15,7 @@ export const menu_itemsFetch = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "https://ror-meals.onrender.com/menu_items"
+        "https://bookameal-backend.herokuapp.com/menu_items"
       );
       return response?.data;
     } catch (error) {

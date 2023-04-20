@@ -10,7 +10,7 @@ export default function EditForm() {
   let { id } = useParams();
 
   useEffect(() => {
-    let url = `https://ror-meals.onrender.com/menu_items/${id}`;
+    let url = `https://bookameal-backend.herokuapp.com/menu_items/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMenuItem(data));
@@ -33,7 +33,7 @@ export default function EditForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch(`https://ror-meals.onrender.com/menu_items/${id}`, {
+    fetch(`https://bookameal-backend.herokuapp.com/menu_items/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

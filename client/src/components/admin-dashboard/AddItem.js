@@ -19,7 +19,7 @@ function AddItem() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post("https://ror-meals.onrender.com/menu_items", {
+    axios.post("https://bookameal-backend.herokuapp.com/menu_items", {
       name: Items.name,
       price: Items.price,
       description: Items.description,
@@ -141,7 +141,7 @@ export default AddItem;
 
 //   function handleSubmit(e) {
 //     e.preventDefault();
-//     axios.post("https://ror-meals.onrender.com/menu_items", {
+//     axios.post("https://bookameal-backend.herokuapp.com/menu_items", {
 //       name: Items.name,
 //       price: Items.price,
 //       description: Items.description,
@@ -156,7 +156,7 @@ export default AddItem;
 //   }
 
 //   function handleClickDelete(e) {
-//     fetch(`https://ror-meals.onrender.com/menu_items/${e.target.id}`, {
+//     fetch(`https://bookameal-backend.herokuapp.com/menu_items/${e.target.id}`, {
 //       method: "DELETE",
 //     })
 //       .then((r) => r.json())
